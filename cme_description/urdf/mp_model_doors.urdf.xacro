@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+    - Base      : kobuki
+    - Stacks    : hexagons
+    - 3d Sensor : kinect
+-->    
+<robot name="complete_mp_model" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cme_description)/urdf/mp_model.urdf.xacro" />
+  <xacro:include filename="$(find cme_description)/urdf/bim_door_v.urdf.xacro" />
+  <xacro:include filename="$(find cme_description)/urdf/bim_door_h.urdf.xacro" />
+
+
+  <!--<xacro:door_model_h name="door1" parent="building_footprint" x_loc = "10" y_loc = "10" direction_x ="1" direction_y ="0">
+  </xacro:door_model_h>-->
+  
+  <xacro:door_model_h name="door1" parent="building_footprint" x_loc = "2.06" y_loc = "-3.5" direction_x ="1" direction_y ="0">
+  </xacro:door_model_h>
+
+  <xacro:door_model_v name="door2" parent="building_footprint" x_loc = "2.54" y_loc = "-4.02" direction_x ="0" direction_y ="-1">
+  </xacro:door_model_v>
+
+  <xacro:door_model_h name="door3" parent="building_footprint" x_loc = "3.05" y_loc = "-4.53" direction_x ="-1" direction_y ="0">
+  </xacro:door_model_h>
+
+
+
+</robot>

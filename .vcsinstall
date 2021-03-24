@@ -1,0 +1,9 @@
+repositories:
+  husky_manipulation:
+    type: git
+    url: https://github.com/husky/husky_manipulation
+    version: 58370ed9136db5d28511329ea13682d719e0d8b1
+  ros_kortex:
+    type: git
+    url: https://github.com/Kinovarobotics/ros_kortex.git
+    version: 996ffaffd33c135c6888ae624271aa2742fd83d4
