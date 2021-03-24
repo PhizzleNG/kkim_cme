@@ -63,7 +63,7 @@ bootstrap_kinetic() {
 
 	create_cme_ws
 	cd ${WORKSPACE}/src
-	vcstool import <${_vcsfile}
+	vcstool import --recursive <${_vcsfile}
 
 	if [ ! -d "${WORKSPACE}/src/${CME_PKG}" ] ; then
 		if git --git-dir="${SCRIPT_ROOT}/.git" rev-parse --is-inside-work-tree 2>/dev/null ; then	
