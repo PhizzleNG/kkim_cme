@@ -9,7 +9,7 @@ set -o pipefail
 SCRIPT_ROOT="$(dirname "$(readlink -f "$0")")"
 
 info() { echo "$(tput bold)[INFO] $*$(tput sgr0)" >&2 ; }
-warning() { echo "$(tput bold)$(tput setaf 3)[WARN] $*$(tput sgr0)" >&2 ; }
+warn() { echo "$(tput bold)$(tput setaf 3)[WARN] $*$(tput sgr0)" >&2 ; }
 error() { echo "$(tput bold)$(tput setaf 1)[ERROR] $*$(tput sgr0)" >&2 ; }
 fatal() { error "$*" ; exit 1 ; }
 
@@ -42,9 +42,9 @@ build_ws() {
 	rosdep update -q -y
 	# NOTE: The first rosdep install may fail pending sources build in catkin_make
 	rosdep install --from-paths src --ignore-src -y -q >/dev/null 2>&1 || true
-	catkin_make -j$(nproc) >/dev/null 2>&1 || fatal "catkin_make failed in \"${WORKSPACE}\"!"
+	catkin_make -j$(nproc) >/dev/null 2>&1 || error "catkin_make failed in \"${WORKSPACE}\"!"
 	. "${WORKSPACE}/devel/setup.bash"
-	rosdep install --from-paths src --ignore-src -y -q || warning "rosdep install failed! Builds may be broken."
+	rosdep install --from-paths src --ignore-src -y -q || warn "rosdep install failed! Builds may be broken."
 }
 
 bootstrap_kinetic() {
