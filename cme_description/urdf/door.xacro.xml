@@ -24,6 +24,7 @@ Example:
 		flip: [=false] Flip door open direction
 		mirror: [=false] Mirror door hinge around frame center
 	-->
+	<!-- TODO(Cosmo): Improve friction coefficients and dynamics -->
 	<!-- make the frame link, used for orientation at the _center_ of the door frame -->
 	<link name="door_${id}_frame" />
 	<joint name="door_${id}_frame_joint" type="fixed">
@@ -76,7 +77,13 @@ Example:
 		<limit lower="${min_angle}" upper="${max_angle}" effort="1000" velocity="10" />
 		<parent link="door_${id}_frame"/>
 		<child link="door_${id}"/>
+		<dynamics damping="0.7" />
 	</joint>
+	<gazebo reference="door_${id}">
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/Brown</material>
+	</gazebo>
 </xacro:macro>
 <xacro:macro name="door_handle" params="id parent door_thickness *origin length:=0.1 offset:=0.002 min_angle:=-${pi/2} max_angle:=${pi/2}">
 	<!-- Create a door handle of _length_ attached to _parent_ at relative _origin_ 
@@ -104,6 +111,12 @@ Example:
 				<cylinder radius="0.008" length="${(door_thickness+offset)*2}"/>
 			</geometry>
 		</collision>
+		<inertial>
+			<origin xyz="0 0 1" rpy="0 0 0"/>
+			<mass value="1"/>
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
+			         iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
 		<material name="white"/>
 	</link>
 	<joint name="door_${id}_handle_joint" type="revolute">

@@ -7,7 +7,7 @@
     <child link="floor"/>
   </joint>
   <link name="floor">
-    <pose>0 0 0.1 0 0 0</pose>
+    <origin xyz="0 0 0.1" rpy="0 0 0" />
     <inertial>
       <mass value="100"/>
       <origin xyz="0.0 0 0" rpy="0 0 0"/>
