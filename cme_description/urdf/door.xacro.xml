@@ -1,30 +1,38 @@
-<!-- Xacro XML snippet for a door macro -->
+<!-- Xacro XML snippet for a door macro
+
+Example:
+	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
+	<xacro:door id="1" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
+		<origin xyz="2.06 -3.5 0" rpy="0 0 0" />
+	</xacro:door>
+
+ -->
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-<xacro:macro name="door" params="id parent width height depth *frame_origin mass:=30 angle:=0 min_angle:=0 max_angle:=${pi/2}">
+<xacro:macro name="door" params="id parent width height depth *frame_origin mass:=30 min_angle:=0 max_angle:=${pi/2} flip:=false mirror:=false">
 	<!-- Xacro Macro for a door with handle and joints.
 	Args:
-		id:
-		parent:
-		width:
-		height:
-		depth:
-		*knob_pose:
-		knob_length:
-		num_joints:
-		angle:
-		minangle:
-		maxangle:
+		id: ID of the door
+		parent: Parent link
+		width: Door width
+		height: Door height
+		depth: Door depth
+		*frame_origin: Origin of 
+		mass: [=30] mass of the object
+		minangle: [=0] minimum angle of the door joint
+		maxangle: [=pi/2] maximum angle of the door joint
+		flip: [=false] Flip door open direction
+		mirror: [=false] Mirror door hinge around frame center
 	-->
 	<!-- make the frame link, used for orientation at the _center_ of the door frame -->
-	<link name="door_${id}_frame_link" />
+	<link name="door_${id}_frame" />
 	<joint name="door_${id}_frame_joint" type="fixed">
 		<xacro:insert_block name="frame_origin"/>
 		<parent link="${parent}"/>
-		<child link="door_${id}_frame_link"/>
+		<child link="door_${id}_frame"/>
 	</joint>
 	<!-- make door link, parent=parent, location at hinges (offset width/height from parent) -->
-	<link name="door_${id}_link">
+	<link name="door_${id}">
 		<visual>
 			<origin xyz="${width/2} ${depth/2} ${height/2.0}" rpy="0 0 0" />
 			<geometry>
@@ -46,35 +54,104 @@
 		</inertial>
 	</link>
 	<joint name="door_${id}_joint" type="revolute">
-		<origin xyz="-${width/2} 0 0" rpy="0 0 0" />
-		<axis xyz="0 0 1" />
+		<!-- TODO(Cosmo): clean this up by setting an axis variable -->
+		<xacro:if value="${mirror}">
+			<origin xyz="${width/2} 0 0" rpy="0 0 ${pi}" />
+			<xacro:if value="${flip}">
+				<axis xyz="0 0 1" />
+			</xacro:if>
+			<xacro:unless value="${flip}">
+				<axis xyz="0 0 -1" />
+			</xacro:unless>
+		</xacro:if>
+		<xacro:unless value="${mirror}">
+			<origin xyz="-${width/2} 0 0" rpy="0 0 0" />
+			<xacro:if value="${flip}">
+				<axis xyz="0 0 -1" />
+			</xacro:if>
+			<xacro:unless value="${flip}">
+				<axis xyz="0 0 1" />
+			</xacro:unless>
+		</xacro:unless>
 		<limit lower="${min_angle}" upper="${max_angle}" effort="1000" velocity="10" />
-		<parent link="door_${id}_frame_link"/>
-		<child link="door_${id}_link"/>
+		<parent link="door_${id}_frame"/>
+		<child link="door_${id}"/>
 	</joint>
-
-	<!-- door handle -->
-	<!-- make door joint to open door, set start angle, set min/max angles -->
-	<!--link name="door_${id}_handle">
+</xacro:macro>
+<xacro:macro name="door_handle" params="id parent door_thickness *origin length:=0.1 offset:=0.002 min_angle:=-${pi/2} max_angle:=${pi/2}">
+	<!-- Create a door handle of _length_ attached to _parent_ at relative _origin_ 
+	Args:
+		id: ID of the door handle
+		parent: Parent link to attach to
+		door_thickness: The thickness of the door
+		*origin: Origin relative to the parent
+		length: [=0.1] Length of door handle
+		offset: [=0.002] Offset of door handle (eg. base length)
+		min_angle: [=-pi/2] Minimum angle to set the door handle to
+		max_angle: [=pi/2] Maximum angle to set the door handle to (eg. open)
+	-->
+	<!-- one cylinder through, two handles -->
+	<link name="door_${id}_handle_base">
 		<visual>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
 			<geometry>
-				<box size="0.05 0.02 0.01"/>
+				<cylinder radius="0.008" length="${(door_thickness+offset)*2}"/>
 			</geometry>
 		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+			<geometry>
+				<cylinder radius="0.008" length="${(door_thickness+offset)*2}"/>
+			</geometry>
+		</collision>
 		<material name="white"/>
-	</link-->
-	<!--xacro:insert_block name="knob" /-->
+	</link>
+	<joint name="door_${id}_handle_joint" type="revolute">
+		<xacro:insert_block name="origin"/>
+		<axis xyz="0 1 0" />
+		<limit lower="${min_angle}" upper="${max_angle}" effort="1" velocity="1" />
+		<parent link="${parent}" />
+		<child link="door_${id}_handle_base" />
+	</joint>
+	<link name="door_${id}_handle_1">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+			<geometry>
+				<cylinder radius="0.008" length="${length}" />
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+			<geometry>
+				<cylinder radius="0.008" length="${length}" />
+			</geometry>
+		</collision>
+		<material name="white"/>
+	</link>
+	<joint name="door_${id}_handle_1_joint" type="fixed">
+		<origin xyz="-${length/4} ${door_thickness+offset} 0" rpy="0 0 0"/>
+		<parent link="door_${id}_handle_base"/>
+		<child link="door_${id}_handle_1"/>
+	</joint>
+	<link name="door_${id}_handle_2">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+			<geometry>
+				<cylinder radius="0.008" length="${length}" />
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+			<geometry>
+				<cylinder radius="0.008" length="${length}" />
+			</geometry>
+		</collision>
+		<material name="white"/>
+	</link>
+	<joint name="door_${id}_handle_2_joint" type="fixed">
+		<origin xyz="-${length/4} -${door_thickness+offset} 0" rpy="0 0 0"/>
+		<parent link="door_${id}_handle_base"/>
+		<child link="door_${id}_handle_2"/>
+	</joint>
 </xacro:macro>
 </robot>
-
-<!-- link door-1 is for positioning the door to the center of the door frame
-<link name="door-1" parent="wall-1" xyz="0 0 0" rpy="0 0 0" />
-<xacro:door id="1" parent="wall-1" width="0.70" height="2.43" depth="0.05">
-	<origin xyz="2.06 -3.05 0" rpy="0 0 0"/>
-	<xacro:door_handle id="1" parent="door-1">
-		<origin xyz="0 0.85 0.025" rpy="0 0 0" />
-		<origin xyz="${x_loc + door_width/2 * direction_x} ${y_loc + width/2 * direction_y} 0" rpy="0 0 0" />
-	</xacro:door_handle>
-</xacro:door>
--->

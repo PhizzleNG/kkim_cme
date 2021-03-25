@@ -8,7 +8,9 @@ Panels:
         - /Status1
         - /RobotModel1
         - /RobotModel1/Links1
-        - /RobotModel1/Links1/door_1_link1
+        - /RobotModel1/Links1/door_1_handle_base1
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 463
   - Class: rviz/Selection
@@ -337,47 +339,77 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        door1_marker_link:
+        door_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door2_marker_link:
+        door_1_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_1_handle_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door3_marker_link:
+        door_1_handle_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_1_frame_link:
+        door_1_handle_base:
           Alpha: 1
           Show Axes: false
-          Show Trail: false
-        door_1_link:
+          Show Trail: true
+          Value: true
+        door_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_2_frame_link:
+        door_2_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        door_2_link:
+        door_2_handle_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_3_frame_link:
+        door_2_handle_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        door_3_link:
+          Value: true
+        door_2_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: true
+          Value: true
+        door_3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
+        door_3_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_3_handle_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_3_handle_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_3_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: true
           Value: true
         floor:
           Alpha: 1
@@ -394,137 +426,149 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         Wall_0:
-          Value: true
+          Value: false
         Wall_1:
-          Value: true
+          Value: false
         Wall_10:
-          Value: true
+          Value: false
         Wall_11:
-          Value: true
+          Value: false
         Wall_12:
-          Value: true
+          Value: false
         Wall_13:
-          Value: true
+          Value: false
         Wall_14:
-          Value: true
+          Value: false
         Wall_15:
-          Value: true
+          Value: false
         Wall_16:
-          Value: true
+          Value: false
         Wall_17:
-          Value: true
+          Value: false
         Wall_18:
-          Value: true
+          Value: false
         Wall_19:
-          Value: true
+          Value: false
         Wall_2:
-          Value: true
+          Value: false
         Wall_20:
-          Value: true
+          Value: false
         Wall_21:
-          Value: true
+          Value: false
         Wall_22:
-          Value: true
+          Value: false
         Wall_23:
-          Value: true
+          Value: false
         Wall_24:
-          Value: true
+          Value: false
         Wall_25:
-          Value: true
+          Value: false
         Wall_26:
-          Value: true
+          Value: false
         Wall_27:
-          Value: true
+          Value: false
         Wall_28:
-          Value: true
+          Value: false
         Wall_29:
-          Value: true
+          Value: false
         Wall_3:
-          Value: true
+          Value: false
         Wall_30:
-          Value: true
+          Value: false
         Wall_31:
-          Value: true
+          Value: false
         Wall_32:
-          Value: true
+          Value: false
         Wall_33:
-          Value: true
+          Value: false
         Wall_34:
-          Value: true
+          Value: false
         Wall_35:
-          Value: true
+          Value: false
         Wall_36:
-          Value: true
+          Value: false
         Wall_37:
-          Value: true
+          Value: false
         Wall_38:
-          Value: true
+          Value: false
         Wall_39:
-          Value: true
+          Value: false
         Wall_4:
-          Value: true
+          Value: false
         Wall_40:
-          Value: true
+          Value: false
         Wall_41:
-          Value: true
+          Value: false
         Wall_42:
-          Value: true
+          Value: false
         Wall_43:
-          Value: true
+          Value: false
         Wall_44:
-          Value: true
+          Value: false
         Wall_45:
-          Value: true
+          Value: false
         Wall_46:
-          Value: true
+          Value: false
         Wall_47:
-          Value: true
+          Value: false
         Wall_48:
-          Value: true
+          Value: false
         Wall_49:
-          Value: true
+          Value: false
         Wall_5:
-          Value: true
+          Value: false
         Wall_50:
-          Value: true
+          Value: false
         Wall_51:
-          Value: true
+          Value: false
         Wall_52:
-          Value: true
+          Value: false
         Wall_54:
-          Value: true
+          Value: false
         Wall_6:
-          Value: true
+          Value: false
         Wall_7:
-          Value: true
+          Value: false
         Wall_8:
-          Value: true
+          Value: false
         Wall_9:
-          Value: true
+          Value: false
         building_footprint:
+          Value: false
+        door_1:
           Value: true
-        door1_marker_link:
+        door_1_frame:
+          Value: false
+        door_1_handle_1:
+          Value: false
+        door_1_handle_2:
+          Value: false
+        door_1_handle_base:
+          Value: false
+        door_2:
           Value: true
-        door2_marker_link:
+        door_2_frame:
+          Value: false
+        door_2_handle_1:
+          Value: false
+        door_2_handle_2:
+          Value: false
+        door_2_handle_base:
+          Value: false
+        door_3:
           Value: true
-        door3_marker_link:
-          Value: true
-        door_1_frame_link:
-          Value: true
-        door_1_link:
-          Value: true
-        door_2_frame_link:
-          Value: true
-        door_2_link:
-          Value: true
-        door_3_frame_link:
-          Value: true
-        door_3_link:
-          Value: true
+        door_3_frame:
+          Value: false
+        door_3_handle_1:
+          Value: false
+        door_3_handle_2:
+          Value: false
+        door_3_handle_base:
+          Value: false
         floor:
-          Value: true
+          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: false
@@ -640,21 +684,27 @@ Visualization Manager:
             {}
           Wall_9:
             {}
-          door1_marker_link:
-            {}
-          door2_marker_link:
-            {}
-          door3_marker_link:
-            {}
-          door_1_frame_link:
-            door_1_link:
-              {}
-          door_2_frame_link:
-            door_2_link:
-              {}
-          door_3_frame_link:
-            door_3_link:
-              {}
+          door_1_frame:
+            door_1:
+              door_1_handle_base:
+                door_1_handle_1:
+                  {}
+                door_1_handle_2:
+                  {}
+          door_2_frame:
+            door_2:
+              door_2_handle_base:
+                door_2_handle_1:
+                  {}
+                door_2_handle_2:
+                  {}
+          door_3_frame:
+            door_3:
+              door_3_handle_base:
+                door_3_handle_1:
+                  {}
+                door_3_handle_2:
+                  {}
           floor:
             {}
       Update Interval: 0
@@ -684,25 +734,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 7.77155113
+      Distance: 8.60077572
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 0.534085095
+        Y: -0.0935888588
+        Z: -0.159137219
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1
-      Target Frame: door_1_link
+      Pitch: 1.28979647
+      Target Frame: door_1
       Value: Orbit (rviz)
-      Yaw: 5.40858173
+      Yaw: 5.368577
     Saved: ~
 Window Geometry:
   Displays:
