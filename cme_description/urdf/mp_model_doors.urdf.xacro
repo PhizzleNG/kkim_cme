@@ -1,28 +1,43 @@
 <?xml version="1.0"?>
-<!--
-    - Base      : kobuki
-    - Stacks    : hexagons
-    - 3d Sensor : kinect
--->    
 <robot name="complete_mp_model" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find cme_description)/urdf/mp_model.urdf.xacro" />
-  <xacro:include filename="$(find cme_description)/urdf/bim_door_v.urdf.xacro" />
-  <xacro:include filename="$(find cme_description)/urdf/bim_door_h.urdf.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/materials.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/mp_model.urdf.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
 
+	<xacro:macro name="marker" params="name parent *origin">
+		<link name="${name}_marker_link">
+			<visual>
+				<geometry> <sphere radius=".1" /> </geometry>
+				<material name="red" />
+			</visual>
+		</link>
+		<joint name="${name}_marker_joint" type="fixed">
+			<xacro:insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_marker_link" />
+		</joint>
+	</xacro:macro>
 
-  <!--<xacro:door_model_h name="door1" parent="building_footprint" x_loc = "10" y_loc = "10" direction_x ="1" direction_y ="0">
-  </xacro:door_model_h>-->
-  
-  <xacro:door_model_h name="door1" parent="building_footprint" x_loc = "2.06" y_loc = "-3.5" direction_x ="1" direction_y ="0">
-  </xacro:door_model_h>
+	<xacro:marker name="door1" parent="building_footprint">
+		<origin xyz="2.06 -3.5 0" rpy="0 0 0" />
+	</xacro:marker>
 
-  <xacro:door_model_v name="door2" parent="building_footprint" x_loc = "2.54" y_loc = "-4.02" direction_x ="0" direction_y ="-1">
-  </xacro:door_model_v>
+	<xacro:marker name="door2" parent="building_footprint">
+		<origin xyz="2.54 -4.02 0" rpy="0 0 0"/>
+	</xacro:marker>
 
-  <xacro:door_model_h name="door3" parent="building_footprint" x_loc = "3.05" y_loc = "-4.53" direction_x ="-1" direction_y ="0">
-  </xacro:door_model_h>
+	<xacro:marker name="door3" parent="building_footprint">
+		<origin xyz="3.05 -4.53 0" rpy="0 0 0"/>
+	</xacro:marker>
 
-
-
+	<xacro:door id="1" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
+		<origin xyz="2.06 -3.5 0" rpy="0 0 0"/>
+	</xacro:door>
+	<xacro:door id="2" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
+		<origin xyz="2.54 -4.02 0" rpy="0 0 ${pi/2}"/>
+	</xacro:door>
+	<xacro:door id="3" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
+		<origin xyz="3.05 -4.53 0" rpy="0 0 ${pi}"/>
+	</xacro:door>
 </robot>

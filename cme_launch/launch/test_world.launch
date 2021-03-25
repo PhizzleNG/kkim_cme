@@ -33,6 +33,6 @@
 
 
   <!--launch rviz-->
-  <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find cme_launch)/rviz/test_world.rviz"/>
 
 </launch>
