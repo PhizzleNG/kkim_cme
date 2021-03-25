@@ -8,7 +8,7 @@ Run the following commands:
 mkdir -p ~/cme_ws/src
 cd ~/cme_ws/src
 git clone git+ssh://git@github.com/MyNameIsCosmo/kkim_cme.git
-bash kkim_cme/bootstrap_cme_ws.sh
+bash kkim_cme/bootstrap_ws.sh
 
 source ~/cme_ws/devel/setup.bash
 roslaunch cme_launcher test_world.launch
