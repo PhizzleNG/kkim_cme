@@ -8,6 +8,7 @@
 	<xacro:include filename="$(find cme_description)/urdf/mp_model.urdf.xacro" />
 	<xacro:include filename="$(find cme_description)/urdf/debug.xacro.xml" />
 	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
+	<xacro:include filename="$(find cme_description)/urdf/light_switch.xacro.xml" />
 
 	<!--
 	 Doors
@@ -42,4 +43,14 @@
 		<!-- origin ${width-0.05} ${thickness/2} ${height/2}" -->
 		<origin xyz="0.65 ${0.05/2} ${2.43/2}" rpy="0 0 0"/>
 	</xacro:door_handle>
+
+	<!--
+	 Light Switches
+	-->
+	
+	<!-- Switch 1 -->
+	<xacro:light_switch id="1" parent="Wall_3">
+		<!-- origin x=(rviz) y=(wallthickness/2) z=(rviz) -->
+		<origin xyz="-1.5 0.051 1.75" rpy="0 0 0" />
+	</xacro:light_switch>
 </robot>

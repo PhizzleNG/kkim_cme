@@ -25,18 +25,25 @@ Documentation on usage available in the door xacro document.
 
 ![](cme_docs/docs/assets/img/door_joint_trail.png)
 
+### Light Switches
+Light switches are created using a xacro macro defined in [light_switch.xacro.xml](cme_description/urdf/light_switch.xacro.xml).
+
+![](cme_docs/docs/assets/img/light_switch.png)
+
 ## Todo
-1) [x] Organize packages and dependencies
-2) [x] Add door xacro
-3) [ ] Add light xacro
-4) [ ] Service to open/close door
-5) [ ] Service to turn light on/off
-6) [ ] Husky + Kinova gen3 lite in simulation
-7) [ ] MM400 + Panda in simulation
-8) [ ] Robot navigation around map
-9) [ ] Robot manipulator movement
-10) [ ] Manipulate to a given point (eg. door handle)
-	1) [ ] Move robot to closest point if out of reach
-	2) [ ] Collision check with manipulator
-	3) [ ] Interact with manipulator
-11) [ ] Finish documentation
+- [x] Organize packages and dependencies
+- [x] Add door xacro
+- [x] Add light xacro
+- [ ] Joint controller for door/lights
+- [ ] Service to open/close door
+- [ ] Service to turn light on/off
+- [ ] Husky + Kinova gen3 lite in simulation
+- [ ] MM400 + Panda in simulation
+- [ ] Gravity/collision checks
+- [ ] Robot navigation around map
+- [ ] Robot manipulator movement
+- [ ] Manipulate to a given point (eg. door handle)
+	- [ ] Move robot to closest point if out of reach
+	- [ ] Collision check with manipulator
+	- [ ] Interact with manipulator
+- [ ] Finish documentation
