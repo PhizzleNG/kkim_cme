@@ -5,8 +5,8 @@
 	 Includes
 	-->
 	<xacro:include filename="$(find cme_description)/urdf/materials.xacro" />
-	<xacro:include filename="$(find cme_description)/urdf/debug.xacro" />
 	<xacro:include filename="$(find cme_description)/urdf/mp_model.urdf.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/debug.xacro.xml" />
 	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
 
 	<!--

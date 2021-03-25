@@ -16,13 +16,16 @@ roslaunch cme_launcher test_world.launch
 
 More documentation can be found in [cme_docs](cme_docs/docs).
 
-## Doors
+## Tasks
+Overview of xacro file at [complete_model.urdf.xacro](cme_description/urdf/complete_model.urdf.xacro).
+
+### Doors
 Doors are created using a xacro macro defined in [door.xacro.xml](cme_description/urdf/door.xacro.xml).  
 Documentation on usage available in the door xacro document.
 
 ![](cme_docs/docs/assets/img/door_joint_trail.png)
 
-## Tasks
+## Todo
 1) [x] Organize packages and dependencies
 2) [x] Add door xacro
 3) [ ] Add light xacro

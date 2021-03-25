@@ -91,4 +91,4 @@ case ${ROS_DISTRO} in
 	*) fatal "\"${ROS_DISTRO}\" is not supported!" ;;
 esac
 
-echo "Done!"
+info "Done!"
