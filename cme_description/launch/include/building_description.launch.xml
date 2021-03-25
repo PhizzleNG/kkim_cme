@@ -2,7 +2,7 @@
 <launch>
 
   <!-- send urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find cme_description)/urdf/mp_model_doors.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find cme_description)/urdf/cme.urdf.xacro'" />
 
   
   <!-- Send robot states to tf -->

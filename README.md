@@ -7,14 +7,11 @@ Run the following commands:
 ```
 mkdir -p ~/cme_ws/src
 cd ~/cme_ws/src
-catkin_init_workspace
 git clone git+ssh://git@github.com/MyNameIsCosmo/kkim_cme.git
 bash kkim_cme/bootstrap_cme_ws.sh
 
-cd ~/cme_ws
-catkin_make -j$(nproc)
-
-roslaunch cme_launcher 
+source ~/cme_ws/devel/setup.bash
+roslaunch cme_launcher test_world.launch
 ```
 
 More documentation can be found in [cme_docs](cme_docs/docs).

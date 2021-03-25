@@ -1,24 +1,19 @@
 <?xml version="1.0"?>
 <robot name="complete_mp_model" xmlns:xacro="http://ros.org/wiki/xacro">
 
+	<!--
+	 Includes
+	-->
 	<xacro:include filename="$(find cme_description)/urdf/materials.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/debug.xacro" />
 	<xacro:include filename="$(find cme_description)/urdf/mp_model.urdf.xacro" />
 	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
 
-	<xacro:macro name="marker" params="name parent *origin">
-		<link name="${name}_marker_link">
-			<visual>
-				<geometry> <sphere radius=".05" /> </geometry>
-				<material name="red" />
-			</visual>
-		</link>
-		<joint name="${name}_marker_joint" type="fixed">
-			<xacro:insert_block name="origin" />
-			<parent link="${parent}" />
-			<child link="${name}_marker_link" />
-		</joint>
-	</xacro:macro>
+	<!--
+	 Doors
+	-->
 
+	<!-- Door 1 -->
 	<xacro:door id="1" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
 		<!-- origin of the door center point -->
 		<origin xyz="2.06 -3.5 0" rpy="0 0 0"/>
@@ -28,6 +23,7 @@
 		<origin xyz="0.65 ${0.05/2} ${2.43/2}" rpy="0 0 0"/>
 	</xacro:door_handle>
 
+	<!-- Door 2 -->
 	<xacro:door id="2" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true" mirror="true">
 		<!-- origin of the door center point -->
 		<origin xyz="2.54 -4.02 0" rpy="0 0 ${pi/2}"/>
@@ -37,6 +33,7 @@
 		<origin xyz="0.65 ${0.05/2} ${2.43/2}" rpy="0 0 0"/>
 	</xacro:door_handle>
 
+	<!-- Door 3 -->
 	<xacro:door id="3" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
 		<!-- origin of the door center point -->
 		<origin xyz="3.05 -4.53 0" rpy="0 0 ${pi}"/>
