@@ -13,6 +13,15 @@
 	<!-- Launch other relevant files-->
 	<include file="$(find cme_description)/launch/include/building_description.launch.xml"/>
 
+	<!-- Send robot states to tf -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+	<!-- Send fake joint values-->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<param name="use_gui" value="true"/>
+	</node>
+
+
+
 	<!-- Spawn My Robot -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
 	      args="-urdf -param robot_description -model complete_mp_model 

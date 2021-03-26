@@ -9,48 +9,37 @@
 	<xacro:include filename="$(find cme_description)/urdf/debug.xacro.xml" />
 	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
 	<xacro:include filename="$(find cme_description)/urdf/light_switch.xacro.xml" />
+	<xacro:include filename="$(find cme_description)/urdf/gazebo.xacro.xml" />
 
 	<!--
 	 Doors
 	-->
 
 	<!-- Door 1 -->
-	<xacro:door id="1" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
+	<xacro:door id="1" parent="building_footprint" width="0.70" height="2.43" depth="0.05" door_handle="true">
 		<!-- origin of the door center point -->
-		<origin xyz="2.06 -3.5 0" rpy="0 0 0"/>
+		<origin xyz="2.06 -3.5 0.01" rpy="0 0 0"/>
 	</xacro:door>
-	<xacro:door_handle id="1" parent="door_1" door_thickness="0.05">
-		<!-- origin ${width-0.05} ${thickness/2} ${height/2}" -->
-		<origin xyz="0.65 ${0.05/2} ${2.43/2}" rpy="0 0 0"/>
-	</xacro:door_handle>
 
 	<!-- Door 2 -->
-	<xacro:door id="2" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true" mirror="true">
+	<xacro:door id="2" parent="building_footprint" width="0.70" height="2.43" depth="0.05" door_handle="true" flip="true" mirror="true">
 		<!-- origin of the door center point -->
 		<origin xyz="2.54 -4.02 0" rpy="0 0 ${pi/2}"/>
 	</xacro:door>
-	<xacro:door_handle id="2" parent="door_2" door_thickness="0.05">
-		<!-- origin ${width-0.05} ${thickness/2} ${height/2}" -->
-		<origin xyz="0.65 ${0.05/2} ${2.43/2}" rpy="0 0 0"/>
-	</xacro:door_handle>
 
 	<!-- Door 3 -->
-	<xacro:door id="3" parent="building_footprint" width="0.70" height="2.43" depth="0.05">
+	<xacro:door id="3" parent="building_footprint" width="0.70" height="2.43" depth="0.05" door_handle="true">
 		<!-- origin of the door center point -->
 		<origin xyz="3.05 -4.53 0" rpy="0 0 ${pi}"/>
 	</xacro:door>
-	<xacro:door_handle id="3" parent="door_3" door_thickness="0.05">
-		<!-- origin ${width-0.05} ${thickness/2} ${height/2}" -->
-		<origin xyz="0.65 ${0.05/2} ${2.43/2}" rpy="0 0 0"/>
-	</xacro:door_handle>
 
 	<!--
 	 Light Switches
 	-->
 	
 	<!-- Switch 1 -->
-	<xacro:light_switch id="1" parent="Wall_3">
 		<!-- origin x=(rviz) y=(wallthickness/2) z=(rviz) -->
+	<xacro:light_switch id="1" parent="Wall_3">
 		<origin xyz="-1.5 0.051 1.75" rpy="0 0 0" />
 	</xacro:light_switch>
 </robot>

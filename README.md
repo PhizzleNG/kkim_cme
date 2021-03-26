@@ -11,6 +11,10 @@ git clone git+ssh://git@github.com/MyNameIsCosmo/kkim_cme.git
 bash kkim_cme/bootstrap_ws.sh
 
 source ~/cme_ws/devel/setup.bash
+roslaunch cme_gazebo test_gazebo.launch
+
+rostopic pub -1 /door_1_position/command std_msgs/Float64 "data: 1.0"
+
 roslaunch cme_launcher test_world.launch
 ```
 

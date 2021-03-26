@@ -9,7 +9,7 @@ Example:
  -->
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-<xacro:macro name="door" params="id parent width height depth *frame_origin mass:=30 min_angle:=0 max_angle:=${pi/2} flip:=false mirror:=false">
+<xacro:macro name="door" params="id parent width height depth *frame_origin mass:=30 min_angle:=0 max_angle:=${pi/2} flip:=false mirror:=false door_handle:=false">
 	<!-- Xacro Macro for a door with handle and joints.
 	Args:
 		id: ID of the door
@@ -23,10 +23,18 @@ Example:
 		maxangle: [=pi/2] maximum angle of the door joint
 		flip: [=false] Flip door open direction
 		mirror: [=false] Mirror door hinge around frame center
+		door_handle: [=false] Add a door handle
 	-->
 	<!-- TODO(Cosmo): Improve friction coefficients and dynamics -->
 	<!-- make the frame link, used for orientation at the _center_ of the door frame -->
-	<link name="door_${id}_frame" />
+	<link name="door_${id}_frame">
+		<inertial>
+			<mass value="${mass}" />
+			<!-- Inertia calculated with moment of inertia tensors of a cuboid -->
+			<inertia ixx="${0.083*mass*(width+height)}" ixy="0.0" ixz="0.0"
+				 iyy="${0.083*mass*(depth+height)}" iyz="0.0" izz="${0.083*mass*(width+depth)}" />
+		</inertial>
+	</link>
 	<joint name="door_${id}_frame_joint" type="fixed">
 		<xacro:insert_block name="frame_origin"/>
 		<parent link="${parent}"/>
@@ -84,6 +92,20 @@ Example:
 		<mu2>0.2</mu2>
 		<material>Gazebo/Brown</material>
 	</gazebo>
+	<transmission name="door_${id}_joint_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="motor1">
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+		<joint name="door_${id}_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+	</transmission>
+	<xacro:if value="${door_handle}">
+		<xacro:door_handle id="${id}" parent="door_${id}" door_thickness="${depth}">
+			<origin xyz="${width-0.075} ${depth/2} ${height/2}" rpy="0 0 0"/>
+		</xacro:door_handle>
+	</xacro:if>
 </xacro:macro>
 <xacro:macro name="door_handle" params="id parent door_thickness *origin length:=0.1 offset:=0.002 min_angle:=-${pi/2} max_angle:=${pi/2}">
 	<!-- Create a door handle of _length_ attached to _parent_ at relative _origin_ 
@@ -166,5 +188,20 @@ Example:
 		<parent link="door_${id}_handle_base"/>
 		<child link="door_${id}_handle_2"/>
 	</joint>
+	<gazebo reference="door_${id}_handle_joint">
+		<gravity>0</gravity>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/Brown</material>
+	</gazebo>
+	<transmission name="door_${id}_handle_joint_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="motor1">
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+		<joint name="door_${id}_handle_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+	</transmission>
 </xacro:macro>
 </robot>
