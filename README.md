@@ -38,12 +38,14 @@ Light switches are created using a xacro macro defined in [light_switch.xacro.xm
 - [x] Organize packages and dependencies
 - [x] Add door xacro
 - [x] Add light xacro
-- [ ] Joint controller for door/lights
+- [x] Joint controller for door/lights
+- [x] Fix gazebo values
 - [ ] Service to open/close door
+	- [x] Use `rostopic pub -1 /door_1_position/command std_msgs/Float64 "data: 1.0"`
 - [ ] Service to turn light on/off
 - [ ] Husky + Kinova gen3 lite in simulation
 - [ ] MM400 + Panda in simulation
-- [ ] Gravity/collision checks
+- [ ] Verify gravity/collision checks
 - [ ] Robot navigation around map
 - [ ] Robot manipulator movement
 - [ ] Manipulate to a given point (eg. door handle)
