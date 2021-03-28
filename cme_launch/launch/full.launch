@@ -2,17 +2,21 @@
 <launch>
 	<arg name="gazebo" default="true"/>
 	<arg name="rviz" default="true"/>
-	<arg name="robot" default="husky"/>
+	<arg name="robot" default="mm_400"/>
 	<arg name="cme_services" default="true"/>
+	<arg name="manipulator" default=""/>
 
 	<!-- robots -->
 	<include if="$(eval robot == 'husky')" file="$(find cme_launch)/launch/husky.launch"/>
+	<include if="$(eval robot == 'jackal')" file="$(find cme_launch)/launch/jackal.launch"/>
+	<include if="$(eval robot == 'mm_400')" file="$(find cme_launch)/launch/mm_400.launch"/>
 
 	<!-- world and world control -->
 	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
-	<include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/>
+	<!--include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/-->
 
 	<!-- visualization and othre tools -->
-	<include if="$(arg rviz)" file="$(find cme_launch)/launch/rviz.launch"/>
-
+	<include if="$(arg rviz)" file="$(find cme_launch)/launch/rviz.launch">
+		<arg name="rviz_file" value="$(find cme_launch)/rviz/full_$(arg robot).rviz"/>
+	</include>
 </launch>

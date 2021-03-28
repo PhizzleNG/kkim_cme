@@ -1,13 +1,33 @@
 repositories:
+  Universal_Robots_ROS_Driver:
+    type: git
+    url: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver
+    version: 98e0d87234cdbd75736c0a30b817cd4ec34bc469
+  fmauch_universal_robot:
+    type: git
+    url: https://github.com/fmauch/universal_robot.git
+    version: 90c141b4719dd0df87baef12c46c26c374608ba1
   husky_manipulation:
     type: git
     url: https://github.com/husky/husky_manipulation.git
     version: 920fcf6ae8984cbb868ab57e7b21bc6c2a069499
+  kinova-ros:
+    type: git
+    url: https://github.com/Kinovarobotics/kinova-ros
+    version: 38293ed73bc230e9ca7e7312fc268736821fd9cc
+  kkim_cme:
+    type: git
+    url: git@github.com:MyNameIsCosmo/kkim_cme.git
+    version: kinetic-devel
+  neo_mp_400:
+    type: git
+    url: https://github.com/neobotix/neo_mp_400
+    version: 54717d440d1f493e81758f19c982d426578a02d7
+  neo_simulation:
+    type: git
+    url: https://github.com/neobotix/neo_simulation
+    version: a68b5144a5a4a5cee652d92214ecc553e229e533
   ros_kortex:
     type: git
     url: https://github.com/Kinovarobotics/ros_kortex.git
     version: 996ffaffd33c135c6888ae624271aa2742fd83d4
-  universal_robot:
-    type: git
-    url: https://github.com/ros-industrial/universal_robot.git
-    version: 06d8b9e2f5f86aa54f9f2845f11edbc84e2f951e

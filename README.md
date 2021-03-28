@@ -17,8 +17,11 @@ Simulate the world and a robot with Gazebo.
 Launches Gazebo, RVIZ, door controls, a robot, and door controls.
 ```
 source ~/cme_ws/devel/setup.bash
-roslaunch cme_launch full.launch gazebo:=true rviz:=true robot:=husky
+roslaunch cme_launch full.launch gazebo:=true rviz:=true robot:=mm_400
 ```
+
+The `full.launch` file can take different arguments such as:
+- `robot:=` - `husky`, `mm_400`
 
 #### Running gmapping
 ```
@@ -96,15 +99,9 @@ Light switches are created using a xacro macro defined in [light_switch.xacro.xm
 - [x] Service to open/close door
 	- [x] Use `rostopic pub -1 /door_1_position/command std_msgs/Float64 "data: 1.0"`
 - [ ] Service to turn light on/off
-- [ ] Template robot actions
-	- [ ] Create navigation action
-	- [ ] Create manipulation action
-	- [ ] Create door open action
-	- [ ] Create light switch action
-- [ ] Husky + Kinova gen3 lite in simulation
-- [ ] MM400 + Panda in simulation
-- [ ] Verify gravity/collision checks
-- [ ] Robot navigation around map
+- [o] Husky + Kinova gen3 lite in simulation
+- [o] MM400 + Panda in simulation
+- [o] Robot navigation around map
 - [ ] Robot manipulator movement
 - [ ] Manipulate to a given point (eg. door handle)
 	- [ ] Move robot to closest point if out of reach

@@ -162,7 +162,7 @@ def find_controllers(search_term):
     while not controllers and not rospy.is_shutdown():
         controller_list = get_controller_list()
         if not controller_list:
-            rospy.loginfo_once('Waiting for more controllers...')
+            rospy.loginfo_throttled(120, 'Waiting for more controllers...')
             continue
 
         controllers = [
