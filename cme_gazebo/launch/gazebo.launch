@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+	<!-- World File -->
+	<arg name="world_file" default="$(find cme_gazebo)/worlds/cme.world"/>
+
+	<!-- Launch Gazebo World -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="paused" value="true"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" value="true" />
+		<arg name="world_name" value="$(arg world_file)"/>
+		<arg name="debug" value="false"/>
+		<arg name="verbose" value="false"/>
+	</include>
+</launch>
+

@@ -1,0 +1,1390 @@
+<sdf version='1.6'>
+  <model name='complete_mp_model'>
+    <link name='building_footprint'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>1.12721 -5.42171 0.338508 0 -0 0</pose>
+        <mass>244</mass>
+        <inertia>
+          <ixx>1142.81</ixx>
+          <ixy>-243.459</ixy>
+          <ixz>23.0829</ixz>
+          <iyy>742.682</iyy>
+          <iyz>104.008</iyz>
+          <izz>1644.27</izz>
+        </inertia>
+      </inertial>
+      <collision name='building_footprint_fixed_joint_lump__Wall_0_Collision_collision'>
+        <pose frame=''>-0.032085 -2.20086 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>4.36829 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_10_Collision_collision_1'>
+        <pose frame=''>1.73042 -12.8567 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>7.155 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_11_Collision_collision_2'>
+        <pose frame=''>-2.86708 -3.07444 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>6.11546 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_12_Collision_collision_3'>
+        <pose frame=''>2.67107 -0.121714 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.21 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_13_Collision_collision_4'>
+        <pose frame=''>-2.02697 -7.61717 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.36 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_14_Collision_collision_5'>
+        <pose frame=''>-2.16697 -6.81467 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>1.525 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_15_Collision_collision_6'>
+        <pose frame=''>-2.51703 -6.09217 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.620118 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_16_Collision_collision_7'>
+        <pose frame=''>-1.72697 -7.10717 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_17_Collision_collision_8'>
+        <pose frame=''>0.708089 -7.10814 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.6314 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_18_Collision_collision_9'>
+        <pose frame=''>0.203786 -7.61814 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.94 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_19_Collision_collision_10'>
+        <pose frame=''>0.883786 -7.95418 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>1.28 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_1_Collision_collision_11'>
+        <pose frame=''>-1.80697 -10.1969 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>5.23954 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_20_Collision_collision_12'>
+        <pose frame=''>2.51258 -5.82869 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>2.94 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_21_Collision_collision_13'>
+        <pose frame=''>3.89025 -6.23869 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>2.67534 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_22_Collision_collision_14'>
+        <pose frame=''>2.59508 -4.50369 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.085 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_23_Collision_collision_15'>
+        <pose frame=''>4.29108 -4.50455 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.87367 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_24_Collision_collision_16'>
+        <pose frame=''>4.33025 -3.885 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>1.79534 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_25_Collision_collision_17'>
+        <pose frame=''>3.47258 -4.19478 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.539551 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_26_Collision_collision_18'>
+        <pose frame=''>3.89302 -8.08548 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.66978 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_27_Collision_collision_19'>
+        <pose frame=''>2.51813 -8.02094 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.209072 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_28_Collision_collision_20'>
+        <pose frame=''>3.54313 -8.42798 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.605 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_29_Collision_collision_21'>
+        <pose frame=''>4.40552 -8.69048 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.64478 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_2_Collision_collision_22'>
+        <pose frame=''>0.765851 -4.345 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.51587 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_30_Collision_collision_23'>
+        <pose frame=''>-2.73708 -0.066714 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_31_Collision_collision_24'>
+        <pose frame=''>-2.76208 -0.156714 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.13 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_32_Collision_collision_25'>
+        <pose frame=''>-2.75708 -4.035 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.14 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_33_Collision_collision_26'>
+        <pose frame=''>-2.75708 -4.345 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.14 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_34_Collision_collision_27'>
+        <pose frame=''>-2.72708 -4.19 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.23 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_35_Collision_collision_28'>
+        <pose frame=''>-1.34697 -8.95048 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.84 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_36_Collision_collision_29'>
+        <pose frame=''>-1.57197 -9.09048 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_37_Collision_collision_30'>
+        <pose frame=''>-1.64947 -9.23048 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.235 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_38_Collision_collision_31'>
+        <pose frame=''>0.542994 -8.96048 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.45992 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_39_Collision_collision_32'>
+        <pose frame=''>0.201972 -10.8063 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>4.02075 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_3_Collision_collision_33'>
+        <pose frame=''>1.56379 -5.75418 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>4.48 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_40_Collision_collision_34'>
+        <pose frame=''>1.31295 -8.99429 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.24 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_41_Collision_collision_35'>
+        <pose frame=''>1.43545 -9.07429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.165 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_42_Collision_collision_36'>
+        <pose frame=''>1.43545 -8.91429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.165 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_43_Collision_collision_37'>
+        <pose frame=''>1.55795 -8.99429 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.24 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_44_Collision_collision_38'>
+        <pose frame=''>1.64045 -8.95429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.085 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_45_Collision_collision_39'>
+        <pose frame=''>2.58795 -8.95429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.34 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_46_Collision_collision_40'>
+        <pose frame=''>2.51765 -8.87871 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.071155 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_47_Collision_collision_41'>
+        <pose frame=''>2.71765 -10.9055 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>3.82243 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_48_Collision_collision_42'>
+        <pose frame=''>2.36067 -12.7051 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.22317 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_49_Collision_collision_43'>
+        <pose frame=''>2.53916 -12.6335 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.276981 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_4_Collision_collision_44'>
+        <pose frame=''>2.41107 -3.47418 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.12 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_50_Collision_collision_45'>
+        <pose frame=''>-1.64697 -11.7135 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.24 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_51_Collision_collision_46'>
+        <pose frame=''>-1.56697 -11.9485 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.39 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_52_Collision_collision_47'>
+        <pose frame=''>-1.68697 -12.1035 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_54_Collision_collision_48'>
+        <pose frame=''>0.844493 -3.47418 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.67315 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_5_Collision_collision_49'>
+        <pose frame=''>2.51107 -1.93921 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>3.425 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_6_Collision_collision_50'>
+        <pose frame=''>2.47357 -0.186714 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.315 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_7_Collision_collision_51'>
+        <pose frame=''>2.35607 -0.081714 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.13 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_8_Collision_collision_52'>
+        <pose frame=''>1.20042 0.023286 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8.215 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='building_footprint_fixed_joint_lump__Wall_9_Collision_collision_53'>
+        <pose frame=''>5.26792 -6.41671 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>12.8 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='building_footprint_fixed_joint_lump__Wall_0_Visual_visual'>
+        <pose frame=''>-0.032085 -2.20086 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>4.36829 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_10_Visual_visual_1'>
+        <pose frame=''>1.73042 -12.8567 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>7.155 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_11_Visual_visual_2'>
+        <pose frame=''>-2.86708 -3.07444 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>6.11546 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_12_Visual_visual_3'>
+        <pose frame=''>2.67107 -0.121714 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.21 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_13_Visual_visual_4'>
+        <pose frame=''>-2.02697 -7.61717 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.36 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_14_Visual_visual_5'>
+        <pose frame=''>-2.16697 -6.81467 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>1.525 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_15_Visual_visual_6'>
+        <pose frame=''>-2.51703 -6.09217 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.620118 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_16_Visual_visual_7'>
+        <pose frame=''>-1.72697 -7.10717 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_17_Visual_visual_8'>
+        <pose frame=''>0.708089 -7.10814 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.6314 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_18_Visual_visual_9'>
+        <pose frame=''>0.203786 -7.61814 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.94 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_19_Visual_visual_10'>
+        <pose frame=''>0.883786 -7.95418 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>1.28 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_1_Visual_visual_11'>
+        <pose frame=''>-1.80697 -10.1969 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>5.23954 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_20_Visual_visual_12'>
+        <pose frame=''>2.51258 -5.82869 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>2.94 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_21_Visual_visual_13'>
+        <pose frame=''>3.89025 -6.23869 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>2.67534 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_22_Visual_visual_14'>
+        <pose frame=''>2.59508 -4.50369 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.085 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_23_Visual_visual_15'>
+        <pose frame=''>4.29108 -4.50455 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.87367 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_24_Visual_visual_16'>
+        <pose frame=''>4.33025 -3.885 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>1.79534 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_25_Visual_visual_17'>
+        <pose frame=''>3.47258 -4.19478 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.539551 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_26_Visual_visual_18'>
+        <pose frame=''>3.89302 -8.08548 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.66978 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_27_Visual_visual_19'>
+        <pose frame=''>2.51813 -8.02094 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.209072 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_28_Visual_visual_20'>
+        <pose frame=''>3.54313 -8.42798 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.605 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_29_Visual_visual_21'>
+        <pose frame=''>4.40552 -8.69048 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.64478 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_2_Visual_visual_22'>
+        <pose frame=''>0.765851 -4.345 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.51587 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_30_Visual_visual_23'>
+        <pose frame=''>-2.73708 -0.066714 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_31_Visual_visual_24'>
+        <pose frame=''>-2.76208 -0.156714 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.13 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_32_Visual_visual_25'>
+        <pose frame=''>-2.75708 -4.035 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.14 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_33_Visual_visual_26'>
+        <pose frame=''>-2.75708 -4.345 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.14 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_34_Visual_visual_27'>
+        <pose frame=''>-2.72708 -4.19 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.23 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_35_Visual_visual_28'>
+        <pose frame=''>-1.34697 -8.95048 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.84 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_36_Visual_visual_29'>
+        <pose frame=''>-1.57197 -9.09048 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_37_Visual_visual_30'>
+        <pose frame=''>-1.64947 -9.23048 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.235 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_38_Visual_visual_31'>
+        <pose frame=''>0.542994 -8.96048 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.45992 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_39_Visual_visual_32'>
+        <pose frame=''>0.201972 -10.8063 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>4.02075 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_3_Visual_visual_33'>
+        <pose frame=''>1.56379 -5.75418 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>4.48 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__light_switch_1_faceplate_visual_34'>
+        <pose frame=''>1.61479 -4.25418 1.75 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.001 0.2</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_40_Visual_visual_35'>
+        <pose frame=''>1.31295 -8.99429 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.24 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_41_Visual_visual_36'>
+        <pose frame=''>1.43545 -9.07429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.165 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_42_Visual_visual_37'>
+        <pose frame=''>1.43545 -8.91429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.165 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_43_Visual_visual_38'>
+        <pose frame=''>1.55795 -8.99429 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.24 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_44_Visual_visual_39'>
+        <pose frame=''>1.64045 -8.95429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.085 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_45_Visual_visual_40'>
+        <pose frame=''>2.58795 -8.95429 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.34 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_46_Visual_visual_41'>
+        <pose frame=''>2.51765 -8.87871 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.071155 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_47_Visual_visual_42'>
+        <pose frame=''>2.71765 -10.9055 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>3.82243 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_48_Visual_visual_43'>
+        <pose frame=''>2.36067 -12.7051 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.22317 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_49_Visual_visual_44'>
+        <pose frame=''>2.53916 -12.6335 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.276981 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_4_Visual_visual_45'>
+        <pose frame=''>2.41107 -3.47418 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.12 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_50_Visual_visual_46'>
+        <pose frame=''>-1.64697 -11.7135 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.24 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_51_Visual_visual_47'>
+        <pose frame=''>-1.56697 -11.9485 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.39 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_52_Visual_visual_48'>
+        <pose frame=''>-1.68697 -12.1035 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_54_Visual_visual_49'>
+        <pose frame=''>0.844493 -3.47418 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.67315 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_5_Visual_visual_50'>
+        <pose frame=''>2.51107 -1.93921 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>3.425 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_6_Visual_visual_51'>
+        <pose frame=''>2.47357 -0.186714 1.524 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.315 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_7_Visual_visual_52'>
+        <pose frame=''>2.35607 -0.081714 1.524 0 -0 1.5708</pose>
+        <geometry>
+          <box>
+            <size>0.13 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_8_Visual_visual_53'>
+        <pose frame=''>1.20042 0.023286 1.524 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8.215 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='building_footprint_fixed_joint_lump__Wall_9_Visual_visual_54'>
+        <pose frame=''>5.26792 -6.41671 1.524 0 0 -1.5708</pose>
+        <geometry>
+          <box>
+            <size>12.8 0.1015 3.048</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <!--link name='door_1'>
+      <pose frame=''>1.71 -3.5 0.01 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>30</mass>
+        <inertia>
+          <ixx>7.7937</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6.1752</iyy>
+          <iyz>0</iyz>
+          <izz>1.8675</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_1_collision'>
+        <pose frame=''>0.35 0.025 1.215 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.05 2.43</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.2</mu>
+              <mu2>0.2</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='door_1_visual'>
+        <pose frame=''>0.35 0.025 1.215 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.05 2.43</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Brown</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='door_1_joint' type='revolute'>
+      <child>door_1</child>
+      <parent>building_footprint</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='door_1_handle_base'>
+      <pose frame=''>2.335 -3.475 1.225 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 1 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_1_handle_base_collision'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.104</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='door_1_handle_base_fixed_joint_lump__door_1_handle_1_collision_1'>
+        <pose frame=''>-0.025 0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='door_1_handle_base_fixed_joint_lump__door_1_handle_2_collision_2'>
+        <pose frame=''>-0.025 -0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='door_1_handle_base_visual'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.104</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='door_1_handle_base_fixed_joint_lump__door_1_handle_1_visual_1'>
+        <pose frame=''>-0.025 0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='door_1_handle_base_fixed_joint_lump__door_1_handle_2_visual_2'>
+        <pose frame=''>-0.025 -0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='door_1_handle_joint' type='revolute'>
+      <child>door_1_handle_base</child>
+      <parent>door_1</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='door_2'>
+      <pose frame=''>2.54 -3.67 0 0 -0 -1.5708</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>30</mass>
+        <inertia>
+          <ixx>7.7937</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6.1752</iyy>
+          <iyz>0</iyz>
+          <izz>1.8675</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_2_collision'>
+        <pose frame=''>0.35 0.025 1.215 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.05 2.43</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.2</mu>
+              <mu2>0.2</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='door_2_visual'>
+        <pose frame=''>0.35 0.025 1.215 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.05 2.43</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Brown</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='door_2_joint' type='revolute'>
+      <child>door_2</child>
+      <parent>building_footprint</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='door_2_handle_base'>
+      <pose frame=''>2.565 -4.295 1.215 0 -0 -1.5708</pose>
+      <inertial>
+        <pose frame=''>0 0 1 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_2_handle_base_collision'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.104</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='door_2_handle_base_fixed_joint_lump__door_2_handle_1_collision_1'>
+        <pose frame=''>-0.025 0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='door_2_handle_base_fixed_joint_lump__door_2_handle_2_collision_2'>
+        <pose frame=''>-0.025 -0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='door_2_handle_base_visual'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.104</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='door_2_handle_base_fixed_joint_lump__door_2_handle_1_visual_1'>
+        <pose frame=''>-0.025 0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='door_2_handle_base_fixed_joint_lump__door_2_handle_2_visual_2'>
+        <pose frame=''>-0.025 -0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='door_2_handle_joint' type='revolute'>
+      <child>door_2_handle_base</child>
+      <parent>door_2</parent>
+      <axis>
+        <xyz>1 -0 0</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='door_3'>
+      <pose frame=''>3.4 -4.53 0 0 -0 -3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>30</mass>
+        <inertia>
+          <ixx>7.7937</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6.1752</iyy>
+          <iyz>0</iyz>
+          <izz>1.8675</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_3_collision'>
+        <pose frame=''>0.35 0.025 1.215 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.05 2.43</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.2</mu>
+              <mu2>0.2</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='door_3_visual'>
+        <pose frame=''>0.35 0.025 1.215 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.05 2.43</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Brown</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='door_3_joint' type='revolute'>
+      <child>door_3</child>
+      <parent>building_footprint</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='door_3_handle_base'>
+      <pose frame=''>2.775 -4.555 1.215 0 -0 -3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 1 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_3_handle_base_collision'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.104</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='door_3_handle_base_fixed_joint_lump__door_3_handle_1_collision_1'>
+        <pose frame=''>-0.025 0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='door_3_handle_base_fixed_joint_lump__door_3_handle_2_collision_2'>
+        <pose frame=''>-0.025 -0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='door_3_handle_base_visual'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.104</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='door_3_handle_base_fixed_joint_lump__door_3_handle_1_visual_1'>
+        <pose frame=''>-0.025 0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='door_3_handle_base_fixed_joint_lump__door_3_handle_2_visual_2'>
+        <pose frame=''>-0.025 -0.052 0 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <cylinder>
+            <length>0.1</length>
+            <radius>0.008</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='door_3_handle_joint' type='revolute'>
+      <child>door_3_handle_base</child>
+      <parent>door_3</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint-->
+    <static>0</static>
+  </model>
+</sdf>

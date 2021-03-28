@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="gazebo" default="true"/>
+	<arg name="rviz" default="true"/>
+	<arg name="robot" default="husky"/>
+	<arg name="cme_services" default="true"/>
+
+	<!-- robots -->
+	<include if="$(eval robot == 'husky')" file="$(find cme_launch)/launch/husky.launch"/>
+
+	<!-- world and world control -->
+	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
+	<include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/>
+
+	<!-- visualization and othre tools -->
+	<include if="$(arg rviz)" file="$(find cme_launch)/launch/rviz.launch"/>
+
+</launch>

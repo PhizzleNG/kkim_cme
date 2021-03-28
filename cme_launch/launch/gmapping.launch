@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="robot" default="husky"/>
+
+	<include if="$(eval robot == 'husky')" file="$(find husky_navigation)/launch/gmapping.launch"/>
+</launch>

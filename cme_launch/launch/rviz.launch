@@ -3,6 +3,6 @@
 <launch>
 
 	<!--launch rviz-->
-	<node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find cme_launch)/rviz/test_world.rviz"/>
+	<node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find cme_launch)/rviz/full.rviz"/>
 
 </launch>

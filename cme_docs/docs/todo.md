@@ -1,0 +1,14 @@
+# TODO
+- [ ] adding doors
+- [ ] adding light switches
+- [ ] creating the gazebo world
+- [ ] gmapping docs
+- [ ] navigation
+	- [ ] teleop
+	- [ ] interact in rviz
+	- [ ] 2d nav goal pose in rviz
+	- [ ] nav goal via topics
+	- [ ] nav goal via python
+- [ ] visualization?
+- [ ] diagnostics?
+- [ ] teleoperation?

@@ -60,7 +60,7 @@ bootstrap_kinetic() {
 	python3 -m pip install --quiet --user vcstool
 
 	# ROS dependencies
-	sudo apt install --quiet --yes ros-kinetic-moveit ros-kinetic-joint-state-publisher-gui
+	sudo apt install --quiet --yes ros-kinetic-moveit ros-kinetic-joint-state-publisher-gui ros-kinetic-teleop-twist-keyboard
 
 	kinova_dependencies
 
