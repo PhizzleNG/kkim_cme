@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- Generic robot launch file, enables easier configuration and tracking of launch files and nodes -->
+<launch>
+	<arg name="robot"/>
+	<arg name="gazebo" default="$(optenv CME_GAZEBO true)"/>
+
+	<include file="$(find cme_launch)/launch/include/$(arg robot).launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="gazebo" value="$(arg gazebo)"/>
+	</include>
+</launch>

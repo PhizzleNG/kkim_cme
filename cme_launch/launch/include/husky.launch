@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="robot" default="husky"/>
+	<arg name="robot_namespace" default="$(eval optenv('HUSKY_NAMESPACE', robot))"/>
+
+	<arg name="gazebo" default="true"/>
+	<!-- TODO: add manipulators -->
+
+	<!-- Husky parameters -->
+	<arg name="laser_enabled" default="true"/>
+	<arg name="realsense_enabled" default="false"/>
+
+	<!-- AMCL parameters -->
+	<arg name="map_file" default="$(find cme_navigation)/maps/$(arg robot)/cme_map.yaml"/>
+
+	<group ns="$(arg robot_namespace)">
+		<!-- Spawn Husky -->
+		<include file="$(find cme_launch)/launch/include/$(arg robot)/spawn_robot.launch.xml">
+			<arg name="laser_enabled" value="$(arg laser_enabled)"/>
+			<arg name="realsense_enabled" value="$(arg realsense_enabled)"/>
+		</include>
+
+		<!-- Spawn Controllers -->
+		<include file="$(find cme_launch)/launch/include/$(arg robot)/control.launch.xml">
+			<arg name="robot" value="$(arg robot)"/>
+		</include>
+
+		<!--- Run Move Base -->
+		<include file="$(find cme_launch)/launch/include/$(arg robot)/move_base.launch.xml"/>
+
+		<!--- Run AMCL -->
+		<include file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
+			<arg name="map_file" value="$(arg map_file)"/>
+		</include>
+
+		<!-- Ensure base link transform established -->
+		<!--node pkg="tf" type="static_transform_publisher" name="base_to_map" args="0 0 0 0 0 0 base_link map 100" /-->
+	</group>
+</launch>

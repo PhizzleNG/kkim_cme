@@ -7,3 +7,4 @@
 	- [ ] Create manipulation action
 	- [ ] Create door open action
 	- [ ] Create light switch action
+- [ ] namespaces? multimaster?

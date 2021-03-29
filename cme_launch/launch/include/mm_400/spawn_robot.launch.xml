@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="robot" default="mm_400"/>
+	<arg name="robot_namespace" default="$(optenv MM_400_NAMESPACE $(arg robot))"/>
+	<arg name="gazebo" default="$(optenv MM_400_ENABLE_GAZEBO true)"/>
+	<arg name="manipulator" default="$(optenv MM_400_MANIPULATOR panda)"/>
+
+	<include file="$(find cme_launch)/launch/include/spawn_robot.launch.xml">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="robot_namespace" value="$(arg robot_namespace)"/>
+		<arg name="gazebo" value="$(arg gazebo)"/>
+		<arg name="manipulator" value="$(arg manipulator)"/>
+		<!-- TODO: Restructure neobotix packages -->
+		<arg name="robot_description" value="$(find neo_simulation)/robots/mm_400/mm_400.urdf.xacro"/>
+		<arg if="$(eval manipulator == 'panda')"
+			name="manipulator_config" value="$(find neo_simulation)/config/controller/arm_controller_pilz.yaml"/>
+		<arg if="$(eval manipulator == 'pilz')"
+		     name="manipulator_config" value="$(find neo_simulation)/config/controller/arm_controller_franka.yaml"/>
+	</include>
+</launch>

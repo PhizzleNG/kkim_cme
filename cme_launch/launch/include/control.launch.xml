@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: extra config/ -->
+<launch>
+	<arg name="robot"/>
+	<arg name="enable_ekf" default="$(optenv ENABLE_EKF true)"/>
+
+	<arg name="fake_calibration" default="true"/>
+	<arg name="controller_configuration" default="$(find cme_control)/config/$(arg robot)/control.yaml"/>
+	<arg name="joint_state_controller" default="true"/>
+	<arg name="spawn_controllers" default=""/>
+
+	<!-- Fake Calibration -->
+	<node if="$(arg fake_calibration)" pkg="rostopic" type="rostopic" name="fake_joint_calibration"
+	      args="pub /calibrated std_msgs/Bool true" />
+
+	<!-- Load controller configuration -->
+	<rosparam if="$(eval controller_configuration != '')" command="load" file="$(arg controller_configuration)" />
+
+	<!-- Spawn controllers -->
+	<node if="$(eval spawn_controllers != '')" name="controller_spawner" pkg="controller_manager"
+	      type="spawner" args="$(arg spawn_controllers)"/>
+
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+		<param name="publish_frequency" value="30.0"/>
+	</node>
+
+	<!-- EKF for localization -->
+	<node if="$(arg enable_ekf)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+		<rosparam command="load" file="$(find cme_control)/config/$(arg robot)/localization.yaml"/>
+	</node>
+
+	<!-- Interactive nodes -->
+	<node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen"/>
+
+	<node pkg="twist_mux" type="twist_mux" name="twist_mux">
+		<rosparam command="load" file="$(find cme_control)/config/$(arg robot)/twist_mux.yaml" />
+	</node>
+</launch>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="robot" default="husky"/>
+	<arg name="enable_ekf" default="$(optenv HUSKY_ENABLE_EKF true)"/>
+
+	<arg name="config_extras"
+	     default="$(eval optenv('HUSKY_CONFIG_EXTRAS', find('husky_control') + '/config/empty.yaml'))"/>
+
+
+	<include file="$(find cme_launch)/launch/include/control.launch.xml">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="enable_ekf" value="$(arg enable_ekf)"/>
+		<arg name="spawn_controllers" value="husky_joint_publisher husky_velocity_controller"/>
+		<arg name="controller_configuration" value="$(find husky_control)/config/control.yaml"/>
+	</include>
+
+	<!-- Override the default control parameters, see config/empty.yaml for default. -->
+	<rosparam command="load" file="$(arg config_extras)" />
+
+	<!--remap from="cmd_vel_out" to="mm_401/cmd_vel" /-->
+	<node name="remap_cmd_vel" pkg="topic_tools" type="relay" args="cmd_vel_out husky_velocity_controller/cmd_vel"/>
+
+</launch>
