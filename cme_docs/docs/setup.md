@@ -2,19 +2,6 @@
 
 <!-- TODO: Note in overview of packages used and sources -->
 
-```
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws/src
-catkin_init_workspace
-
-git clone <construction_manipulation_environment>
-git clone <ros_kortex>
-git clone <mm400>
-git clone <panda>
-
-https://github.com/Kinovarobotics/ros_kortex
-```
-
 # Dependencies
 ```
 cd ~/catkin_ws
@@ -40,7 +27,7 @@ To view the dependencies pulled, check out the [.vcsinstall](.vcsinstall) file.
 ```
 sudo apt install python3-vcstool
 cd ~/cme_ws/src
-vcstool import . <kkim_cme/.vcsinstall
+vcs import . <kkim_cme/.vcsinstall
 ```
 
 ## Setup Kinova Software

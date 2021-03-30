@@ -20,6 +20,11 @@ if [ "$(basename "$(realpath "${SCRIPT_ROOT}/../CMakeLists.txt")")" = "toplevel.
 	WORKSPACE="$(realpath "${SCRIPT_ROOT}/../..")"
 fi
 
+update_cme() {
+	cd "${SCRIPT_ROOT}"
+	[ -d ".git" ] && git pull || warn "Unable to pull latest changes!"
+}
+
 kinova_dependencies() {
 	info "Resolving kinova dependencies"
 	which conan || python3 -m pip install --user conan

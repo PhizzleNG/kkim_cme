@@ -8,3 +8,14 @@
 	- [ ] Create door open action
 	- [ ] Create light switch action
 - [ ] namespaces? multimaster?
+
+
+# 
+- Action:
+	- Turn on light in room X
+		- Navigate from current room to light switch at room X
+		- If door is closed, open door
+
+
+stretch:
+- skiros2: https://github.com/RVMI/skiros2
