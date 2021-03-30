@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+	<arg name="robot_namespace" default="/"/>
 	<arg name="gazebo" default="true"/>
 	<!-- Husky parameters -->
 	<arg name="laser_enabled" default="true"/>
@@ -10,6 +11,7 @@
 
 	<!-- Spawn Husky -->
 	<include if="$(arg gazebo)" file="$(find husky_gazebo)/launch/spawn_husky.launch">
+		<arg name="robot_namespace" value="$(arg robot_namespace)"/>
 		<arg name="laser_enabled" value="$(arg laser_enabled)"/>
 		<arg name="realsense_enabled" value="$(arg realsense_enabled)"/>
 	</include>

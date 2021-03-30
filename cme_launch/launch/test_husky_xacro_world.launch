@@ -2,6 +2,9 @@
 <launch>
 	<arg name="paused" default="false" doc="Starts gazebo in paused mode" />
 	<arg name="gui" default="true" doc="Starts gazebo gui" />
+	<arg name="robot" default="husky"/>
+	<arg name="cme_services" default="true"/>
+	<arg name="manipulator" default=""/>
 
 	<!-- startup simulated world -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -31,7 +34,14 @@
 	<node name="door_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller door_1_position door_2_position door_3_position" respawn="false" output="screen"/>
 
 	<!-- load other controllers -->
-	<node name="door_service" pkg="cme_control" type="door_service.py"/>
+	<node name="door_service" pkg="cme_control" type="door_service"/>
+
+	<!-- load a robot -->
+	<include if="$(eval robot == 'husky')" file="$(find cme_launch)/launch/husky.launch">
+		<arg name="robot_namespace" value="/husky"/>
+	</include>
+	<include if="$(eval robot == 'jackal')" file="$(find cme_launch)/launch/jackal.launch"/>
+	<include if="$(eval robot == 'mm_400')" file="$(find cme_launch)/launch/mm_400.launch"/>
 
 	<!--launch rviz-->
 	<node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find cme_launch)/rviz/test_world.rviz"/>

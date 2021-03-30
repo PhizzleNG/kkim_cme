@@ -4,8 +4,28 @@
   <joint name="building_footprint_joint" type="fixed">
     <origin xyz="0 -6 0" rpy="0 0 0"/>
     <parent link="building_footprint"/>
-    <child link="Wall_0"/>
+    <child link="floor"/>
   </joint>
+  <link name="floor">
+    <pose>0 0 0.1 0 0 0</pose>
+    <inertial>
+      <mass value="100"/>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+      <inertia ixx="10" ixy="0" ixz="0" iyy="10" iyz="0" izz="10"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry name="floor_visual">
+        <box size="20 20 0.002"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry name="floor_visual">
+        <box size="20 20 0.002"/>
+      </geometry>
+    </collision>
+  </link>
   <link name="Wall_0">
     <inertial>
       <mass value="1"/>
@@ -26,9 +46,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_0_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="-0.0320847245965127 -2.20085721073468 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" -0.0320847245965127 -2.20085721073468 0"/>
     <child link="Wall_0"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -52,9 +73,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_1_hinge">
-    <origin rpy="0 0 1.5707963267949" xyz="-1.80696721821406 -10.1969428992453 0"/>
+    <origin rpy="0 0 1.5707963267949" xyz=" -1.80696721821406 -10.1969428992453 0"/>
     <child link="Wall_1"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -78,9 +100,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_2_hinge">
-    <origin rpy="0 0 0" xyz="0.765850662041855 -4.345 0"/>
+    <origin rpy="0 0 0" xyz=" 0.765850662041855 -4.345 0"/>
     <child link="Wall_2"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -104,9 +127,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_3_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="1.56378604868023 -5.75418078207523 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 1.56378604868023 -5.75418078207523 0"/>
     <child link="Wall_3"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -130,9 +154,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_4_hinge">
-    <origin rpy="0 0 0" xyz="2.41106977281029 -3.47418078207523 0"/>
+    <origin rpy="0 0 0" xyz=" 2.41106977281029 -3.47418078207523 0"/>
     <child link="Wall_4"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -156,9 +181,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_5_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="2.51106977281029 -1.93921442146936 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 2.51106977281029 -1.93921442146936 0"/>
     <child link="Wall_5"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -182,9 +208,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_6_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="2.47356977281029 -0.186714421469355 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" 2.47356977281029 -0.186714421469355 0"/>
     <child link="Wall_6"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -208,9 +235,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_7_hinge">
-    <origin rpy="0 0 1.5707963267949" xyz="2.35606977281029 -0.081714421469355 0"/>
+    <origin rpy="0 0 1.5707963267949" xyz=" 2.35606977281029 -0.081714421469355 0"/>
     <child link="Wall_7"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -234,9 +262,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_8_hinge">
-    <origin rpy="0 0 0" xyz="1.20041527540349 0.0232855785306519 0"/>
+    <origin rpy="0 0 0" xyz=" 1.20041527540349 0.0232855785306519 0"/>
     <child link="Wall_8"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -260,9 +289,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_9_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="5.26791527540349 -6.41671442146936 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 5.26791527540349 -6.41671442146936 0"/>
     <child link="Wall_9"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -286,9 +316,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_10_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="1.73041527540347 -12.8567144214694 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" 1.73041527540347 -12.8567144214694 0"/>
     <child link="Wall_10"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -312,9 +343,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_11_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="-2.86708472459651 -3.07444289924535 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" -2.86708472459651 -3.07444289924535 0"/>
     <child link="Wall_11"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -338,9 +370,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_12_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="2.67106977281029 -0.121714421469355 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 2.67106977281029 -0.121714421469355 0"/>
     <child link="Wall_12"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -364,9 +397,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_13_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="-2.02696721821405 -7.61717137702135 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" -2.02696721821405 -7.61717137702135 0"/>
     <child link="Wall_13"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -390,9 +424,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_14_hinge">
-    <origin rpy="0 0 1.5707963267949" xyz="-2.16696721821405 -6.81467137702135 0"/>
+    <origin rpy="0 0 1.5707963267949" xyz=" -2.16696721821405 -6.81467137702135 0"/>
     <child link="Wall_14"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -416,9 +451,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_15_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="-2.51702597140529 -6.09217137702135 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" -2.51702597140529 -6.09217137702135 0"/>
     <child link="Wall_15"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -442,9 +478,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_16_hinge">
-    <origin rpy="0 0 0" xyz="-1.72696721821405 -7.10717137702135 0"/>
+    <origin rpy="0 0 0" xyz=" -1.72696721821405 -7.10717137702135 0"/>
     <child link="Wall_16"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -468,9 +505,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_17_hinge">
-    <origin rpy="0 0 0" xyz="0.708088522297137 -7.1081449175682 0"/>
+    <origin rpy="0 0 0" xyz=" 0.708088522297137 -7.1081449175682 0"/>
     <child link="Wall_17"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -494,9 +532,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_18_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="0.203786048680223 -7.61814491756821 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 0.203786048680223 -7.61814491756821 0"/>
     <child link="Wall_18"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -520,9 +559,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_19_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="0.88378604868022 -7.95418078207523 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" 0.88378604868022 -7.95418078207523 0"/>
     <child link="Wall_19"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -546,9 +586,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_20_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="2.51257647248415 -5.82868667687965 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 2.51257647248415 -5.82868667687965 0"/>
     <child link="Wall_20"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -572,9 +613,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_21_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="3.89024587394381 -6.23868667687965 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" 3.89024587394381 -6.23868667687965 0"/>
     <child link="Wall_21"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -598,9 +640,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_22_hinge">
-    <origin rpy="0 0 0" xyz="2.59507647248415 -4.50368667687965 0"/>
+    <origin rpy="0 0 0" xyz=" 2.59507647248415 -4.50368667687965 0"/>
     <child link="Wall_22"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -624,9 +667,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_23_hinge">
-    <origin rpy="0 0 0" xyz="4.29107807727743 -4.50455145365601 0"/>
+    <origin rpy="0 0 0" xyz=" 4.29107807727743 -4.50455145365601 0"/>
     <child link="Wall_23"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -650,9 +694,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_24_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="4.33024587394381 -3.88500000000001 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" 4.33024587394381 -3.88500000000001 0"/>
     <child link="Wall_24"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -676,9 +721,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_25_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="3.47257647248415 -4.19477572682801 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 3.47257647248415 -4.19477572682801 0"/>
     <child link="Wall_25"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -702,9 +748,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_26_hinge">
-    <origin rpy="0 0 0" xyz="3.89302302353287 -8.08548070884217 0"/>
+    <origin rpy="0 0 0" xyz=" 3.89302302353287 -8.08548070884217 0"/>
     <child link="Wall_26"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -728,9 +775,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_27_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="2.51813077166227 -8.02094480750642 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 2.51813077166227 -8.02094480750642 0"/>
     <child link="Wall_27"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -754,9 +802,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_28_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="3.54313077166227 -8.42798070884218 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 3.54313077166227 -8.42798070884218 0"/>
     <child link="Wall_28"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -780,9 +829,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_29_hinge">
-    <origin rpy="0 0 0" xyz="4.40552302353287 -8.69048070884218 0"/>
+    <origin rpy="0 0 0" xyz=" 4.40552302353287 -8.69048070884218 0"/>
     <child link="Wall_29"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -806,9 +856,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_30_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="-2.73708472459651 -0.0667144214693482 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" -2.73708472459651 -0.0667144214693482 0"/>
     <child link="Wall_30"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -832,9 +883,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_31_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="-2.76208472459651 -0.156714421469348 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" -2.76208472459651 -0.156714421469348 0"/>
     <child link="Wall_31"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -858,9 +910,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_32_hinge">
-    <origin rpy="0 0 0" xyz="-2.75708472459652 -4.035 0"/>
+    <origin rpy="0 0 0" xyz=" -2.75708472459652 -4.035 0"/>
     <child link="Wall_32"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -884,9 +937,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_33_hinge">
-    <origin rpy="0 0 0" xyz="-2.75708472459652 -4.34499999999999 0"/>
+    <origin rpy="0 0 0" xyz=" -2.75708472459652 -4.34499999999999 0"/>
     <child link="Wall_33"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -910,9 +964,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_34_hinge">
-    <origin rpy="0 0 1.5707963267949" xyz="-2.72708472459652 -4.18999999999999 0"/>
+    <origin rpy="0 0 1.5707963267949" xyz=" -2.72708472459652 -4.18999999999999 0"/>
     <child link="Wall_34"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -936,9 +991,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_35_hinge">
-    <origin rpy="0 0 0" xyz="-1.34696721821406 -8.95048070884217 0"/>
+    <origin rpy="0 0 0" xyz=" -1.34696721821406 -8.95048070884217 0"/>
     <child link="Wall_35"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -962,9 +1018,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_36_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="-1.57196721821405 -9.09048070884217 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" -1.57196721821405 -9.09048070884217 0"/>
     <child link="Wall_36"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -988,9 +1045,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_37_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="-1.64946721821405 -9.23048070884217 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" -1.64946721821405 -9.23048070884217 0"/>
     <child link="Wall_37"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1014,9 +1072,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_38_hinge">
-    <origin rpy="0 0 0" xyz="0.54299361940139 -8.96048070884217 0"/>
+    <origin rpy="0 0 0" xyz=" 0.54299361940139 -8.96048070884217 0"/>
     <child link="Wall_38"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1040,9 +1099,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_39_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="0.201971577282956 -10.8063375713924 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 0.201971577282956 -10.8063375713924 0"/>
     <child link="Wall_39"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1066,9 +1126,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_40_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="1.31295445701684 -8.99428860540926 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 1.31295445701684 -8.99428860540926 0"/>
     <child link="Wall_40"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1092,9 +1153,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_41_hinge">
-    <origin rpy="0 0 0" xyz="1.43545445701684 -9.07428860540926 0"/>
+    <origin rpy="0 0 0" xyz=" 1.43545445701684 -9.07428860540926 0"/>
     <child link="Wall_41"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1118,9 +1180,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_42_hinge">
-    <origin rpy="0 0 0" xyz="1.43545445701684 -8.91428860540926 0"/>
+    <origin rpy="0 0 0" xyz=" 1.43545445701684 -8.91428860540926 0"/>
     <child link="Wall_42"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1144,9 +1207,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_43_hinge">
-    <origin rpy="0 0 1.5707963267949" xyz="1.55795445701684 -8.99428860540926 0"/>
+    <origin rpy="0 0 1.5707963267949" xyz=" 1.55795445701684 -8.99428860540926 0"/>
     <child link="Wall_43"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1170,9 +1234,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_44_hinge">
-    <origin rpy="0 0 0" xyz="1.64045445701684 -8.95428860540926 0"/>
+    <origin rpy="0 0 0" xyz=" 1.64045445701684 -8.95428860540926 0"/>
     <child link="Wall_44"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1196,9 +1261,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_45_hinge">
-    <origin rpy="0 0 0" xyz="2.58795445701684 -8.95428860540926 0"/>
+    <origin rpy="0 0 0" xyz=" 2.58795445701684 -8.95428860540926 0"/>
     <child link="Wall_45"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1222,9 +1288,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_46_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="2.51764681939318 -8.87871111400348 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 2.51764681939318 -8.87871111400348 0"/>
     <child link="Wall_46"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1248,9 +1315,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_47_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="2.71764681939318 -10.9055015134393 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 2.71764681939318 -10.9055015134393 0"/>
     <child link="Wall_47"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1274,9 +1342,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_48_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="2.36066608432163 -12.7051295273189 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" 2.36066608432163 -12.7051295273189 0"/>
     <child link="Wall_48"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1300,9 +1369,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_49_hinge">
-    <origin rpy="0 0 0" xyz="2.5391564518574 -12.6335446331684 0"/>
+    <origin rpy="0 0 0" xyz=" 2.5391564518574 -12.6335446331684 0"/>
     <child link="Wall_49"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1326,9 +1396,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_50_hinge">
-    <origin rpy="0 0 0" xyz="-1.64696721821406 -11.7135446331684 0"/>
+    <origin rpy="0 0 0" xyz=" -1.64696721821406 -11.7135446331684 0"/>
     <child link="Wall_50"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1352,9 +1423,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_51_hinge">
-    <origin rpy="0 0 -1.5707963267949" xyz="-1.56696721821406 -11.9485446331684 0"/>
+    <origin rpy="0 0 -1.5707963267949" xyz=" -1.56696721821406 -11.9485446331684 0"/>
     <child link="Wall_51"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1378,9 +1450,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_52_hinge">
-    <origin rpy="0 0 3.14159265358979" xyz="-1.68696721821406 -12.1035446331684 0"/>
+    <origin rpy="0 0 3.14159265358979" xyz=" -1.68696721821406 -12.1035446331684 0"/>
     <child link="Wall_52"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
@@ -1404,9 +1477,10 @@
     </visual>
   </link>
   <joint type="fixed" name="Wall_54_hinge">
-    <origin rpy="0 0 0" xyz="0.844492524106886 -3.47418078207522 0"/>
+    <origin rpy="0 0 0" xyz=" 0.844492524106886 -3.47418078207522 0"/>
     <child link="Wall_54"/>
     <parent link="building_footprint"/>
+    <axis xyz="0 0 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
