@@ -101,6 +101,13 @@ bootstrap_kinetic() {
 	info "Setting up CME for kinetic in \"${WORKSPACE}\""
 	sleep .5
 
+        info "Setting up workspace"
+	create_cme_ws
+	cd ${WORKSPACE}/src
+
+	info "Pulling third-party dependencies"
+	vcs import --recursive >/dev/null <${_vcsfile}
+
 	info "Installing dependencies"
 	# Dev dependencies
 	sudo apt-get install -qq --yes python3 python3-pip
@@ -124,13 +131,6 @@ bootstrap_kinetic() {
 		find "${WORKSPACE}"/src/ros_kortex -maxdepth 1 -type d -not -ipath '*/.*' -exec touch {}/CATKIN_IGNORE \;
 		printf "%s" " kinova_description kortex_driver" >> "${WORKSPACE}/.rosdep_skip_keys"
 	fi
-
-	info "Setting up workspace"
-	create_cme_ws
-	cd ${WORKSPACE}/src
-
-	info "Pulling third-party dependencies"
-	vcs import --recursive >/dev/null <${_vcsfile}
 
 	build_ws
 }
