@@ -109,7 +109,7 @@ bootstrap_kinetic() {
 	cd ${WORKSPACE}/src
 
 	info "Pulling third-party dependencies"
-	vcs import --recursive >/dev/null <${_vcsfile}
+	vcs import --recursive >/dev/null <${_vcsfile} || error "Unable to pull external dependencies!"
 
 	info "Installing dependencies"
 	# Dev dependencies
