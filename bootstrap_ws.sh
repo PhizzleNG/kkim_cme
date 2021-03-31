@@ -43,7 +43,7 @@ update_cme() {
 		fi
 		git pull && return 0
 	else
-		warn "\"${SCRPIT_ROOT}\" is not a git repo!"
+		warn "\"${SCRIPT_ROOT}\" is not a git repo!"
 	fi
 	error "Unable to update CME! You may be out of date."
 	sleep 2
