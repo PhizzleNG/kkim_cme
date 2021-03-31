@@ -36,6 +36,6 @@
 		</include>
 
 		<!-- Ensure base link transform established -->
-		<!--node pkg="tf" type="static_transform_publisher" name="base_to_map" args="0 0 0 0 0 0 base_link map 100" /-->
+		<node pkg="tf" type="static_transform_publisher" name="base_to_map" args="0 0 0 0 0 0 base_link world 100" />
 	</group>
 </launch>
