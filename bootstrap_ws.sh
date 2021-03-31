@@ -14,8 +14,10 @@ warn() { echo "$(tput bold)$(tput setaf 3)[WARN] $*$(tput sgr0)" >&2 ; }
 error() { echo "$(tput bold)$(tput setaf 1)[ERROR] $*$(tput sgr0)" >&2 ; }
 fatal() { error "$*" ; exit 1 ; }
 
-CME_PKG="kkim_cme"
+CME_PKG="${CME_PKG:-}"
 WORKSPACE="${HOME}/cme_ws"
+
+[ -z "${CME_PKG}" ] && CME_PKG="$(basename $(dirname "${SCRIPT}"))"
 
 if [ "$EUID" -eq 0 ] && [ -z "${FORCE_ROOT:-}" ] ; then
 	fatal "This script should not be run as root."
@@ -52,6 +54,7 @@ update_cme() {
 
 kinova_dependencies() {
 	info "Resolving kinova dependencies"
+	# TODO: Use a virtualenv instead, set ros env-hook in kinova pkgs?
 	if ! which conan > /dev/null 2>&1; then
 		if ! /usr/bin/python3.5 -m pip install --quiet --user conan ; then
 			error "Unable to install conan!"
