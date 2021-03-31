@@ -18,7 +18,7 @@ sudo apt install python3-pip ros-kinetic-moveit ros-kinetic-joint-state-publishe
 vcs import --recursive <~/cme_ws/src/kkim_cme/.vcsinstall
 
 find ~/cme_ws/src/kinova-ros -maxdepth 1 -type d -not -ipath '*/.*' -exec touch {}/CATKIN_IGNORE \;
-find ~/cme_Ws/src/ros_kortex -maxdepth 1 -type d -not -ipath '*/.*' -exec touch {}/CATKIN_IGNORE \;
+find ~/cme_ws/src/ros_kortex -maxdepth 1 -type d -not -ipath '*/.*' -exec touch {}/CATKIN_IGNORE \;
 
 cd ~/cme_ws
 rosdep update -y
