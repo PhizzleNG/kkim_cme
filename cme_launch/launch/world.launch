@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<arg name="world_namespace" default="/"/>
+	<arg name="gazebo" default="true"/>
 
 	<group ns="$(arg world_namespace)">
 		<!-- Launch other relevant files-->

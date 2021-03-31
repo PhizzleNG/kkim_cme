@@ -14,8 +14,10 @@ bash kkim_cme/bootstrap_ws.sh
 
 ### Test the world
 ```
-roslaunch cme_launch world.launch
+roslaunch cme_launch test_world.launch
 ./test_doors.sh
+rosservice call /world/door_1/open
+rosservice call /world/door_1/close
 ```
 
 ### Full Simulation

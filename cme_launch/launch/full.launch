@@ -5,6 +5,7 @@
 	<arg name="robot" default="mm_400"/>
 	<arg name="cme_services" default="true"/>
 	<arg name="manipulator" default=""/>
+	<arg name="use_xacro_world" default="true"/>
 
 	<!-- robots -->
 	<include file="$(find cme_launch)/launch/robot.launch">
@@ -15,7 +16,17 @@
 	</include>
 
 	<!-- world and world control -->
-	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
+	<group if="$(arg use_xacro_world)">
+		<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch">
+			<arg name="world_file" value="worlds/empty.world"/>
+		</include>
+		<include file="$(find cme_launch)/launch/world.launch">
+			<arg name="gazebo" value="$(arg gazebo)"/>
+		</include>
+	</group>
+	<group unless="$(arg use_xacro_world)">
+		<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
+	</group>
 	<!--include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/-->
 
 	<!-- visualization and othre tools -->
