@@ -2,9 +2,34 @@
 
 <!-- TODO: Note in overview of packages used and sources -->
 
+```
+mkdir -p ~/cme_ws/src
+cd ~/cme_ws/src
+catkin_init_workspace
+git clone https://github.com/MyNameIsCosmo/kkim_cme
+./kkim_cme/bootstrap.sh
+```
+
+If bootstrap.sh fails:
+```
+sudo apt install python3-pip ros-kinetic-moveit ros-kinetic-joint-state-publisher-gui ros-kinetic-teleop-twist-keyboard
+/usr/bin/python3.5 -m pip install --user vcstool
+
+vcstool import --recursive <~/cme_ws/src/kkim_cme/.vcsinstall
+
+find "${WORKSPACE}"/src/kinova-ros -maxdepth 1 -type d -not -ipath '*/.*' -exec touch {}/CATKIN_IGNORE \;
+find "${WORKSPACE}"/src/ros_kortex -maxdepth 1 -type d -not -ipath '*/.*' -exec touch {}/CATKIN_IGNORE \;
+
+cd ~/cme_ws
+rosdep update -y
+rosdep install --from-paths src --ignore-src --skip-keys="kinova_description kortex_driver" -y
+catkin_make -j$(nproc)
+. ~/cme_ws/devel/setup.bash
+```
+
 # Dependencies
 ```
-cd ~/catkin_ws
+cd ~/cme_ws
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
