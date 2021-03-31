@@ -118,6 +118,7 @@ bootstrap_kinetic() {
 
 	# ROS dependencies
 	sudo apt-get install -qq --yes ros-kinetic-moveit ros-kinetic-joint-state-publisher-gui ros-kinetic-teleop-twist-keyboard
+	sudo apt-get install -qq --yes ros-kinetic-prbt-moveit-config ros-kinetic-panda-moveit-config
 
 	if kinova_dependencies ; then
 		# Ensure kinova deps are built with catkin

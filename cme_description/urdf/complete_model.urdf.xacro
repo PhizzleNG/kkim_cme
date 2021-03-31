@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot name="complete_mp_model" xmlns:xacro="http://ros.org/wiki/xacro">
 
+	<!--
+	 Args
+	-->
 	<xacro:arg name="world_namespace" default="/" />
 
 	<!--
@@ -11,6 +14,9 @@
 	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
 	<xacro:include filename="$(find cme_description)/urdf/light_switch.xacro.xml" />
 	<xacro:include filename="$(find cme_description)/urdf/gazebo.xacro.xml" />
+
+	<!-- Used for fixing robot to Gazebo 'base_link' -->
+	<link name="world"/>
 
 	<!--
 	 Building

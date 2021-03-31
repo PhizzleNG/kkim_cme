@@ -2,9 +2,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="building">
   <link name="building_footprint"/>
   <joint name="building_footprint_joint" type="fixed">
-    <origin xyz="0 -6 0" rpy="0 0 0"/>
-    <parent link="building_footprint"/>
-    <child link="Wall_0"/>
+    <origin xyz="0 6 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="building_footprint"/>
   </joint>
   <link name="Wall_0">
     <inertial>

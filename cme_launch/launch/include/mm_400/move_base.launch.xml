@@ -6,10 +6,8 @@
 	<!-- Common move_base among robots -->
 	<include file="$(find cme_launch)/launch/include/move_base.launch.xml">
 		<arg name="robot" value="mm_400"/>
-		<arg name="robot_namespace" value="$(arg robot_namespace)"/>
-		<arg name="enable_ekf" value="$(arg enable_ekf)"/>
 	</include>
 
 	<!--remap from="cmd_vel_out" to="mm_400/cmd_vel" /-->
-	<node pkg="topic_tools" type="relay" args="cmd_vel_out mm_400/cmd_vel"/>
+	<node pkg="topic_tools" type="relay" name="relay" args="cmd_vel_out mm_400/cmd_vel"/>
 </launch>

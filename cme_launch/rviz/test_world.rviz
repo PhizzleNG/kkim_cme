@@ -5,9 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /RobotModel1/Status1
         - /TF1/Frames1
-      Splitter Ratio: 0.5
+      Splitter Ratio: 0.685878992
     Tree Height: 775
   - Class: rviz/Selection
     Name: Selection
@@ -357,7 +356,7 @@ Visualization Manager:
         door_1_handle_base:
           Alpha: 1
           Show Axes: false
-          Show Trail: false
+          Show Trail: true
           Value: true
         door_2:
           Alpha: 1
@@ -381,7 +380,7 @@ Visualization Manager:
         door_2_handle_base:
           Alpha: 1
           Show Axes: false
-          Show Trail: false
+          Show Trail: true
           Value: true
         door_3:
           Alpha: 1
@@ -405,12 +404,7 @@ Visualization Manager:
         door_3_handle_base:
           Alpha: 1
           Show Axes: false
-          Show Trail: false
-          Value: true
-        floor:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
+          Show Trail: true
           Value: true
         light_switch_1_faceplate:
           Alpha: 1
@@ -422,6 +416,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: /world/robot_description
       TF Prefix: ""
@@ -541,7 +539,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: building_footprint
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -562,7 +560,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 11.6280661
+      Distance: 11.8609896
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1

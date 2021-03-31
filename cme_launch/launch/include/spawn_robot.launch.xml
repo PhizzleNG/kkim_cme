@@ -19,9 +19,9 @@
 
 	<!-- load given manipulator -->
 	<group if="$(eval manipulator != '')">
-		<rosparam if="$(eval manipulator_config)" command="load"
+		<rosparam if="$(eval manipulator_config != '')" command="load"
 		          file="$(arg manipulator_config)"/>
-		<rosparam unless="$(eval manipulator_config)" command="load"
+		<rosparam unless="$(eval manipulator_config != '')" command="load"
 		          file="$(find cme_config)/config/$(arg robot)/$(arg manipulator)/controller.yaml"/>
 		<node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager"
 		      args="spawn arm_controller" respawn="false" output="screen"/>
