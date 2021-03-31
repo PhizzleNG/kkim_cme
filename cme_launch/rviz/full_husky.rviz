@@ -6,8 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Sensing1
-        - /Navigation1
+        - /TwistMarker1
         - /Navigation1/Exploration1
         - /RobotModel2
       Splitter Ratio: 0.494924009
@@ -30,7 +29,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Toolbars:
   toolButtonStyle: 2
 Visualization Manager:
@@ -64,366 +63,86 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        Wall_0:
+        base_footprint:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        Wall_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_10:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_11:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_12:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_13:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_14:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_15:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_16:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_17:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_18:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_19:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_20:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_21:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_22:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_23:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_24:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_25:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_26:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_27:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_28:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_29:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_30:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_31:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_32:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_33:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_34:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_35:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_36:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_37:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_38:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_39:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_40:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_41:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_42:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_43:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_44:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_45:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_46:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_47:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_48:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_49:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_50:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_51:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_52:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_54:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_8:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Wall_9:
+        base_laser:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        building_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        door_1:
+        base_laser_mount:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_1_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        door_1_handle_1:
+        base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_1_handle_2:
+        front_bumper_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_1_handle_base:
+        front_left_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_2:
+        front_right_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_2_frame:
+        imu_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        door_2_handle_1:
+        inertial_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        door_2_handle_2:
+        rear_bumper_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_2_handle_base:
+        rear_left_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_3:
+        rear_right_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_3_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        door_3_handle_1:
+        top_chassis_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        door_3_handle_2:
+        top_plate_front_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        door_3_handle_base:
+        top_plate_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        light_switch_1_faceplate:
+        top_plate_rear_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        light_switch_1_switch:
+        user_rail_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -767,7 +486,7 @@ Visualization Manager:
           Show Trail: false
           Value: true
       Name: RobotModel
-      Robot Description: /husky/robot_description
+      Robot Description: /robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true

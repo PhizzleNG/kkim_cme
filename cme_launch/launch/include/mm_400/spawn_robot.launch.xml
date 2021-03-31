@@ -13,8 +13,8 @@
 		<arg name="robot_description_extras" value="manipulator:=$(arg manipulator) robot_namespace:=$(arg robot_namespace)"/>
 		<arg name="robot_description" value="$(find cme_description)/robots/mm_400/mm_400.urdf.xacro"/>
 		<arg if="$(eval manipulator == 'panda')"
-			name="manipulator_config" value="$(find cme_control)/config/mm_400/pilz/controller.yaml"/>
-		<arg if="$(eval manipulator == 'pilz')"
 			name="manipulator_config" value="$(find cme_control)/config/mm_400/panda/controller.yaml"/>
+		<arg if="$(eval manipulator == 'pilz')"
+			name="manipulator_config" value="$(find cme_control)/config/mm_400/pilz/controller.yaml"/>
 	</include>
 </launch>

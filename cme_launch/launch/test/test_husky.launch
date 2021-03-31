@@ -2,7 +2,7 @@
 <launch>
 	<arg name="gazebo" default="true"/>
 	<arg name="playpen" default="false"/>
-	<arg name="robot_namespace" default="/"/>
+	<arg name="robot_namespace" default="/husky"/>
 	<!-- husky settings -->
 	<arg name="x" default="0.0"/>
 	<arg name="y" default="0.0"/>

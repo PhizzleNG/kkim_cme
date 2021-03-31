@@ -1,6 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <launch>
-	<arg name="robot" default="husky"/>
-
-	<include if="$(eval robot == 'husky')" file="$(find husky_navigation)/launch/gmapping.launch"/>
+	<arg name="robot"/>
+	<arg name="gmapping_config" default="$(find cme_navigation)/config/$(arg robot)/gmapping.yaml"/>
+	<arg name="scan_topic" default="scan"/>
+	<node pkg="gmapping" name="slam_gmapping" type="slam_gmapping" output="screen">
+		<remap from="scan" to="$(arg scan_topic)"/>
+		<rosparam file="$(arg gmapping_config)" command="load"/>
+	</node>
 </launch>

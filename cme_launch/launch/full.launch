@@ -3,6 +3,7 @@
 	<arg name="gazebo" default="true"/>
 	<arg name="rviz" default="true"/>
 	<arg name="robot" default="mm_400"/>
+	<arg name="world_namespace" default="world"/>
 	<arg name="cme_services" default="true"/>
 	<arg name="manipulator" default=""/>
 	<arg name="use_xacro_world" default="true"/>
@@ -22,6 +23,7 @@
 		</include>
 		<include file="$(find cme_launch)/launch/world.launch">
 			<arg name="gazebo" value="$(arg gazebo)"/>
+			<arg name="world_namespace" value="$(arg world_namespace)"/>
 		</include>
 	</group>
 	<group unless="$(arg use_xacro_world)">

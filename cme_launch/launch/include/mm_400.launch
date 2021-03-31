@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<arg name="robot" default="mm_400"/>
-	<arg name="robot_namespace" default="$(eval optenv('MM_400_NAMESPACE', robot))"/>
-	<arg name="manipulator" default="$(eval optenv('MM_400_MANIPULATOR', 'pilz'))"/>
+	<arg name="robot_namespace" default="$(eval optenv('MM_400_NAMESPACE', '/'))"/>
+	<arg name="manipulator" default="$(eval optenv('MM_400_MANIPULATOR', 'panda'))"/>
 
 	<arg name="gazebo" default="true"/>
-	<arg name="scanunifier" default="false"/>
+	<arg name="scan_unifier" default="false"/>
 
 	<!-- AMCL parameters -->
 	<arg name="map_file" default="$(find cme_navigation)/maps/$(arg robot)/cme_map.yaml"/>
@@ -27,10 +27,26 @@
 			<arg name="manipulator" value="$(arg manipulator)"/>
 		</include>
 
-		<include if="$(arg scanunifier)" file="$(find neo_simulation)/config/mm_400/scan_unifier/mm_400_scan_unifier.launch"/>
+		<group if="$(arg scan_unifier)" ns="cob_scan_unifier">
+			<rosparam command="load" file="$(find cme_control)/config/$(arg robot)/scan_unifier.yaml"/>
+			<node pkg="cob_scan_unifier" type="scan_unifier_node" name="scan_unifier_node" respawn="false" output="screen"/>
+		</group>
 
-		<!-- Ensure a transform is established between world and robot -->
-		<node pkg="tf" type="static_transform_publisher" name="base_to_map" args="0 0 0 0 0 0 base_link world 100" />
+		<group unless="$(arg scan_unifier)">
+			<!-- Relay lidar scan topic -->
+			<node pkg="topic_tools" type="relay" name="lidar1_to_scan" args="lidar_1/scan_filtered /scan"/>
+		</group>
+
+		<!--- Run AMCL -->
+		<!--include file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
+			<arg name="map_file" value="$(arg map_file)"/>
+			<arg if="$(eval robot_namespace != '/')"
+			     name="tf_prefix" value="$(arg robot_namespace)"/>
+		</include-->
+
+
+		<!-- Ensure the AMCL map is linked to the gazebo world -->
+		<node pkg="tf" type="static_transform_publisher" name="base_to_building" args="0 0 0 0 0 0 map world 100" />
 	</group>
 
 </launch>

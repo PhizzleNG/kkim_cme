@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="robot" default="husky"/>
-	<arg name="robot_namespace" default="$(eval optenv('HUSKY_NAMESPACE', robot))"/>
-	<arg name="manipulator" default="$(eval optenv('HUSKY_MANIPULATOR', robot))"/>
+	<arg name="robot_namespace" default="$(eval optenv('HUSKY_NAMESPACE', '/'))"/>
+	<arg name="manipulator" default="$(eval optenv('HUSKY_MANIPULATOR', ''))"/>
 
 	<arg name="gazebo" default="true"/>
 	<!-- TODO: add manipulators -->
@@ -33,9 +33,11 @@
 		<!--- Run AMCL -->
 		<include file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
 			<arg name="map_file" value="$(arg map_file)"/>
+			<arg if="$(eval robot_namespace != '/')"
+			     name="tf_prefix" value="$(arg robot_namespace)"/>
 		</include>
 
-		<!-- Ensure base link transform established -->
-		<node pkg="tf" type="static_transform_publisher" name="base_to_map" args="0 0 0 0 0 0 base_link world 100" />
+		<!-- Ensure the AMCL map is linked to the gazebo world -->
+		<node pkg="tf" type="static_transform_publisher" name="base_to_building" args="0 0 0 0 0 0 map world 100" />
 	</group>
 </launch>

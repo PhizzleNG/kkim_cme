@@ -32,6 +32,10 @@ ROS_NAMESPACE=/husky rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ### Simulate a Neobotix MM_400 in the world
 Simulate the world and a robot with Gazebo.  
 Launches Gazebo, RVIZ, the CME world, a robot, and door control.
+
+!!! IMPORTANT !!!
+The `pilz` manipulator is broken in the Gazebo simulation, use the `panda` manipulator for now.
+
 ```
 roslaunch cme_launch full.launch gazebo:=true rviz:=true robot:=mm_400 manipulator:=panda
 ROS_NAMESPACE=/mm_400 rosrun teleop_twist_keyboard teleop_twist_keyboard.py

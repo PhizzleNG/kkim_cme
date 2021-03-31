@@ -9,6 +9,7 @@ Panels:
         - /RobotModel1
         - /Sensing1
         - /Navigation1/Exploration1
+        - /RobotModel2
       Splitter Ratio: 0.494924009
     Tree Height: 843
   - Class: rviz/Selection
@@ -53,357 +54,6 @@ Visualization Manager:
       Plane Cell Count: 30
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
-      Enabled: true
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: Links in Alphabetic Order
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        cabinet_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        fixed_wheel_left_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        fixed_wheel_right_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        lidar_1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        panda_link8:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        wheel_back_left_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_back_right_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_front_left_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_front_right_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-      Name: RobotModel
-      Robot Description: /mm_400/robot_description
-      TF Prefix: ""
-      Update Interval: 0
-      Value: true
-      Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: false
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        {}
-      Update Interval: 0
-      Value: false
-    - Class: rviz/InteractiveMarkers
-      Enable Transparency: true
-      Enabled: true
-      Name: TwistMarker
-      Show Axes: false
-      Show Descriptions: false
-      Show Visual Aids: false
-      Update Topic: /twist_marker_server/update
-      Value: true
-    - Class: rviz/Group
-      Displays:
-        - Angle Tolerance: 0.100000001
-          Class: rviz/Odometry
-          Covariance:
-            Orientation:
-              Alpha: 0.5
-              Color: 255; 255; 127
-              Color Style: Unique
-              Frame: Local
-              Offset: 1
-              Scale: 1
-              Value: true
-            Position:
-              Alpha: 0.300000012
-              Color: 204; 51; 204
-              Scale: 1
-              Value: true
-            Value: false
-          Enabled: true
-          Keep: 10
-          Name: Odometry
-          Position Tolerance: 0.100000001
-          Shape:
-            Alpha: 1
-            Axes Length: 1
-            Axes Radius: 0.100000001
-            Color: 255; 25; 0
-            Head Length: 0.300000012
-            Head Radius: 0.100000001
-            Shaft Length: 1
-            Shaft Radius: 0.0500000007
-            Value: Arrow
-          Topic: /odometry/filtered
-          Unreliable: false
-          Value: true
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 0.405930012
-            Min Value: 0.405930012
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/LaserScan
-          Color: 255; 255; 127
-          Color Transformer: FlatColor
-          Decay Time: 0
-          Enabled: true
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Max Intensity: 999999
-          Min Color: 0; 0; 0
-          Min Intensity: -1.83101002e-36
-          Name: LaserScan
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.0299999993
-          Style: Flat Squares
-          Topic: /scan
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: true
-          Value: true
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 255; 255; 255
-          Color Transformer: RGB8
-          Decay Time: 0
-          Enabled: true
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Max Intensity: 4096
-          Min Color: 0; 0; 0
-          Min Intensity: 0
-          Name: PointCloud2
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.00999999978
-          Style: Flat Squares
-          Topic: /camera/depth/points
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: true
-          Value: true
-        - Acceleration properties:
-            Acc. vector alpha: 0.5
-            Acc. vector color: 85; 0; 255
-            Acc. vector scale: 0.0500000007
-            Derotate acceleration: false
-            Enable acceleration: true
-          Axes properties:
-            Axes scale: 1
-            Enable axes: true
-          Box properties:
-            Box alpha: 1
-            Box color: 85; 0; 255
-            Enable box: false
-            x_scale: 0.400000006
-            y_scale: 0.400000006
-            z_scale: 0.400000006
-          Class: rviz_imu_plugin/Imu
-          Enabled: false
-          Name: Imu
-          Topic: /imu/data
-          Unreliable: false
-          Value: false
-          fixed_frame_orientation: true
-      Enabled: true
-      Name: Sensing
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/Group
-          Displays:
-            - Class: rviz/Marker
-              Enabled: true
-              Marker Topic: /exploration_polygon_marker
-              Name: Exploration Marker
-              Namespaces:
-                {}
-              Queue Size: 100
-              Value: true
-            - Alpha: 0.699999988
-              Class: rviz/Map
-              Color Scheme: costmap
-              Draw Behind: true
-              Enabled: true
-              Name: Exploration Costmap
-              Topic: /explore_server/explore_costmap/costmap
-              Unreliable: false
-              Use Timestamp: false
-              Value: true
-          Enabled: true
-          Name: Exploration
-        - Alpha: 0.699999988
-          Class: rviz/Map
-          Color Scheme: map
-          Draw Behind: true
-          Enabled: true
-          Name: Static Map
-          Topic: /map
-          Unreliable: false
-          Use Timestamp: false
-          Value: true
-        - Alpha: 0.699999988
-          Class: rviz/Map
-          Color Scheme: costmap
-          Draw Behind: true
-          Enabled: true
-          Name: Global Costmap
-          Topic: /move_base/global_costmap/costmap
-          Unreliable: false
-          Use Timestamp: false
-          Value: true
-        - Alpha: 0.699999988
-          Class: rviz/Map
-          Color Scheme: costmap
-          Draw Behind: false
-          Enabled: true
-          Name: Local Costmap
-          Topic: /move_base/local_costmap/costmap
-          Unreliable: false
-          Use Timestamp: false
-          Value: true
-        - Alpha: 1
-          Buffer Length: 1
-          Class: rviz/Path
-          Color: 25; 255; 0
-          Enabled: true
-          Head Diameter: 0.300000012
-          Head Length: 0.200000003
-          Length: 0.300000012
-          Line Style: Lines
-          Line Width: 0.0299999993
-          Name: Global Plan
-          Offset:
-            X: 0
-            Y: 0
-            Z: 0
-          Pose Color: 255; 85; 255
-          Pose Style: None
-          Radius: 0.0299999993
-          Shaft Diameter: 0.100000001
-          Shaft Length: 0.100000001
-          Topic: /move_base/NavfnROS/plan
-          Unreliable: false
-          Value: true
-        - Alpha: 1
-          Buffer Length: 1
-          Class: rviz/Path
-          Color: 255; 0; 0
-          Enabled: true
-          Head Diameter: 0.300000012
-          Head Length: 0.200000003
-          Length: 0.300000012
-          Line Style: Lines
-          Line Width: 0.0299999993
-          Name: Local Plan
-          Offset:
-            X: 0
-            Y: 0
-            Z: 0
-          Pose Color: 255; 85; 255
-          Pose Style: None
-          Radius: 0.0299999993
-          Shaft Diameter: 0.100000001
-          Shaft Length: 0.100000001
-          Topic: /move_base/DWAPlannerROS/local_plan
-          Unreliable: false
-          Value: true
-      Enabled: true
-      Name: Navigation
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -775,6 +425,357 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
       Name: RobotModel
+      Robot Description: /world/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: false
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        {}
+      Update Interval: 0
+      Value: false
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Name: TwistMarker
+      Show Axes: false
+      Show Descriptions: false
+      Show Visual Aids: false
+      Update Topic: /twist_marker_server/update
+      Value: true
+    - Class: rviz/Group
+      Displays:
+        - Angle Tolerance: 0.100000001
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.300000012
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: false
+          Enabled: true
+          Keep: 10
+          Name: Odometry
+          Position Tolerance: 0.100000001
+          Shape:
+            Alpha: 1
+            Axes Length: 1
+            Axes Radius: 0.100000001
+            Color: 255; 25; 0
+            Head Length: 0.300000012
+            Head Radius: 0.100000001
+            Shaft Length: 1
+            Shaft Radius: 0.0500000007
+            Value: Arrow
+          Topic: /odometry/filtered
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 0.405930012
+            Min Value: 0.405930012
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/LaserScan
+          Color: 255; 255; 127
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 999999
+          Min Color: 0; 0; 0
+          Min Intensity: -1.83101002e-36
+          Name: LaserScan
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.0299999993
+          Style: Flat Squares
+          Topic: /scan
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: PointCloud2
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.00999999978
+          Style: Flat Squares
+          Topic: /camera/depth/points
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Acceleration properties:
+            Acc. vector alpha: 0.5
+            Acc. vector color: 85; 0; 255
+            Acc. vector scale: 0.0500000007
+            Derotate acceleration: false
+            Enable acceleration: true
+          Axes properties:
+            Axes scale: 1
+            Enable axes: true
+          Box properties:
+            Box alpha: 1
+            Box color: 85; 0; 255
+            Enable box: false
+            x_scale: 0.400000006
+            y_scale: 0.400000006
+            z_scale: 0.400000006
+          Class: rviz_imu_plugin/Imu
+          Enabled: false
+          Name: Imu
+          Topic: /imu/data
+          Unreliable: false
+          Value: false
+          fixed_frame_orientation: true
+      Enabled: true
+      Name: Sensing
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /exploration_polygon_marker
+              Name: Exploration Marker
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Alpha: 0.699999988
+              Class: rviz/Map
+              Color Scheme: costmap
+              Draw Behind: true
+              Enabled: true
+              Name: Exploration Costmap
+              Topic: /explore_server/explore_costmap/costmap
+              Unreliable: false
+              Use Timestamp: false
+              Value: true
+          Enabled: true
+          Name: Exploration
+        - Alpha: 0.699999988
+          Class: rviz/Map
+          Color Scheme: map
+          Draw Behind: true
+          Enabled: true
+          Name: Static Map
+          Topic: /map
+          Unreliable: false
+          Use Timestamp: false
+          Value: true
+        - Alpha: 0.699999988
+          Class: rviz/Map
+          Color Scheme: costmap
+          Draw Behind: true
+          Enabled: true
+          Name: Global Costmap
+          Topic: /move_base/global_costmap/costmap
+          Unreliable: false
+          Use Timestamp: false
+          Value: true
+        - Alpha: 0.699999988
+          Class: rviz/Map
+          Color Scheme: costmap
+          Draw Behind: false
+          Enabled: true
+          Name: Local Costmap
+          Topic: /move_base/local_costmap/costmap
+          Unreliable: false
+          Use Timestamp: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Head Diameter: 0.300000012
+          Head Length: 0.200000003
+          Length: 0.300000012
+          Line Style: Lines
+          Line Width: 0.0299999993
+          Name: Global Plan
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Radius: 0.0299999993
+          Shaft Diameter: 0.100000001
+          Shaft Length: 0.100000001
+          Topic: /move_base/NavfnROS/plan
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 0; 0
+          Enabled: true
+          Head Diameter: 0.300000012
+          Head Length: 0.200000003
+          Length: 0.300000012
+          Line Style: Lines
+          Line Width: 0.0299999993
+          Name: Local Plan
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Radius: 0.0299999993
+          Shaft Diameter: 0.100000001
+          Shaft Length: 0.100000001
+          Topic: /move_base/DWAPlannerROS/local_plan
+          Unreliable: false
+          Value: true
+      Enabled: true
+      Name: Navigation
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cabinet_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        fixed_wheel_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        fixed_wheel_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lidar_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        panda_link8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        wheel_back_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_back_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_front_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_front_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
       Robot Description: /robot_description
       TF Prefix: ""
       Update Interval: 0
@@ -784,7 +785,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -803,7 +804,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 16.1176968
+      Distance: 18.8131275
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
