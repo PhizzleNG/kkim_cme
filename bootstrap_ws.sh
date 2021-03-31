@@ -31,10 +31,19 @@ update_cme() {
 	cd "${SCRIPT_ROOT}"
 	if [ -d ".git" ] ; then
 		git fetch
+		# check if head matches with tracking branch (if any)
 		[ "$(git rev-parse HEAD)" == "$(git rev-parse @{u})" ] && return 1
+		if ! git diff --quiet ; then
+			warn "Local changes detected in repo!"
+			return 1
+		fi
+		if git status | grep -q "branch is ahead" ; then
+			warn "Local branch is ahead of upstream!"
+			return 1
+		fi
 		git pull && return 0
 	else
-		warn "Unable to pull latest changes - not a git repo!"
+		warn "\"${SCRPIT_ROOT}\" is not a git repo!"
 	fi
 	error "Unable to update CME! You may be out of date."
 	sleep 2
