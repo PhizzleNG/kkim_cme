@@ -7,9 +7,12 @@
 	<arg name="manipulator" default=""/>
 
 	<!-- robots -->
-	<include if="$(eval robot == 'husky')" file="$(find cme_launch)/launch/husky.launch"/>
-	<include if="$(eval robot == 'jackal')" file="$(find cme_launch)/launch/jackal.launch"/>
-	<include if="$(eval robot == 'mm_400')" file="$(find cme_launch)/launch/mm_400.launch"/>
+	<include file="$(find cme_launch)/launch/robot.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg if="$(eval manipulator != '')"
+		     name="manipulator" value="$(arg manipulator)"/>
+		<arg name="gazebo" value="$(arg gazebo)"/>
+	</include>
 
 	<!-- world and world control -->
 	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>

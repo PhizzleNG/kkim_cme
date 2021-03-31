@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- send urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find cme_description)/urdf/complete_model.urdf.xacro'" />
+	<!-- send urdf to param server -->
+	<arg name="world_namespace" default="/"/>
+	<param name="robot_description" 
+	       command="$(find xacro)/xacro --inorder world_namespace:=$(arg world_namespace) '$(find cme_description)/urdf/complete_model.urdf.xacro'" />
 </launch>

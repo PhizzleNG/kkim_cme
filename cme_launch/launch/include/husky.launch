@@ -2,6 +2,7 @@
 <launch>
 	<arg name="robot" default="husky"/>
 	<arg name="robot_namespace" default="$(eval optenv('HUSKY_NAMESPACE', robot))"/>
+	<arg name="manipulator" default="$(eval optenv('HUSKY_MANIPULATOR', robot))"/>
 
 	<arg name="gazebo" default="true"/>
 	<!-- TODO: add manipulators -->
@@ -16,6 +17,7 @@
 	<group ns="$(arg robot_namespace)">
 		<!-- Spawn Husky -->
 		<include file="$(find cme_launch)/launch/include/$(arg robot)/spawn_robot.launch.xml">
+			<arg name="robot_namespace" value="$(arg robot_namespace)"/>
 			<arg name="laser_enabled" value="$(arg laser_enabled)"/>
 			<arg name="realsense_enabled" value="$(arg realsense_enabled)"/>
 		</include>

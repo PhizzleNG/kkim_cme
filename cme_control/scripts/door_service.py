@@ -50,7 +50,7 @@ def get_controller_joints():
 
 def door_open_service(name):
     door_open_publisher = rospy.Publisher(
-            '/{}/command'.format(name),
+            '{}/command'.format(name),
             Float64,
             queue_size=1,
     )
@@ -60,12 +60,12 @@ def door_open_service(name):
         )
         return DoorOpenResponse(DOOR_OPEN_ANGLE)
 
-    service_name = '/{}/open'.format(name.rpartition('_')[0])
+    service_name = '{}/open'.format(name.rpartition('_')[0])
     return rospy.Service(service_name, DoorOpen, callback)
 
 def door_close_service(name):
     door_close_publisher = rospy.Publisher(
-            '/{}/command'.format(name),
+            '{}/command'.format(name),
             Float64,
             queue_size=1,
     )
@@ -75,7 +75,7 @@ def door_close_service(name):
         )
         return DoorCloseResponse(DOOR_CLOSE_ANGLE)
 
-    service_name = '/{}/close'.format(name.rpartition('_')[0])
+    service_name = '{}/close'.format(name.rpartition('_')[0])
     return rospy.Service(service_name, DoorClose, callback)
 
 def find_controllers(search_term):
@@ -106,6 +106,7 @@ def main():
     door_controller_re = re.compile('door_([0-9]+)_([A-Za-z0-9-]+)')
 
     rospy.loginfo('Searching for controllers...')
+    rospy.sleep(3)
 
     door_controllers = find_controllers(door_controller_re)
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="world_namespace" default="/"/>
+
+	<group ns="$(arg world_namespace)">
+		<!-- Launch other relevant files-->
+		<include file="$(find cme_description)/launch/include/building_description.launch.xml">
+			<arg name="world_namespace" value="$(arg world_namespace)"/>
+		</include>
+
+		<!-- push robot_description to factory and spawn robot in gazebo -->
+		<node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
+			args="-unpause -urdf -param robot_description -model $(arg world_namespace)" respawn="false" output="screen" />
+
+		<!-- Robot state publisher -->
+		<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+			<param name="publish_frequency" type="double" value="20.0" />
+			<param name="tf_prefix" type="string" value="" />
+		</node>
+
+		<!-- Fake Calibration -->
+		<node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
+		      args="pub /calibrated std_msgs/Bool true" />
+
+		<!-- start the door controller -->
+		<rosparam file="$(find cme_gazebo)/controller/controllers.yaml" command="load"/>
+		<node name="door_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller door_1_position door_2_position door_3_position" respawn="false" output="screen"/>
+
+		<!-- load other controllers -->
+		<node name="door_service" pkg="cme_control" type="door_service.py"/>
+	</group>
+
+</launch>
+

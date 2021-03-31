@@ -12,6 +12,9 @@ husky_velocity_controller:
   cmd_vel_timeout: 0.25
   velocity_rolling_window_size: 2
 
+  # General controller PID
+  pid: {p: 0.1, i: 0.00001, d: 0.0001}
+
   # Base frame_id
   base_frame_id: base_link
 

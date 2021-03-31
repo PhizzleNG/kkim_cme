@@ -12,6 +12,12 @@ git clone git+ssh://git@github.com/MyNameIsCosmo/kkim_cme.git
 bash kkim_cme/bootstrap_ws.sh
 ```
 
+### Test the world
+```
+roslaunch cme_launch world.launch
+./test_doors.sh
+```
+
 ### Full Simulation
 Simulate the world and a robot with Gazebo.  
 Launches Gazebo, RVIZ, door controls, a robot, and door controls.
