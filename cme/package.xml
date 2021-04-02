@@ -50,6 +50,11 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <!-- General external dependencies -->
+	<depend>husky_robot</depend>
+	<depend>frank_ros</depend>
+	<depend>pilz_robots</depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

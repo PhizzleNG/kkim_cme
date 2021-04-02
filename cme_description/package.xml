@@ -50,6 +50,11 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <depend>franka_description</depend>
+  <depend>franka_gripper</depend>
+  <depend>prbt_gripper</depend>
+  <depend>prbt_support</depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

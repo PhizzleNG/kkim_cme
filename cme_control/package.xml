@@ -51,7 +51,11 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <depend>prbt_moveit_config</depend>
+  <depend>franka_control</depend>
+  <depend>franka_example_controllers</depend>
+  <depend>franka_gripper</depend>
   <depend>panda_moveit_config</depend>
+
   <depend>cob_scan_unifier</depend>
 
   <build_depend>message_generation</build_depend>

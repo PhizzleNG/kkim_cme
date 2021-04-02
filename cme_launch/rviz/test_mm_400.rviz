@@ -75,12 +75,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        fixed_wheel_left_link:
+        wheel_left_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        fixed_wheel_right_link:
+        wheel_right_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false

@@ -16,4 +16,11 @@
 	<rosparam file="$(find cme_control)/config/$(arg robot)/control.yaml" command="load"/>
 	<node name="joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
 
+	<!-- Interactive nodes -->
+	<node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen"/>
+
+	<node pkg="twist_mux" type="twist_mux" name="twist_mux">
+		<rosparam command="load" file="$(find cme_control)/config/$(arg robot)/twist_mux.yaml" />
+	</node>
+
 </launch>
