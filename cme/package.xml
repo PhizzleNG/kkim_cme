@@ -51,9 +51,9 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <!-- General external dependencies -->
-	<depend>husky_robot</depend>
-	<depend>frank_ros</depend>
-	<depend>pilz_robots</depend>
+	<exec_depend>husky_robot</exec_depend>
+	<exec_depend>frank_ros</exec_depend>
+	<exec_depend>pilz_robots</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

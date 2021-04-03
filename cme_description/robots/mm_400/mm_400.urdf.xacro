@@ -3,7 +3,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mm_400">
 	<xacro:arg name="robot_namespace" default="/" />
 
-	<xacro:arg name="manipulator" default="pilz" />
+	<xacro:arg name="manipulator" default="" />
 	<xacro:arg name="gripper" default="true" />
 
 	<xacro:arg name="camera" default="false" />
@@ -22,17 +22,19 @@
 	<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/mp_400_gazebo.xacro" />
 	<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/mp_400_body.xacro" />
 	<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/mp_400_caster_wheel.xacro" />
-	<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/mp_400_wheel_left.xacro" />
-	<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/mp_400_wheel_right.xacro" />
+	<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/mp_400_wheel.xacro" />
 	<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/cabinet.xacro" />
 
 	<!-- manipulators -->
 	<xacro:if value="$(eval manipulator == 'pilz')">
-		<xacro:include filename="$(find prbt_support)/urdf/prbt_macro.xacro" />
+		<xacro:include filename="$(find prbt_support)/urdf/prbt_macro.xacro"/>
 	</xacro:if>
 
 	<xacro:if value="$(eval manipulator == 'panda')">
-		<xacro:include filename="$(find franka_description)/robots/panda_arm.xacro" />
+		<xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+		<xacro:if value="$(arg gripper)">
+			<xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+		</xacro:if>
 	</xacro:if>
 
 	<!-- SENSORS -->
@@ -78,11 +80,11 @@
 		<origin xyz="-0.220 -0.155 0.036" rpy="0 0 1.57" />
 	</xacro:caster_wheel>
 
-	<xacro:wheel name="wheel_right" parent="base_link">
+	<xacro:wheel name="right" parent="base_link">
 		<origin xyz="0. -0.26 0.074" rpy="0 0 1.57" />
 	</xacro:wheel>
 
-	<xacro:wheel name="wheel_left" parent="base_link">
+	<xacro:wheel name="left" parent="base_link">
 		<origin xyz="-0. 0.26 0.074" rpy="0 0 1.57" />
 	</xacro:wheel>
 
@@ -95,19 +97,18 @@
 	-->
 
 	<!-- Robot arm -->
-	<xacro:if value="${eval manipulator == 'pilz'}">
-		<xacro:prbt parent="base_link" prefix="pilz">
-			<origin xyz="0 0 0." rpy="0 0 0" />
-			<xacro:arg name="gripper" value="$(arg gripper)"/>
-		</xacro:prbt>
+	<xacro:if value="$(eval manipulator == 'pilz')">
+		<xacro:prbt prefix="pilz"/>
+		<joint name="pilz-base_link" type="fixed">
+			<parent link="base_link"/>
+			<child link="pilzbase_link"/>
+		</joint>
 	</xacro:if>
 
 	<!-- Panda -->
-	<xacro:if value="${eval manipulator == 'panda'}">
-		<xacro:panda_arm parent="base_link" prefix="panda">
-			<origin xyz="0 0 0." rpy="0 0 0" />
-			<xacro:arg name="gripper" value="$(arg gripper)"/>
-		</xacro:panda_arm>
+	<xacro:if value="$(eval manipulator == 'panda')">
+		<xacro:panda_arm connected_to="cabinet_link"/>
+		<xacro:hand ns="panda" rpy="0 0 ${-pi/4}" connected_to="panda_link8"/>
 	</xacro:if>
 
 	<!--

@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mp_400_wheel">
-
 	<xacro:macro name="wheel" params="name parent *joint_origin wheel_length:=0.2 wheel_radius=0.079">
 		<link name="${name}_wheel_link">
 			<inertial>
 				<mass value="2" />
 				<origin xyz="0 0 0" />
-				<inertia ixxx="0.2467" ixy="0" ixz="0"
+				<inertia ixx="0.2467" ixy="0" ixz="0"
 				         iyy="0.04411" iyz="0" izz="0.02467" />
 			</inertial>
 			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0">
+				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
 					<mesh filename="package://neo_simulation/robots/mp_400/meshes/MP-400-FIXED-WHEEL-LEFT.dae" scale="0.001 0.001 0.001"/>
 				</geometry>
@@ -25,7 +24,7 @@
 
 		<gazebo reference="${name}_wheel_link">
 			<mu1 value="1.0"/>
-			<mu2 value="!.0"/>
+			<mu2 value="1.0"/>
 			<kp value="100000.0" />
 			<kd value="1.0" />
 			<fdir value="1 0 0"/>

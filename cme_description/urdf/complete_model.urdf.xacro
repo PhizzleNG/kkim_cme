@@ -5,6 +5,7 @@
 	 Args
 	-->
 	<xacro:arg name="world_namespace" default="/" />
+	<xacro:arg name="building" default="mp_model" />
 
 	<!--
 	 Includes
@@ -21,7 +22,7 @@
 	<!--
 	 Building
 	-->
-	<xacro:include filename="$(find cme_description)/urdf/mp_model.urdf.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/$(arg building).urdf.xacro" />
 
 	<!--
 	 Doors
@@ -48,7 +49,7 @@
 	<!--
 	 Light Switches
 	-->
-	
+
 	<!-- Switch 1 -->
 		<!-- origin x=(rviz) y=(wallthickness/2) z=(rviz) -->
 	<xacro:light_switch id="1" parent="Wall_3">

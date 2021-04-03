@@ -4,23 +4,13 @@
 	<arg name="manipulator" default="pilz"/>
 	<arg name="enable_ekf" default="$(optenv MM_400_ENABLE_EKF true)"/>
 
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
-		<param name="publish_frequency" value="20.0"/>
-	</node>
+	<include file="$(find cme_launch)/launch/include/control.launch.xml">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="enable_ekf" value="$(arg enable_ekf)"/>
+		<arg name="spawn_controllers" value="mm_400_joint_controller mm_400_velocity_controller"/>
+		<arg name="controller_configuration" value="$(find cme_control)/config/$(arg robot)/control.yaml"/>
+	</include>
 
-	<!-- Fake Calibration -->
-	<node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
-	      args="pub /calibrated std_msgs/Bool true" />
-
-	<!-- joint_state_controller -->
-	<rosparam file="$(find cme_control)/config/$(arg robot)/control.yaml" command="load"/>
-	<node name="joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
-
-	<!-- Interactive nodes -->
-	<node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen"/>
-
-	<node pkg="twist_mux" type="twist_mux" name="twist_mux">
-		<rosparam command="load" file="$(find cme_control)/config/$(arg robot)/twist_mux.yaml" />
-	</node>
-
+	<!--remap topic /-->
+	<node name="remap_cmd_vel" pkg="topic_tools" type="relay" args="cmd_vel_out mm_400_velocity_controller/cmd_vel"/>
 </launch>

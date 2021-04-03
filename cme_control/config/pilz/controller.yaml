@@ -1,0 +1,22 @@
+pilz_joint_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - pilzjoint_1
+     - pilzjoint_2
+     - pilzjoint_3
+     - pilzjoint_4
+     - pilzjoint_5
+     - pilzjoint_6
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      pilzjoint_1: {trajectory: 0.157, goal: 0.01}
+      pilzjoint_2: {trajectory: 0.157, goal: 0.01}
+      pilzjoint_3: {trajectory: 0.157, goal: 0.01}
+      pilzjoint_4: {trajectory: 0.157, goal: 0.01}
+      pilzjoint_5: {trajectory: 0.157, goal: 0.01}
+      pilzjoint_6: {trajectory: 0.157, goal: 0.01}
+  stop_trajectory_duration: 0.2
+  state_publish_rate:  25
+  action_monitor_rate: 10
+  required_drive_mode: 7
