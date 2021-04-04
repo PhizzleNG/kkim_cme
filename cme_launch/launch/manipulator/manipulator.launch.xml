@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="manipulator"/>
+	<arg name="manipulator_namespace" default="$(eval optenv(manipulator + '_NAMESPACE', '/'))"/>
+
+	<arg name="parent" default=""/>
+	<arg name="xyz" default="0 0 0"/>
+	<arg name="rpy" default="0 0 0"/>
+
+	<arg name="gripper" default="$(eval optenv(manipulator + '_GRIPPER', 'default'))"/>
+	<arg name="gazebo" default="true"/>
+	<arg name="moveit" default="true"/>
+
+	<!-- NOTE: Mutli robot env isn't supported yet -->
+	<arg name="spawn" default="false"/>
+
+	<!-- Spawn Manipulator -->
+	<include if="$(arg spawn)"
+	         file="$(find cme_launch)/launch/manipulator/$(arg manipulator)/spawn.launch.xml">
+		<arg name="manipulator" value="$(arg manipulator)"/>
+		<arg name="manipulator_namespace" value="$(arg manipulator_namespace)"/>
+		<arg name="parent" value="$(arg parent)"/>
+		<arg name="xyz" value="$(arg xyz)"/>
+		<arg name="rpy" value="$(arg rpy)"/>
+		<arg name="gripper" value="$(arg gripper)"/>
+	</include>
+
+	<!-- Spawn Controllers -->
+	<include file="$(find cme_launch)/launch/manipulator/$(arg manipulator)/control.launch.xml">
+		<arg name="manipulator" value="$(arg manipulator)"/>
+	</include>
+
+	<!-- TODO: Launch MoveIt -->
+	<include if="$(arg moveit)"
+		file="$(find cme_launch)/launch/manipulator/$(arg manipulator)/moveit.launch.xml">
+		<arg name="gripper" value="$(arg gripper)"/>
+	</include>
+</launch>
+

@@ -22,7 +22,7 @@
 	<!--
 	 Building
 	-->
-	<xacro:include filename="$(find cme_description)/urdf/$(arg building).urdf.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/building/$(arg building).urdf.xacro" />
 
 	<!--
 	 Doors

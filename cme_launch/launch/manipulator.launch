@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: This should spawn the robot description, attach to <parent> -->
+<launch>
+	<!-- load given manipulator -->
+	<arg name="manipulator"/>
+	<arg name="parent" default=""/>
+	<arg name="xyz" default="0 0 0"/>
+	<arg name="rpy" default="0 0 0"/>
+
+	<include file="$(find cme_launch)/launch/manipulator/$(arg manipulator).launch">
+		<arg name="manipulator" value="$(arg manipulator)"/>
+		<arg name="parent" value="$(arg parent)"/>
+		<arg name="xyz" value="$(arg xyz)"/>
+		<arg name="rpy" value="$(arg rpy)"/>
+	</include>
+</launch>

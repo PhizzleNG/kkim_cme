@@ -1,4 +1,4 @@
-image: cme_map.pgm
+image: mp_model.pgm
 resolution: 0.050000
 origin: [-100.000000, -100.000000, 0.000000]
 negate: 0

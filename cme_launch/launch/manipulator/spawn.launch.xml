@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="manipulator"/>
+	<arg name="manipulator_namespace"/>
+
+	<arg name="parent"/>
+	<arg name="xyz" default="0 0 0"/>
+	<arg name="rpy" default="0 0 0"/>
+
+	<arg name="gazebo" default="true"/>
+	<arg name="gripper" default=""/>
+
+	<arg name="robot_description" default="$(find cme_description)/robots/$(arg manipulator).urdf.xacro"/>
+	<arg name="robot_description_extras" default=""/>
+
+	<arg name="gazebo_spawn_extras" default=""/>
+
+	<!--Robot description to param server-->
+	<param if="$(eval robot_description != '')" name="robot_description"
+		command="xacro --inorder '$(arg robot_description)'
+	             manipulator_namespace:=$(arg manipulator_namespace)
+				 parent:=$(arg parent) xyz:='$(arg xyz)' rpy:='$(arg rpy)'
+	             $(arg robot_description_extras)"/>
+
+	<!-- TODO: x, y, z args? unpause? -->
+	<node if="$(arg gazebo)" name="$(arg manipulator)_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+	      args="-urdf -param robot_description -model $(arg manipulator) $(arg gazebo_spawn_extras)"/>
+</launch>

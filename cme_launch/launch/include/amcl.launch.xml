@@ -11,6 +11,7 @@
 	<node pkg="amcl" type="amcl" name="amcl" output="screen">
 		<param name="tf_prefix" value="$(arg tf_prefix)"/>
 		<param name="use_map_topic" value="$(arg use_map_topic)"/>
+		<!-- TODO: Could we use amcl in the namespace? -->
 		<remap from="map" to="/map"/>
 		<param name="odom_frame_id" value="$(arg tf_prefix)/odom"/>
 		<param name="base_frame_id" value="$(arg tf_prefix)/base_footprint"/>

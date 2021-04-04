@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+	<xacro:arg name="manipulator" default=""/>
+
+	<xacro:include filename="$(find husky_description)/urdf/husky.urdf.xacro"/>
+	<xacro:if value="$(eval manipulator != '')">
+		<xacro:include filename="$(find cme_description)/robots/$(manipulator).urdf.xacro)">
+			<xacro:arg name="parent" value="top_plate_rear_link"/>
+		</xacro:include>
+	</xacro:if>
+</robot>

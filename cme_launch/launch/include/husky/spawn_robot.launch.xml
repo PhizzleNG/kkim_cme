@@ -3,7 +3,6 @@
 	<arg name="robot" default="husky"/>
 	<arg name="robot_namespace" default="$(optenv HUSKY_NAMESPACE husky)"/>
 	<arg name="gazebo" default="$(optenv HUSKY_ENABLE_GAZEBO true)"/>
-	<arg name="manipulator" default="$(optenv HUSKY_MANIPULATOR)"/>
 
 	<arg name="laser_enabled" default="$(optenv HUSKY_LMS1XX_ENABLED false)"/>
 	<arg name="realsense_enabled" default="$(optenv HUSKY_REALSENSE_ENABLED false)"/>
@@ -12,14 +11,12 @@
 	<include file="$(find cme_launch)/launch/include/spawn_robot.launch.xml">
 		<arg name="robot" value="$(arg robot)"/>
 		<arg name="gazebo" value="$(arg gazebo)"/>
-		<arg name="manipulator" value="$(arg manipulator)"/>
-		<arg name="robot_description" value="$(find husky_description)/urdf/husky.urdf.xacro"/>
+		<arg name="robot_description" value="$(find cme_description)/robots/husky.urdf.xacro"/>
 		<arg name="robot_description_extras" value="
 		     robot_namespace:=$(arg robot_namespace)
 		     laser_enabled:=$(arg laser_enabled)
 		     realsense_enabled:=$(arg realsense_enabled)
 		     urdf_extras:=$(arg urdf_extras)
 		     "/>
-		<!-- TODO: add manipulators -->
 	</include>
 </launch>

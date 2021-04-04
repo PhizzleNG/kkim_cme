@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: MoveIt config should allow other end effectors? -->
+<launch>
+	<arg name="gripper" default=""/>
+	<arg name="load_gripper" default="false"/>
+
+	<include file="$(find panda_moveit_config)/launch/move_group.launch">
+		<arg name="load_gripper" value="$(arg load_gripper)"/>
+	</include>
+</launch>

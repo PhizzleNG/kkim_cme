@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="manipulator" default="panda"/>
+	<arg name="manipulator_namespace" default="$(eval optenv(manipulator + '_NAMESPACE', manipulator))"/>
+
+	<arg name="spawn" default="false"/>
+
+	<arg name="parent" default=""/>
+	<arg name="xyz" default=""/>
+	<arg name="rpy" default=""/>
+
+	<group ns="$(arg manipulator_namespace)">
+		<include file="$(find cme_launch)/launch/manipulator/manipulator.launch.xml">
+			<arg name="manipulator" value="$(arg manipulator)"/>
+			<arg name="manipulator_namespace" value="$(arg manipulator_namespace)"/>
+			<arg name="spawn" value="$(arg spawn)"/>
+			<arg name="parent" value="$(arg parent)"/>
+			<arg name="xyz" value="$(arg xyz)"/>
+			<arg name="rpy" value="$(arg rpy)"/>
+		</include>
+	</group>
+</launch>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!-- TODO: Add grippers for arms -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+	<xacro:arg name="manipulator_namespace" default="/" />
+
+	<xacro:arg name="parent" default="" />
+	<xacro:arg name="gripper" default="" />
+
+	<xacro:arg name="xyz" default="0 0 0"/>
+	<xacro:arg name="rpy" default="0 0 0"/>
+
+	<xacro:property name="robot_namespace" value="$(arg robot_namespace)"/>
+
+	<!-- NOTE: The franka_description package doesn't support Gazebo... -->
+	<xacro:include filename="$(find cme_description)/robots/panda/panda_arm.xacro"/>
+	<xacro:if value="$(eval gripper == 'default')">
+		<xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+	</xacro:if>
+
+	<xacro:if value="$(eval parent == '')">
+		<link name="world"/>
+		<xacro:property name="parent" value="world"/>
+	</xacro:if>
+	<xacro:unless value="$(eval parent == '')">
+		<xacro:property name="parent" value="$(arg parent)"/>
+	</xacro:unless>
+
+	<!-- Panda -->
+	<xacro:panda_arm/>
+
+	<!-- Override panda connect_to arg -->
+	<xacro:if value="$(eval parent != '')">
+		<joint name="panda_joint_$(arg parent)" type="fixed">
+			<parent link="$(arg parent)"/>
+			<child link="panda_link0"/>
+			<origin rpy="$(arg rpy)" xyz="$(arg xyz)"/>
+		</joint>
+	</xacro:if>
+
+	<xacro:if value="$(eval gripper == 'default')">
+		<xacro:hand ns="panda" rpy="0 0 ${-pi/4}" connected_to="panda_link8"/>
+	</xacro:if>
+
+	<!-- Additional urdf missing from panda description -->
+	<xacro:macro name="panda_transmission" params="prefix id">
+		<transmission name="${prefix}_tran_${id}">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}_joint${id}">
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}_motor_${id}">
+				<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
+		</transmission>
+	</xacro:macro>
+	<xacro:macro name="panda_gazebo" params="prefix id">
+		<gazebo reference="${prefix}_link${id}">
+			<material>Gazebo/Grey</material>
+			<kp>1000000</kp>
+			<kd>200</kd>
+			<mu1>0.2</mu1>
+			<mu2>0.2</mu2>
+		</gazebo>
+	</xacro:macro>
+
+	<xacro:panda_transmission prefix="panda" id="1"/>
+	<xacro:panda_transmission prefix="panda" id="2"/>
+	<xacro:panda_transmission prefix="panda" id="3"/>
+	<xacro:panda_transmission prefix="panda" id="4"/>
+	<xacro:panda_transmission prefix="panda" id="5"/>
+	<xacro:panda_transmission prefix="panda" id="6"/>
+	<xacro:panda_transmission prefix="panda" id="7"/>
+
+	<xacro:panda_gazebo prefix="panda" id="1"/>
+	<xacro:panda_gazebo prefix="panda" id="2"/>
+	<xacro:panda_gazebo prefix="panda" id="3"/>
+	<xacro:panda_gazebo prefix="panda" id="4"/>
+	<xacro:panda_gazebo prefix="panda" id="5"/>
+	<xacro:panda_gazebo prefix="panda" id="6"/>
+	<xacro:panda_gazebo prefix="panda" id="7"/>
+	<xacro:panda_gazebo prefix="panda" id="8"/>
+
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		<robotNamespace>$(arg manipulator_namespace)</robotNamespace>
+			<legacyModeNS>true</legacyModeNS>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		</plugin>
+	</gazebo>
+</robot>

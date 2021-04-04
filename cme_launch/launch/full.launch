@@ -1,37 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-	<arg name="gazebo" default="true"/>
-	<arg name="rviz" default="true"/>
 	<arg name="robot" default="mm_400"/>
-	<arg name="world_namespace" default="world"/>
-	<arg name="cme_services" default="true"/>
 	<arg name="manipulator" default=""/>
+	<arg name="building" default="mp_model"/>
+
+	<arg name="robot_namespace" default="$(arg robot)"/>
+	<arg name="manipulator_namespace" default="$(arg manipulator)"/>
+	<arg name="world_namespace" default="world"/>
+
+	<arg name="cme_services" default="true"/>
 	<arg name="use_xacro_world" default="true"/>
 
-	<!-- robots -->
-	<include file="$(find cme_launch)/launch/robot.launch">
-		<arg name="robot" value="$(arg robot)"/>
-		<arg if="$(eval manipulator != '')"
-		     name="manipulator" value="$(arg manipulator)"/>
-		<arg name="gazebo" value="$(arg gazebo)"/>
-	</include>
+	<arg name="gazebo" default="true"/>
+	<arg name="rviz" default="true"/>
 
 	<!-- world and world control -->
-	<group if="$(arg use_xacro_world)">
-		<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch">
-			<arg name="world_file" value="worlds/empty.world"/>
-		</include>
-		<include file="$(find cme_launch)/launch/world.launch">
-			<arg name="gazebo" value="$(arg gazebo)"/>
-			<arg name="world_namespace" value="$(arg world_namespace)"/>
-		</include>
-	</group>
+	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch">
+		<arg if="$(arg use_xacro_world)"
+		     name="world_file" value="worlds/empty.world"/>
+	</include>
+	<include if="$(arg use_xacro_world)" file="$(find cme_launch)/launch/world.launch">
+		<arg name="gazebo" value="$(arg gazebo)"/>
+		<arg name="building" value="$(arg building)"/>
+		<arg name="world_namespace" value="$(arg world_namespace)"/>
+	</include>
 	<group unless="$(arg use_xacro_world)">
 		<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
 	</group>
 	<!--include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/-->
 
-	<!-- visualization and othre tools -->
+	<!-- robot and manipulator -->
+	<include file="$(find cme_launch)/launch/robot.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="gazebo" value="$(arg gazebo)"/>
+		<arg name="building" value="$(arg building)"/>
+	</include>
+
+	<include if="$(eval manipulator != '')"
+	         file="$(find cme_launch)/launch/manipulator.launch">
+		<arg name="manipulator" value="$(arg manipulator)"/>
+		<arg if="$(eval robot == 'husky')"
+		     name="parent" value="top_plate_rear_link"/>
+		<arg if="$(eval robot == 'mm_400')"
+		     name="parent" value="cabinet"/>
+	 </include>
+
+	<!-- visualization and other tools -->
 	<include if="$(arg rviz)" file="$(find cme_launch)/launch/rviz.launch">
 		<arg name="rviz_file" value="$(find cme_launch)/rviz/full_$(arg robot).rviz"/>
 	</include>
