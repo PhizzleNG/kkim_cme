@@ -25,7 +25,7 @@ rosservice call /world/door_1/close
 Simulate the world and a Husky robot with Gazebo.  
 Launches Gazebo, RVIZ, the CME world, a robot, and door control.
 ```
-roslaunch cme_launch full.launch gazebo:=true rviz:=true robot:=husky manipulator:=
+roslaunch cme_launch full.launch gazebo:=true rviz:=true robot:=husky manipulator:=panda
 ROS_NAMESPACE=/husky rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
@@ -41,23 +41,18 @@ roslaunch cme_launch full.launch gazebo:=true rviz:=true robot:=mm_400 manipulat
 ROS_NAMESPACE=/mm_400 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-#### Running gmapping
+### Testing a Panda in Gazebo
 ```
-roslaunch cme_launch gmapping.launch robot:=husky
-```
-
-#### Running exploration
-```
-roslaunch cme_lanuch exploration.launch
+roslaunch cme_launch test_panda_moveit.launch
 ```
 
-#### Running keyboard teleop
+### Running keyboard teleop
 ```
 ROS_NAMESPACE=/ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
 ## Tasks
-Overview of xacro file at [complete_model.urdf.xacro](cme_description/urdf/complete_model.urdf.xacro).
+Overview of xacro file at [complete_mp_model.urdf.xacro](cme_description/urdf/complete_mp_model.urdf.xacro).
 
 ### Doors
 Doors are created using a xacro macro defined in [door.xacro.xml](cme_description/urdf/door.xacro.xml).  

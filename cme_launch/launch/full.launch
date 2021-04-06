@@ -23,11 +23,11 @@
 		<arg name="gazebo" value="$(arg gazebo)"/>
 		<arg name="building" value="$(arg building)"/>
 		<arg name="world_namespace" value="$(arg world_namespace)"/>
+		<arg name="cme_services" value="$(arg cme_services)"/>
 	</include>
 	<group unless="$(arg use_xacro_world)">
 		<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
 	</group>
-	<!--include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/-->
 
 	<!-- robot and manipulator -->
 	<include file="$(find cme_launch)/launch/robot.launch">

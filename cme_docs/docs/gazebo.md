@@ -7,8 +7,8 @@ To make this a proper Gazebo environment, it needs to be converted into an SDF,
 and then added to an empty Gazebo world.
 
 ```
-xacro --inorder $(rospack find cme_description)/urdf/complete_model.urdf.xacro > /tmp/complete_model.urdf
-gz sdf -p /tmp/complete_model.urdf > complete_model.sdf
+xacro --inorder $(rospack find cme_description)/urdf/complete_mp_model.urdf.xacro > /tmp/complete_mp_model.urdf
+gz sdf -p /tmp/complete_mp_model.urdf > complete_model.sdf
 ```
 
 

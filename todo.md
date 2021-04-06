@@ -11,6 +11,7 @@
 - [ ] reorg launch files
 	- [ ] cme_launch/launch/robot/{control,...}.launch.xml
 	- [ ] cme_launch/launch/manipulator/{control,...}.launch.xml
+- [ ] env hooks
 
 
 # 

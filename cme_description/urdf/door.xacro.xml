@@ -9,7 +9,7 @@ Example:
  -->
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-<xacro:macro name="door" params="id parent width height depth *frame_origin mass:=30 min_angle:=0 max_angle:=${pi/2} flip:=false mirror:=false door_handle:=false">
+<xacro:macro name="door" params="id parent width height depth xyz rpy:='0 0 0' mass:=30 min_angle:=0 max_angle:=${pi/2} flip:=false mirror:=false door_handle:=true">
 	<!-- Xacro Macro for a door with handle and joints.
 	Args:
 		id: ID of the door
@@ -17,7 +17,8 @@ Example:
 		width: Door width
 		height: Door height
 		depth: Door depth
-		*frame_origin: Origin of 
+		xyz: position of the door
+		rpy: [=0 0 0]rotation of the door
 		mass: [=30] mass of the object
 		minangle: [=0] minimum angle of the door joint
 		maxangle: [=pi/2] maximum angle of the door joint
@@ -36,7 +37,7 @@ Example:
 		</inertial>
 	</link>
 	<joint name="door_${id}_frame_joint" type="fixed">
-		<xacro:insert_block name="frame_origin"/>
+		<origin xyz="${xyz}" rpy="${rpy}"/>
 		<parent link="${parent}"/>
 		<child link="door_${id}_frame"/>
 	</joint>
@@ -94,12 +95,12 @@ Example:
 	</gazebo>
 	<transmission name="door_${id}_joint_transmission">
 		<type>transmission_interface/SimpleTransmission</type>
-			<actuator name="motor1">
+		<joint name="door_${id}_joint">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="door_${id}_motor">
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
-		<joint name="door_${id}_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
-		</joint>
 	</transmission>
 	<xacro:if value="${door_handle}">
 		<xacro:door_handle id="${id}" parent="door_${id}" door_thickness="${depth}">
@@ -108,7 +109,7 @@ Example:
 	</xacro:if>
 </xacro:macro>
 <xacro:macro name="door_handle" params="id parent door_thickness *origin length:=0.1 offset:=0.002 min_angle:=-${pi/2} max_angle:=${pi/2}">
-	<!-- Create a door handle of _length_ attached to _parent_ at relative _origin_ 
+	<!-- Create a door handle of _length_ attached to _parent_ at relative _origin_
 	Args:
 		id: ID of the door handle
 		parent: Parent link to attach to
@@ -188,7 +189,8 @@ Example:
 		<parent link="door_${id}_handle_base"/>
 		<child link="door_${id}_handle_2"/>
 	</joint>
-	<gazebo reference="door_${id}_handle_joint">
+	<gazebo reference="door_${id}_handle_base">
+		<turnGravityOff>true</turnGravityOff>
 		<gravity>0</gravity>
 		<mu1>0.2</mu1>
 		<mu2>0.2</mu2>
@@ -200,7 +202,7 @@ Example:
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 		<joint name="door_${id}_handle_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 	</transmission>
 </xacro:macro>

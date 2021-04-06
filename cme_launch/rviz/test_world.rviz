@@ -20,6 +20,7 @@ Panels:
   - Class: rviz/Views
     Expanded:
       - /Current View1
+      - /Current View1/Focal Point1
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
@@ -358,30 +359,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: true
           Value: true
-        door_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        door_2_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        door_2_handle_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        door_2_handle_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        door_2_handle_base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: true
-          Value: true
         door_3:
           Alpha: 1
           Show Axes: false
@@ -406,6 +383,150 @@ Visualization Manager:
           Show Axes: false
           Show Trail: true
           Value: true
+        door_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_4_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_4_handle_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_4_handle_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_4_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_5_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_5_handle_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_5_handle_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_5_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_6_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_6_handle_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_6_handle_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_6_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_7_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_7_handle_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_7_handle_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_7_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_8_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_8_handle_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_8_handle_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_8_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_9_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door_9_handle_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_9_handle_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        door_9_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         light_switch_1_faceplate:
           Alpha: 1
           Show Axes: false
@@ -416,6 +537,42 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        room_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        room_9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         world:
           Alpha: 1
           Show Axes: false
@@ -535,6 +692,14 @@ Visualization Manager:
       Topic: /amcl_pose
       Unreliable: false
       Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: visualization_marker_array
+      Name: MarkerArray
+      Namespaces:
+        door: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -560,25 +725,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 11.8609896
+      Distance: 19.4798679
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: -0.767197013
+        Y: -1.59205329
+        Z: -0.782957315
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.26479602
+      Pitch: 1.27500021
       Target Frame: door_1_frame
       Value: Orbit (rviz)
-      Yaw: 5.26857471
+      Yaw: 5.2181797
     Saved: ~
 Window Geometry:
   Displays:

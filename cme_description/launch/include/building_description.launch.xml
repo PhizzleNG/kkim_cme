@@ -3,5 +3,5 @@
 	<!-- send urdf to param server -->
 	<arg name="world_namespace" default="/"/>
 	<param name="robot_description" 
-	       command="$(find xacro)/xacro --inorder world_namespace:=$(arg world_namespace) '$(find cme_description)/urdf/complete_model.urdf.xacro'" />
+	       command="$(find xacro)/xacro --inorder world_namespace:=$(arg world_namespace) '$(find cme_description)/urdf/complete_mp_model.urdf.xacro'" />
 </launch>

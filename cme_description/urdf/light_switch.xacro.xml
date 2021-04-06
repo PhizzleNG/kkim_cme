@@ -9,12 +9,12 @@ Example:
  -->
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-<xacro:macro name="light_switch" params="id parent *origin">
+<xacro:macro name="light_switch" params="id parent xyz rpy:='0 0 0'">
 	<!--
 
 	-->
 	<!-- the faceplate -->
-	<link name="light_switch_${id}_faceplate">
+	<link name="light_switch_${id}">
 		<visual>
 			<geometry>
 				<box size="0.1 0.001 0.2"/>
@@ -23,9 +23,9 @@ Example:
 		</visual>
 	</link>
 	<joint name="light_switch_${id}_faceplate_joint" type="fixed">
-		<xacro:insert_block name="origin" />
+		<origin xyz="${xyz}" rpy="${rpy}"/>
 		<parent link="${parent}" />
-		<child link="light_switch_${id}_faceplate" />
+		<child link="light_switch_${id}" />
 	</joint>
 
 	<!-- the switch -->
@@ -43,7 +43,7 @@ Example:
 		<origin xyz="0 -0.005 0" rpy="0 0 ${pi/2}" />
 		<axis xyz="0 -1 0" />
 		<limit lower="-${pi/4}" upper="${pi/4}" effort="1000" velocity="10" />
-		<parent link="light_switch_${id}_faceplate" />
+		<parent link="light_switch_${id}" />
 		<child link="light_switch_${id}_switch" />
 	</joint>
 </xacro:macro>

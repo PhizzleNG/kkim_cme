@@ -3,11 +3,12 @@
 	<arg name="world_namespace" default="/"/>
 	<arg name="building" default="mp_model"/>
 	<arg name="gazebo" default="true"/>
+	<arg name="cme_services" default="true"/>
 
 	<group ns="$(arg world_namespace)">
 		<!-- Launch other relevant files-->
 		<param name="robot_description"
-		       command="xacro --inorder '$(find cme_description)/urdf/complete_model.urdf.xacro'
+		       command="xacro --inorder '$(find cme_description)/urdf/complete_mp_model.urdf.xacro'
 		                world_namespace:=$(arg world_namespace) building:=$(arg building)" />
 
 		<!-- push robot_description to factory and spawn robot in gazebo -->
@@ -26,10 +27,11 @@
 
 		<!-- start the door controller -->
 		<rosparam file="$(find cme_gazebo)/controller/controllers.yaml" command="load"/>
-		<node name="door_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller door_1_position door_2_position door_3_position" respawn="false" output="screen"/>
+		<node name="door_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+			args="joint_state_controller door_1_position door_3_position door_4_position door_5_position door_6_position door_7_position door_8_position door_9_position" />
 
-		<!-- load other controllers -->
-		<node name="door_service" pkg="cme_control" type="door_service.py"/>
+		<!-- load service nodes -->
+		<include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/>
 	</group>
 
 </launch>

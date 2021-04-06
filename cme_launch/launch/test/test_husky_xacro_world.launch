@@ -31,7 +31,7 @@
 
 	<!-- start the door controller -->
 	<rosparam file="$(find cme_gazebo)/controller/controllers.yaml" command="load"/>
-	<node name="door_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller door_1_position door_2_position door_3_position" respawn="false" output="screen"/>
+	<node name="door_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller door_positions" respawn="false" output="screen"/>
 
 	<!-- load other controllers -->
 	<node name="door_service" pkg="cme_control" type="door_service"/>

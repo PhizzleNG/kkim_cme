@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot name="complete_mp_model" xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<!--
+	 Args
+	-->
+	<xacro:arg name="world_namespace" default="/" />
+	<xacro:arg name="building" default="mp_model" />
+
+	<!--
+	 Includes
+	-->
+	<xacro:include filename="$(find cme_description)/urdf/materials.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/debug.xacro.xml" />
+	<xacro:include filename="$(find cme_description)/urdf/door.xacro.xml" />
+	<xacro:include filename="$(find cme_description)/urdf/light_switch.xacro.xml" />
+	<xacro:include filename="$(find cme_description)/urdf/gazebo.xacro.xml" />
+
+	<!-- Used for fixing robot to Gazebo 'base_link' -->
+	<link name="world"/>
+
+	<!--
+	 Building
+	-->
+	<xacro:include filename="$(find cme_description)/urdf/building/$(arg building).urdf.xacro" />
+
+	<!--
+	 Rooms
+	-->
+	<xacro:macro name="room" params="id xyz rpy parent:=world">
+		<link name="room_${id}"/>
+		<joint name="room_${id}_joint" type="fixed">
+			<origin xyz="${xyz}" rpy="${rpy}"/>
+			<parent link="${parent}"/>
+			<child link="room_${id}"/>
+		</joint>
+	</xacro:macro>
+	<!-- Coordinates are grabbed by using the 2d position tool and listening to /initialpose -->
+	<xacro:room id="1" xyz="1.6 3.85 1" rpy="0 0 0"/>
+	<xacro:room id="2" xyz="-0.2 0.3 1" rpy="0 0 0"/>
+	<xacro:room id="3" xyz="3.9 3.5 1" rpy="0 0 0"/>
+	<xacro:room id="4" xyz="4 0.4 1" rpy="0 0 0"/>
+	<xacro:room id="5" xyz="4 -1.5 1" rpy="0 0 0"/>
+	<xacro:room id="6" xyz="2 -2.5 1" rpy="0 0 0"/>
+	<xacro:room id="7" xyz="-0.8 -4.5 1" rpy="0 0 0"/>
+	<xacro:room id="8" xyz="1.5 -4.5 1" rpy="0 0 0"/>
+	<xacro:room id="9" xyz="4 -4.5 1" rpy="0 0 0"/>
+
+	<!--
+	 Doors
+	-->
+	<xacro:door id="1" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+		xyz="2.06 -3.5 0.01" rpy="0 0 0"/>
+	<!-- Room 2 doesn't have a door -->
+	<xacro:door id="3" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
+		xyz="2.54 -4.02 0" rpy="0 0 ${pi/2}"/>
+	<xacro:door id="4" parent="building_footprint" width="0.70" height="2.43" depth="0.05"
+		xyz="3 -4.53 0" rpy="0 0 0"/>
+	<xacro:door id="5" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+		xyz="2.5 -7.6 0" rpy="0 0 ${pi/2}"/>
+	<xacro:door id="6" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+		xyz="0.2 -8.45 0" rpy="0 0 ${pi/2}"/>
+	<xacro:door id="7" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+		xyz="-0.55 -8.95 0" rpy="0 0 0"/>
+	<xacro:door id="8" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+		xyz="2.05 -8.95 0" rpy="0 0 0"/>
+	<xacro:door id="9" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+		xyz="2.5 -8.5 0" rpy="0 0 ${pi/2}"/>
+
+	<!--
+	 light switches
+	-->
+	<xacro:light_switch id="1" parent="building_footprint" xyz="1.5 -4.6 1.75" rpy="0 0 0"/>
+</robot>

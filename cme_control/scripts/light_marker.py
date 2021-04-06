@@ -13,16 +13,16 @@ from visualization_msgs.msg import (
 )
 from common import find_links
 
-def mark_door(link, pose=None, scale=0.2):
+def mark_light(link, pose=None, scale=0.15):
     if not pose:
         pose = Pose()
         pose.position.x = 0
-        pose.position.y = 0
-        pose.position.z = 3.1
+        pose.position.y = 0.1
+        pose.position.z = 1
 
     marker = Marker()
-    marker.ns = 'door'
-    marker.id = int(link.split('_')[1])
+    marker.ns = 'light'
+    marker.id = int(link.split('_')[2])
     marker.text = '{} {}'.format(marker.ns.title(), marker.id)
     marker.header.frame_id = link
     marker.header.stamp = rospy.Time.now()
@@ -32,9 +32,9 @@ def mark_door(link, pose=None, scale=0.2):
     marker.scale.x = scale
     marker.scale.y = scale
     marker.scale.z = scale
-    marker.color.r = 0.75
-    marker.color.g = 0.75
-    marker.color.b = 0.75
+    marker.color.r = 0.0
+    marker.color.g = 0.45
+    marker.color.b = 0.95
     marker.color.a = 0.5
 
     rospy.loginfo("Created marker \"%s\" for link \"%s\"", marker.text, link)
@@ -43,14 +43,14 @@ def mark_door(link, pose=None, scale=0.2):
 
 def main():
     # init ros node
-    rospy.init_node('cme_door_marker', anonymous=False)
+    rospy.init_node('cme_light_marker', anonymous=False)
 
-    door_link_re = re.compile('door_([0-9]+)_frame')
+    light_link_re = re.compile('light_switch_([0-9]+)')
 
-    rospy.loginfo('Searching for doors...')
+    rospy.loginfo('Searching for lights...')
 
     # TODO: find world namespace?
-    door_links = find_links(door_link_re, namespace='/world')
+    light_links = find_links(light_link_re, namespace='/world')
 
     marker_publisher = rospy.Publisher(
         '/visualization_marker_array',
@@ -63,17 +63,17 @@ def main():
         rospy.loginfo_throttle(60, "Waiting for subscriber on " + marker_publisher.name)
         rospy.sleep(1)
 
-    door_markers = MarkerArray()
-    door_markers.markers = []
-    for link in door_links:
-        # create a text marker for each door
-        door_markers.markers.append(mark_door(link.name))
+    light_markers = MarkerArray()
+    light_markers.markers = []
+    for link in light_links:
+        # create a text marker for each light
+        light_markers.markers.append(mark_light(link.name))
 
-    if not door_markers.markers:
-        rospy.logfatal("No links found for %s", door_link_re.pattern)
+    if not light_markers.markers:
+        rospy.logfatal("No links found for %s", light_link_re.pattern)
         return 1
 
-    marker_publisher.publish(door_markers)
+    marker_publisher.publish(light_markers)
     rospy.loginfo("Published marker array")
 
     rospy.loginfo("Latching publisher")
