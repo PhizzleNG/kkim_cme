@@ -5,7 +5,6 @@
 	 Args
 	-->
 	<xacro:arg name="world_namespace" default="/" />
-	<xacro:arg name="building" default="mp_model" />
 
 	<!--
 	 Includes
@@ -22,7 +21,7 @@
 	<!--
 	 Building
 	-->
-	<xacro:include filename="$(find cme_description)/urdf/building/$(arg building).urdf.xacro" />
+	<xacro:include filename="$(find cme_description)/urdf/building/mp_model.urdf.xacro" />
 
 	<!--
 	 Rooms

@@ -4,6 +4,7 @@
 	<arg name="robot_namespace" default="$(eval optenv('HUSKY_NAMESPACE', '/'))"/>
 
 	<arg name="gazebo" default="true"/>
+	<arg name="use_amcl" default="true"/>
 
 	<!-- Husky parameters -->
 	<arg name="laser_enabled" default="true"/>
@@ -31,7 +32,7 @@
 		<include file="$(find cme_launch)/launch/include/$(arg robot)/move_base.launch.xml"/>
 
 		<!--- Run AMCL -->
-		<include file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
+		<include if="$(arg use_amcl)" file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
 			<arg name="map_file" value="$(arg map_file)"/>
 			<arg if="$(eval robot_namespace != '/')"
 			     name="tf_prefix" value="$(arg robot_namespace)"/>

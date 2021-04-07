@@ -1,0 +1,5 @@
+msg/CloseDoor*.msg
+msg/NavigateRoom*.msg
+msg/OpenDoor*.msg
+msg/RotateInPlace*.msg
+msg/TurnOnLight*.msg

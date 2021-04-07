@@ -18,7 +18,7 @@ def mark_light(link, pose=None, scale=0.15):
         pose = Pose()
         pose.position.x = 0
         pose.position.y = 0.1
-        pose.position.z = 1
+        pose.position.z = 1.5
 
     marker = Marker()
     marker.ns = 'light'

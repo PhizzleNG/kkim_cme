@@ -1,0 +1,8 @@
+# goal
+int32 seconds
+---
+# result
+int32 rotations
+---
+# feedback
+float64 angle

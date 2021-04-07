@@ -1,13 +1,18 @@
 #!/bin/bash
 
-doors=$(rosservice list | sed -n '/door_/s/\(.*door_[0-9]*\)_.*/\1/p')
+set -o errexit
+
+DOORS=$(rosservice list | sed -n '/door_/s/\(.*door_[0-9]*\)_.*/\1/p')
+if [ $# -eq 0 ] ; then
+	DOORS=$(echo "${DOORS}" | )
+fi
 
 while true ; do
 	{
-	for door in ${doors} ; do
-		rosservice call ${door}/open
+	for DOOR in ${DOORS} ; do
+		rosservice call ${DOOR}/open
 		sleep 1
-		rosservice call ${door}/close
+		rosservice call ${DOOR}/close
 	done
 	} || break
 done

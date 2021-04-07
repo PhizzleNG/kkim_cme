@@ -3,30 +3,33 @@
 <link name = "building_footprint" ></link>
 
 
-
-
+<joint name="building_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="building_footprint"/>
+  </joint>
 
 <link name='Wall_0'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_0_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="4.36828557853065 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_0_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="4.36828557853065 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_0_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " -0.032084724596503 3.79914278926532 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " -0.032084724596503 3.79914278926532 0" />
 <child link="Wall_0"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -35,25 +38,25 @@
 </joint>
 <link name='Wall_1'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_1_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="5.23954304444798 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_1_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="5.23954304444798 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_1_hinge'>
-<origin rpy="0  0 1.5707963267949 " xyz= " -1.80696721821405 -4.19694289924534 0" />
+<origin rpy="0 0 1.5707963267949" xyz= " -1.80696721821405 -4.19694289924534 0" />
 <child link="Wall_1"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -62,25 +65,25 @@
 </joint>
 <link name='Wall_2'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_2_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.51587077327675 0.1015 3.048"/>
+<box size="1.15587077327675 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_2_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.51587077327675 0.1015 3.048"/>
+<box size="1.15587077327675 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_2_hinge'>
-<origin rpy="0  0 0 " xyz= " 0.765850662041865 1.655 0" />
+<origin rpy="0 0 0" xyz= " 0.585850662041865 1.655 0" />
 <child link="Wall_2"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -89,25 +92,25 @@
 </joint>
 <link name='Wall_3'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_3_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="4.48 0.1015 3.048"/>
+<box size="4.26 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_3_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="4.48 0.1015 3.048"/>
+<box size="4.26 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_3_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 1.56378604868024 0.24581921792478 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 1.20378604868024 0.35581921792478 0" />
 <child link="Wall_3"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -116,25 +119,25 @@
 </joint>
 <link name='Wall_4'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_4_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.12 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_4_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.12 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_4_hinge'>
-<origin rpy="0  0 0 " xyz= " 2.4110697728103 2.52581921792477 0" />
+<origin rpy="0 0 0" xyz= " 2.4710697728103 2.52581921792477 0" />
 <child link="Wall_4"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -143,25 +146,25 @@
 </joint>
 <link name='Wall_5'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_5_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="3.425 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_5_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="3.425 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_5_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 2.5110697728103 4.06078557853065 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 2.5710697728103 4.06078557853065 0" />
 <child link="Wall_5"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -170,25 +173,25 @@
 </joint>
 <link name='Wall_6'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_6_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.314999999999999 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_6_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.314999999999999 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_6_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " 2.4735697728103 5.81328557853065 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " 2.4735697728103 5.81328557853065 0" />
 <child link="Wall_6"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -197,25 +200,25 @@
 </joint>
 <link name='Wall_7'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_7_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.129999999999999 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_7_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.129999999999999 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_7_hinge'>
-<origin rpy="0  0 1.5707963267949 " xyz= " 2.3560697728103 5.91828557853065 0" />
+<origin rpy="0 0 1.5707963267949" xyz= " 2.3560697728103 5.91828557853065 0" />
 <child link="Wall_7"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -224,25 +227,25 @@
 </joint>
 <link name='Wall_8'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_8_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="8.215 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_8_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="8.215 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_8_hinge'>
-<origin rpy="0  0 0 " xyz= " 1.2004152754035 6.02328557853065 0" />
+<origin rpy="0 0 0" xyz= " 1.2004152754035 6.02328557853065 0" />
 <child link="Wall_8"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -251,25 +254,25 @@
 </joint>
 <link name='Wall_9'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_9_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="12.8 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_9_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="12.8 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_9_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 5.2679152754035 -0.416714421469361 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 5.2679152754035 -0.416714421469361 0" />
 <child link="Wall_9"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -278,25 +281,25 @@
 </joint>
 <link name='Wall_10'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_10_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="7.15488249361753 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_10_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="7.15488249361753 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_10_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " 1.73047402859472 -6.85671442146936 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " 1.73047402859472 -6.85671442146936 0" />
 <child link="Wall_10"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -305,25 +308,25 @@
 </joint>
 <link name='Wall_11'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_11_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="6.115456955552 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_11_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="6.115456955552 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_11_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " -2.8670847245965 2.92555710075465 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " -2.8670847245965 2.92555710075465 0" />
 <child link="Wall_11"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -332,25 +335,25 @@
 </joint>
 <link name='Wall_12'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_12_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.209999999999999 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_12_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.209999999999999 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_12_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 2.6710697728103 5.87828557853065 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 2.6710697728103 5.87828557853065 0" />
 <child link="Wall_12"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -359,25 +362,25 @@
 </joint>
 <link name='Wall_13'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_13_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.36 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_13_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.36 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_13_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " -2.02696721821404 -1.61717137702135 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " -2.02696721821404 -1.61717137702135 0" />
 <child link="Wall_13"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -386,25 +389,25 @@
 </joint>
 <link name='Wall_14'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_14_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="1.525 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_14_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="1.525 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_14_hinge'>
-<origin rpy="0  0 1.5707963267949 " xyz= " -2.16696721821404 -0.81467137702135 0" />
+<origin rpy="0 0 1.5707963267949" xyz= " -2.16696721821404 -0.81467137702135 0" />
 <child link="Wall_14"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -413,25 +416,25 @@
 </joint>
 <link name='Wall_15'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_15_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.620117506382473 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_15_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.620117506382473 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_15_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " -2.51702597140528 -0.0921713770213489 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " -2.51702597140528 -0.0921713770213489 0" />
 <child link="Wall_15"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -440,25 +443,25 @@
 </joint>
 <link name='Wall_16'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_16_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.8 0.1015 3.048"/>
+<box size="0.56 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_16_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.8 0.1015 3.048"/>
+<box size="0.56 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_16_hinge'>
-<origin rpy="0  0 0 " xyz= " -1.72696721821404 -1.10717137702135 0" />
+<origin rpy="0 0 0" xyz= " -1.84696721821404 -0.887171377021348 0" />
 <child link="Wall_16"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -467,25 +470,25 @@
 </joint>
 <link name='Wall_17'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_17_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.63139505276616 0.1015 3.048"/>
+<box size="1.27139505276617 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_17_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.63139505276616 0.1015 3.048"/>
+<box size="1.27139505276617 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_17_hinge'>
-<origin rpy="0  0 0 " xyz= " 0.708088522297147 -1.1081449175682 0" />
+<origin rpy="0 0 0" xyz= " 0.528088522297152 -0.888144917568202 0" />
 <child link="Wall_17"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -494,25 +497,25 @@
 </joint>
 <link name='Wall_18'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_18_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.940000000000001 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_18_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.940000000000001 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_18_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 0.203786048680233 -1.6181449175682 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 0.203786048680233 -1.3981449175682 0" />
 <child link="Wall_18"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -521,25 +524,25 @@
 </joint>
 <link name='Wall_19'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_19_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.28 0.1015 3.048"/>
+<box size="0.919999999999999 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_19_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.28 0.1015 3.048"/>
+<box size="0.919999999999999 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_19_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " 0.88378604868023 -1.95418078207522 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " 0.703786048680231 -1.73418078207522 0" />
 <child link="Wall_19"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -548,25 +551,25 @@
 </joint>
 <link name='Wall_20'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_20_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="2.94 0.1015 3.048"/>
+<box size="2.795 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_20_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="2.94 0.1015 3.048"/>
+<box size="2.795 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_20_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 2.51257647248416 0.17131332312036 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 2.57257647248416 0.0988133231203601 0" />
 <child link="Wall_20"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -575,25 +578,25 @@
 </joint>
 <link name='Wall_21'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_21_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="2.67533880291933 0.1015 3.048"/>
+<box size="2.61533880291933 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_21_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="2.67533880291933 0.1015 3.048"/>
+<box size="2.61533880291933 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_21_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " 3.89024587394382 -0.238686676879649 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " 3.92024587394382 -0.238686676879649 0" />
 <child link="Wall_21"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -602,25 +605,25 @@
 </joint>
 <link name='Wall_22'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_22_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0850000000000007 0.1015 3.048"/>
+<box size="1.5891 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_22_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0850000000000007 0.1015 3.048"/>
+<box size="1.5891 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_22_hinge'>
-<origin rpy="0  0 0 " xyz= " 2.59507647248416 1.49631332312036 0" />
+<origin rpy="0 0 0" xyz= " 4.43336527540349 1.49544854634399 0" />
 <child link="Wall_22"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -629,25 +632,25 @@
 </joint>
 <link name='Wall_23'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_23_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.87367439625208 0.1015 3.048"/>
+<box size="1.43533880291933 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_23_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.87367439625208 0.1015 3.048"/>
+<box size="1.43533880291933 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_23_hinge'>
-<origin rpy="0  0 0 " xyz= " 4.29107807727744 1.49544854634399 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " 4.51024587394383 2.11499999999999 0" />
 <child link="Wall_23"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -656,25 +659,25 @@
 </joint>
 <link name='Wall_24'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_24_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.79533880291933 0.1015 3.048"/>
+<box size="0.539551453656003 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_24_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.79533880291933 0.1015 3.048"/>
+<box size="0.539551453656003 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_24_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " 4.33024587394382 2.11499999999999 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 3.83257647248416 1.805224273172 0" />
 <child link="Wall_24"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -683,25 +686,25 @@
 </joint>
 <link name='Wall_25'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_25_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.539551453656003 0.1015 3.048"/>
+<box size="2.60978450374121 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_25_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.539551453656003 0.1015 3.048"/>
+<box size="2.60978450374121 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_25_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 3.47257647248416 1.805224273172 0" />
+<origin rpy="0 0 0" xyz= " 3.92302302353289 -2.08548070884217 0" />
 <child link="Wall_25"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -710,25 +713,25 @@
 </joint>
 <link name='Wall_26'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_26_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="2.66978450374121 0.1015 3.048"/>
+<box size="0.209071802671512 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_26_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="2.66978450374121 0.1015 3.048"/>
+<box size="0.209071802671512 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_26_hinge'>
-<origin rpy="0  0 0 " xyz= " 3.89302302353289 -2.08548070884217 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 2.57813077166228 -2.02094480750642 0" />
 <child link="Wall_26"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -737,25 +740,25 @@
 </joint>
 <link name='Wall_27'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_27_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.209071802671512 0.1015 3.048"/>
+<box size="0.605000000000001 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_27_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.209071802671512 0.1015 3.048"/>
+<box size="0.605000000000001 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_27_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 2.51813077166228 -2.02094480750642 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 3.54313077166228 -2.42798070884217 0" />
 <child link="Wall_27"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -764,25 +767,25 @@
 </joint>
 <link name='Wall_28'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_28_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.605000000000001 0.1015 3.048"/>
+<box size="1.64478450374121 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_28_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.605000000000001 0.1015 3.048"/>
+<box size="1.64478450374121 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_28_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 3.54313077166228 -2.42798070884217 0" />
+<origin rpy="0 0 0" xyz= " 4.40552302353288 -2.69048070884217 0" />
 <child link="Wall_28"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -791,25 +794,25 @@
 </joint>
 <link name='Wall_29'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_29_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.64478450374121 0.1015 3.048"/>
+<box size="0.0999999999999989 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_29_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.64478450374121 0.1015 3.048"/>
+<box size="0.0999999999999989 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_29_hinge'>
-<origin rpy="0  0 0 " xyz= " 4.40552302353288 -2.69048070884217 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " -2.7370847245965 5.93328557853065 0" />
 <child link="Wall_29"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -818,25 +821,25 @@
 </joint>
 <link name='Wall_30'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_30_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0999999999999989 0.1015 3.048"/>
+<box size="0.13 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_30_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0999999999999989 0.1015 3.048"/>
+<box size="0.13 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_30_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " -2.7370847245965 5.93328557853065 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " -2.7620847245965 5.84328557853065 0" />
 <child link="Wall_30"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -845,25 +848,25 @@
 </joint>
 <link name='Wall_31'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_31_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.13 0.1015 3.048"/>
+<box size="0.140000000000002 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_31_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.13 0.1015 3.048"/>
+<box size="0.140000000000002 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_31_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " -2.7620847245965 5.84328557853065 0" />
+<origin rpy="0 0 0" xyz= " -2.75708472459651 1.96500000000001 0" />
 <child link="Wall_31"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -872,25 +875,25 @@
 </joint>
 <link name='Wall_32'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_32_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.140000000000002 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_32_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
 <box size="0.140000000000002 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_32_hinge'>
-<origin rpy="0  0 0 " xyz= " -2.75708472459651 1.96500000000001 0" />
+<origin rpy="0 0 0" xyz= " -2.75708472459651 1.65500000000001 0" />
 <child link="Wall_32"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -899,25 +902,25 @@
 </joint>
 <link name='Wall_33'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_33_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.140000000000002 0.1015 3.048"/>
+<box size="0.229999999999996 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_33_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.140000000000002 0.1015 3.048"/>
+<box size="0.229999999999996 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_33_hinge'>
-<origin rpy="0  0 0 " xyz= " -2.75708472459651 1.65500000000001 0" />
+<origin rpy="0 0 1.5707963267949" xyz= " -2.72708472459651 1.81000000000001 0" />
 <child link="Wall_33"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -926,25 +929,25 @@
 </joint>
 <link name='Wall_34'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_34_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.229999999999996 0.1015 3.048"/>
+<box size="0.840000000000001 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_34_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.229999999999996 0.1015 3.048"/>
+<box size="0.840000000000001 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_34_hinge'>
-<origin rpy="0  0 1.5707963267949 " xyz= " -2.72708472459651 1.81000000000001 0" />
+<origin rpy="0 0 0" xyz= " -1.34696721821405 -3.25048070884216 0" />
 <child link="Wall_34"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -953,25 +956,25 @@
 </joint>
 <link name='Wall_35'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_35_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.84 0.1015 3.048"/>
+<box size="0.200000000000002 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_35_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.84 0.1015 3.048"/>
+<box size="0.200000000000002 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_35_hinge'>
-<origin rpy="0  0 0 " xyz= " -1.34696721821405 -2.95048070884216 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " -1.57196721821404 -3.39048070884216 0" />
 <child link="Wall_35"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -980,25 +983,25 @@
 </joint>
 <link name='Wall_36'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_36_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.200000000000002 0.1015 3.048"/>
+<box size="0.235000000000003 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_36_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.200000000000002 0.1015 3.048"/>
+<box size="0.235000000000003 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_36_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " -1.57196721821404 -3.09048070884216 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " -1.64946721821404 -3.53048070884217 0" />
 <child link="Wall_36"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1007,25 +1010,25 @@
 </joint>
 <link name='Wall_37'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_37_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.235000000000002 0.1015 3.048"/>
+<box size="0.88 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_37_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.235000000000002 0.1015 3.048"/>
+<box size="0.88 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_37_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " -1.64946721821404 -3.23048070884217 0" />
+<origin rpy="0 0 0" xyz= " 0.542954457016848 -3.26048070884217 0" />
 <child link="Wall_37"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1034,25 +1037,25 @@
 </joint>
 <link name='Wall_38'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_38_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.45992167523089 0.1015 3.048"/>
+<box size="3.76 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_38_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="1.45992167523089 0.1015 3.048"/>
+<box size="3.76 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_38_hinge'>
-<origin rpy="0  0 0 " xyz= " 0.5429936194014 -2.96048070884217 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 0.201971577282965 -4.93671442146934 0" />
 <child link="Wall_38"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1061,25 +1064,25 @@
 </joint>
 <link name='Wall_39'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_39_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="4.02075370015392 0.1015 3.048"/>
+<box size="0.240000000000002 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_39_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="4.02075370015392 0.1015 3.048"/>
+<box size="0.240000000000002 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_39_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 0.201971577282966 -4.80633757139238 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 1.02295445701685 -3.29428860540925 0" />
 <child link="Wall_39"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1088,25 +1091,25 @@
 </joint>
 <link name='Wall_40'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_40_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.240000000000002 0.1015 3.048"/>
+<box size="0.165 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_40_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.240000000000002 0.1015 3.048"/>
+<box size="0.165 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_40_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 1.31295445701685 -2.99428860540926 0" />
+<origin rpy="0 0 0" xyz= " 1.14545445701685 -3.37428860540926 0" />
 <child link="Wall_40"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1115,25 +1118,25 @@
 </joint>
 <link name='Wall_41'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_41_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.165000000000001 0.1015 3.048"/>
+<box size="0.165 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_41_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.165000000000001 0.1015 3.048"/>
+<box size="0.165 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_41_hinge'>
-<origin rpy="0  0 0 " xyz= " 1.43545445701685 -3.07428860540926 0" />
+<origin rpy="0 0 0" xyz= " 1.14545445701685 -3.21428860540926 0" />
 <child link="Wall_41"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1142,25 +1145,25 @@
 </joint>
 <link name='Wall_42'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_42_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.165 0.1015 3.048"/>
+<box size="0.240000000000002 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_42_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.165 0.1015 3.048"/>
+<box size="0.240000000000002 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_42_hinge'>
-<origin rpy="0  0 0 " xyz= " 1.43545445701685 -2.91428860540926 0" />
+<origin rpy="0 0 1.5707963267949" xyz= " 1.26795445701685 -3.29428860540926 0" />
 <child link="Wall_42"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1169,25 +1172,25 @@
 </joint>
 <link name='Wall_43'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_43_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.240000000000002 0.1015 3.048"/>
+<box size="0.0849999999999999 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_43_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.240000000000002 0.1015 3.048"/>
+<box size="0.0849999999999999 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_43_hinge'>
-<origin rpy="0  0 1.5707963267949 " xyz= " 1.55795445701685 -2.99428860540926 0" />
+<origin rpy="0 0 0" xyz= " 1.35045445701685 -3.25428860540926 0" />
 <child link="Wall_43"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1196,25 +1199,25 @@
 </joint>
 <link name='Wall_44'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_44_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0849999999999999 0.1015 3.048"/>
+<box size="0.34 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_44_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0849999999999999 0.1015 3.048"/>
+<box size="0.34 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_44_hinge'>
-<origin rpy="0  0 0 " xyz= " 1.64045445701685 -2.95428860540926 0" />
+<origin rpy="0 0 0" xyz= " 2.58795445701685 -3.25428860540926 0" />
 <child link="Wall_44"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1223,25 +1226,25 @@
 </joint>
 <link name='Wall_45'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_45_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.34 0.1015 3.048"/>
+<box size="0.0711549828115584 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_45_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.34 0.1015 3.048"/>
+<box size="0.0711549828115584 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_45_hinge'>
-<origin rpy="0  0 0 " xyz= " 2.58795445701685 -2.95428860540926 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 2.57764681939319 -3.17871111400348 0" />
 <child link="Wall_45"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1250,25 +1253,25 @@
 </joint>
 <link name='Wall_46'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_46_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0711549828115584 0.1015 3.048"/>
+<box size="3.52242581606009 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_46_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.0711549828115584 0.1015 3.048"/>
+<box size="3.52242581606009 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_46_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 2.51764681939319 -2.87871111400348 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 2.71764681939319 -5.0555015134393 0" />
 <child link="Wall_46"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1277,25 +1280,25 @@
 </joint>
 <link name='Wall_47'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_47_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="3.82242581606009 0.1015 3.048"/>
+<box size="0.223169788300922 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_47_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="3.82242581606009 0.1015 3.048"/>
+<box size="0.223169788300922 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_47_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 2.71764681939319 -4.90550151343931 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " 2.36066608432164 -6.70512952731889 0" />
 <child link="Wall_47"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1304,25 +1307,25 @@
 </joint>
 <link name='Wall_48'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_48_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.223169788300922 0.1015 3.048"/>
+<box size="0.276980735071541 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_48_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.223169788300922 0.1015 3.048"/>
+<box size="0.276980735071541 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_48_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " 2.36066608432164 -6.70512952731889 0" />
+<origin rpy="0 0 0" xyz= " 2.53915645185741 -6.63354463316843 0" />
 <child link="Wall_48"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1331,25 +1334,25 @@
 </joint>
 <link name='Wall_49'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_49_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.276980735071541 0.1015 3.048"/>
+<box size="0.240000000000002 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_49_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.276980735071541 0.1015 3.048"/>
+<box size="0.240000000000002 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_49_hinge'>
-<origin rpy="0  0 0 " xyz= " 2.53915645185741 -6.63354463316843 0" />
+<origin rpy="0 0 0" xyz= " -1.64696721821405 -5.71354463316842 0" />
 <child link="Wall_49"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1358,25 +1361,25 @@
 </joint>
 <link name='Wall_50'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_50_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.240000000000002 0.1015 3.048"/>
+<box size="0.390000000000001 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_50_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.240000000000002 0.1015 3.048"/>
+<box size="0.390000000000001 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_50_hinge'>
-<origin rpy="0  0 0 " xyz= " -1.64696721821405 -5.71354463316842 0" />
+<origin rpy="0 0 -1.5707963267949" xyz= " -1.56696721821405 -5.94854463316842 0" />
 <child link="Wall_50"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1385,25 +1388,25 @@
 </joint>
 <link name='Wall_51'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_51_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.390000000000001 0.1015 3.048"/>
+<box size="0.160000000000002 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_51_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.390000000000001 0.1015 3.048"/>
+<box size="0.160000000000002 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_51_hinge'>
-<origin rpy="0  0 -1.5707963267949 " xyz= " -1.56696721821405 -5.94854463316842 0" />
+<origin rpy="0 0 3.14159265358979" xyz= " -1.68696721821405 -6.10354463316842 0" />
 <child link="Wall_51"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
@@ -1412,59 +1415,31 @@
 </joint>
 <link name='Wall_52'>
 <inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<mass value="1" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
 </inertial>
 <collision name='Wall_52_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.160000000000002 0.1015 3.048"/>
+<box size="1.28 0.1015 3.048"/>
 </geometry>
 </collision>
 <visual name='Wall_52_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
+<origin rpy="0 0 0" xyz ="0 0 1.524" />
 <geometry>
-<box size="0.160000000000002 0.1015 3.048"/>
+<box size="1.28 0.1015 3.048"/>
 </geometry>
 </visual>
 </link>
 <joint type='fixed' name='Wall_52_hinge'>
-<origin rpy="0  0 3.14159265358979 " xyz= " -1.68696721821405 -6.10354463316842 0" />
+<origin rpy="0 0 0" xyz= " 0.647915275403491 2.52581921792478 0" />
 <child link="Wall_52"/>
 <parent link='building_footprint'/>
 <axis xyz="0 0 0" rpy="0 0 0"/>
 <limit effort="10000" velocity="1000"/>
 <dynamics damping="1.0" friction="1.0"/>
 </joint>
-<link name='Wall_54'>
-<inertial>
-<mass value="0" />
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
-<inertia ixx="0" ixy ="0" ixz ="0" iyy ="0" iyz ="0" izz ="0" />
-</inertial>
-<collision name='Wall_54_Collision'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
-<geometry>
-<box size="1.67315449740681 0.1015 3.048"/>
-</geometry>
-</collision>
-<visual name='Wall_54_Visual'>
-<origin rpy="0  0  0" xyz ="0  0 1.524" />
-<geometry>
-<box size="1.67315449740681 0.1015 3.048"/>
-</geometry>
-</visual>
-</link>
-<joint type='fixed' name='Wall_54_hinge'>
-<origin rpy="0  0 0 " xyz= " 0.844492524106896 2.52581921792478 0" />
-<child link="Wall_54"/>
-<parent link='building_footprint'/>
-<axis xyz="0 0 0" rpy="0 0 0"/>
-<limit effort="10000" velocity="1000"/>
-<dynamics damping="1.0" friction="1.0"/>
-</joint>
 </robot>
-
 
 

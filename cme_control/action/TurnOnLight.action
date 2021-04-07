@@ -1,0 +1,8 @@
+# goal
+int32 room
+--
+# result
+CMEState state
+--
+# feedback
+CMEState state

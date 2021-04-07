@@ -4,10 +4,12 @@
 	<arg name="robot"/>
 	<arg name="gazebo" default="$(optenv CME_GAZEBO true)"/>
 	<arg name="building" default=""/>
+	<arg name="use_amcl" default="true"/>
 
 	<include file="$(find cme_launch)/launch/include/$(arg robot).launch">
 		<arg name="robot" value="$(arg robot)"/>
 		<arg name="gazebo" value="$(arg gazebo)"/>
 		<arg name="building" value="$(arg building)"/>
+		<arg name="use_amcl" value="$(arg use_amcl)"/>
 	</include>
 </launch>

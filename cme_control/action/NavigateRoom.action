@@ -1,0 +1,9 @@
+# Goal
+uint8 room
+---
+# Feedback
+uint8 total_goals
+uint8 current_goal
+---
+# Result
+uint8 progress

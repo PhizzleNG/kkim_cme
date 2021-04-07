@@ -41,6 +41,12 @@ roslaunch cme_launch full.launch gazebo:=true rviz:=true robot:=mm_400 manipulat
 ROS_NAMESPACE=/mm_400 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
+### Run Actions
+```
+rosrun actionlib axclient.py /rotate_in_place
+rosrun actionlib axclient.py /navigate_room
+```
+
 ### Testing a Panda in Gazebo
 ```
 roslaunch cme_launch test_panda_moveit.launch

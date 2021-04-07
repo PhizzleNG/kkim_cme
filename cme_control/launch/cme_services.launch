@@ -7,4 +7,9 @@
 	<node name="door_marker" pkg="cme_control" type="door_marker.py" output="screen"/>
 	<node name="light_marker" pkg="cme_control" type="light_marker.py" output="screen"/>
 	<node name="room_marker" pkg="cme_control" type="room_marker.py" output="screen"/>
+	<node name="path_markers" pkg="cme_control" type="path_markers.py" output="screen"/>
+
+	<!-- Start action servers -->
+	<node name="rotate_in_place_action" pkg="cme_control" type="rotate_in_place_server.py"/>
+	<node name="navigate_room" pkg="cme_control" type="navigate_room_server.py"/>
 </launch>

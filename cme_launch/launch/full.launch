@@ -2,7 +2,7 @@
 <launch>
 	<arg name="robot" default="mm_400"/>
 	<arg name="manipulator" default=""/>
-	<arg name="building" default="mp_model"/>
+	<arg name="building" default="mp_model_wider"/>
 
 	<arg name="robot_namespace" default="$(arg robot)"/>
 	<arg name="manipulator_namespace" default="$(arg manipulator)"/>
@@ -13,6 +13,7 @@
 
 	<arg name="gazebo" default="true"/>
 	<arg name="rviz" default="true"/>
+	<arg name="amcl" default="true"/>
 
 	<!-- world and world control -->
 	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch">
@@ -34,6 +35,7 @@
 		<arg name="robot" value="$(arg robot)"/>
 		<arg name="gazebo" value="$(arg gazebo)"/>
 		<arg name="building" value="$(arg building)"/>
+		<arg name="use_amcl" value="$(arg amcl)"/>
 	</include>
 
 	<include if="$(eval manipulator != '')"
