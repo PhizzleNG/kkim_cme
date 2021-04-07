@@ -37,8 +37,5 @@
 			<arg if="$(eval robot_namespace != '/')"
 			     name="tf_prefix" value="$(arg robot_namespace)"/>
 		</include>
-
-		<!-- Ensure the AMCL map is linked to the gazebo world -->
-		<node pkg="tf" type="static_transform_publisher" name="base_to_building" args="0 0 0 0 0 0 map world 100" />
 	</group>
 </launch>

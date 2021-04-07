@@ -10,6 +10,15 @@
 	<node name="path_markers" pkg="cme_control" type="path_markers.py" output="screen"/>
 
 	<!-- Start action servers -->
-	<node name="rotate_in_place_action" pkg="cme_control" type="rotate_in_place_server.py"/>
-	<node name="navigate_room" pkg="cme_control" type="navigate_room_server.py"/>
+	<!-- NOTE: action servers should be in the root namespace -->
+	<group ns="/">
+		<node name="rotate_in_place" pkg="cme_control" type="rotate_in_place_server.py"/>
+		<node name="navigate_room" pkg="cme_control" type="navigate_room_server.py" output="screen"/>
+		<arg name="node_start_delay" default="1.0" />
+		<!-- https://answers.ros.org/question/233353/set-delay-between-starting-nodes-within-launch-file/?answer=316355#post-id-316355 -->
+		<node name="axclient_rotate_in_place" pkg="actionlib" type="axclient.py" args="/rotate_in_place"
+		      launch-prefix="bash -c 'sleep 10; $0 $@' "/>
+		<node name="axclient_navigate_room" pkg="actionlib" type="axclient.py" args="/navigate_room"
+		      launch-prefix="bash -c 'sleep 10; $0 $@' "/>
+	</group>
 </launch>

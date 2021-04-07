@@ -47,6 +47,9 @@
 		     name="parent" value="cabinet"/>
 	 </include>
 
+	<!-- Ensure the AMCL map is linked to the gazebo world -->
+	<node pkg="tf" type="static_transform_publisher" name="base_to_building" args="0 0 0 0 0 0 /map /world 100" />
+
 	<!-- visualization and other tools -->
 	<include if="$(arg rviz)" file="$(find cme_launch)/launch/rviz.launch">
 		<arg name="rviz_file" value="$(find cme_launch)/rviz/full_$(arg robot).rviz"/>
