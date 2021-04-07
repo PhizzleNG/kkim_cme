@@ -35,7 +35,7 @@ def mark_door(link, pose=None, scale=0.2):
     marker.color.r = 0.75
     marker.color.g = 0.75
     marker.color.b = 0.75
-    marker.color.a = 0.5
+    marker.color.a = 0.75
 
     rospy.loginfo("Created marker \"%s\" for link \"%s\"", marker.text, link)
 
@@ -48,6 +48,7 @@ def main():
     door_link_re = re.compile('door_([0-9]+)_frame')
 
     rospy.loginfo('Searching for doors...')
+    rospy.sleep(3)
 
     # TODO: find world namespace?
     door_links = find_links(door_link_re, namespace='/world')

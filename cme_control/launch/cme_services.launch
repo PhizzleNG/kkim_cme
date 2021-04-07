@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<!-- start the door control service -->
-	<node name="door_service" pkg="cme_control" type="door_service.py"/>
+	<node name="door_service" pkg="cme_control" type="door_service.py" output="screen"/>
 
 	<!-- Start the marker nodes -->
-	<node name="door_marker" pkg="cme_control" type="door_marker.py"/>
-	<node name="light_marker" pkg="cme_control" type="light_marker.py"/>
-	<node name="room_marker" pkg="cme_control" type="room_marker.py"/>
+	<node name="door_marker" pkg="cme_control" type="door_marker.py" output="screen"/>
+	<node name="light_marker" pkg="cme_control" type="light_marker.py" output="screen"/>
+	<node name="room_marker" pkg="cme_control" type="room_marker.py" output="screen"/>
 </launch>

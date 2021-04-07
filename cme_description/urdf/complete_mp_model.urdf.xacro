@@ -54,17 +54,17 @@
 	<!-- Room 2 doesn't have a door -->
 	<xacro:door id="3" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
 		xyz="2.54 -4.02 0" rpy="0 0 ${pi/2}"/>
-	<xacro:door id="4" parent="building_footprint" width="0.70" height="2.43" depth="0.05"
+	<xacro:door id="4" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
 		xyz="3 -4.53 0" rpy="0 0 0"/>
-	<xacro:door id="5" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+	<xacro:door id="5" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
 		xyz="2.5 -7.6 0" rpy="0 0 ${pi/2}"/>
-	<xacro:door id="6" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+	<xacro:door id="6" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
 		xyz="0.2 -8.45 0" rpy="0 0 ${pi/2}"/>
-	<xacro:door id="7" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+	<xacro:door id="7" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
 		xyz="-0.55 -8.95 0" rpy="0 0 0"/>
-	<xacro:door id="8" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+	<xacro:door id="8" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
 		xyz="2.05 -8.95 0" rpy="0 0 0"/>
-	<xacro:door id="9" parent="building_footprint" width="0.70" height="2.43" depth="0.05" mirror="true"
+	<xacro:door id="9" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
 		xyz="2.5 -8.5 0" rpy="0 0 ${pi/2}"/>
 
 	<!--

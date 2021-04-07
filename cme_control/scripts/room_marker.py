@@ -35,7 +35,7 @@ def mark_room(link, pose=None, scale=0.25):
     marker.color.r = 1
     marker.color.g = 1
     marker.color.b = 1
-    marker.color.a = 0.5
+    marker.color.a = 0.75
 
     rospy.loginfo("Created marker \"%s\" for link \"%s\"", marker.text, link)
 
@@ -48,6 +48,7 @@ def main():
     room_link_re = re.compile('room_([0-9]+)')
 
     rospy.loginfo('Searching for rooms...')
+    rospy.sleep(3)
 
     # TODO: find world namespace?
     room_links = find_links(room_link_re, namespace='/world')

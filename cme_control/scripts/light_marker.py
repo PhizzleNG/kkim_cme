@@ -35,7 +35,7 @@ def mark_light(link, pose=None, scale=0.15):
     marker.color.r = 0.0
     marker.color.g = 0.45
     marker.color.b = 0.95
-    marker.color.a = 0.5
+    marker.color.a = 0.75
 
     rospy.loginfo("Created marker \"%s\" for link \"%s\"", marker.text, link)
 
@@ -48,6 +48,7 @@ def main():
     light_link_re = re.compile('light_switch_([0-9]+)')
 
     rospy.loginfo('Searching for lights...')
+    rospy.sleep(3)
 
     # TODO: find world namespace?
     light_links = find_links(light_link_re, namespace='/world')
