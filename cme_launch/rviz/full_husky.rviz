@@ -906,7 +906,7 @@ Visualization Manager:
           Offset:
             X: 0
             Y: 0
-            Z: 0
+            Z: 1
           Pose Color: 255; 85; 255
           Pose Style: None
           Radius: 0.0299999993
@@ -929,7 +929,7 @@ Visualization Manager:
           Offset:
             X: 0
             Y: 0
-            Z: 0
+            Z: 1
           Pose Color: 255; 85; 255
           Pose Style: None
           Radius: 0.0299999993
@@ -945,7 +945,10 @@ Visualization Manager:
       Marker Topic: visualization_marker
       Name: Marker
       Namespaces:
-        {}
+        door: true
+        light: true
+        pose: true
+        room: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -971,7 +974,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 21.0920601
+      Distance: 19.7018394
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1

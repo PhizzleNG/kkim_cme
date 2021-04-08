@@ -93,7 +93,7 @@ def get_closest_path_intersection(path_poses, door_point):
     #       If it does, we should find point in front of the door
     #       such that the door will not swing into the robot
     #       and is within the costmap
-    near_points = get_points_in_area(path_poses, door_point)
+    near_points = get_points_in_area(path_poses, door_point, tolerance=1.1)
     if not near_points:
         return None, None
     # TODO: Workaround, find direction of points and return reasonable path in front of door
@@ -114,6 +114,9 @@ def get_closest_path_intersection(path_poses, door_point):
     maxdist = max(dist_sq)
     index = dist_sq.index(maxdist)
     return near_points[index]
+
+class StateError(Exception):
+    pass
 
 class MoveBaseClient(object):
     def __init__(self, name):
@@ -159,7 +162,13 @@ class NavigateRoomServer(object):
             auto_start = False,
         )
 
+        self._current_goal = None
+        self._current_target = None
         self._plan = None
+        self._plan_queue = list()
+        self._plan_poses = None
+
+        self._r = rospy.Rate(5)
 
         self._move_base = MoveBaseClient('move_base')
 
@@ -199,6 +208,8 @@ class NavigateRoomServer(object):
         return False
 
     def _succeed(self, success):
+        # TODO: Send a proper goal state termination
+        # TODO: Cancel move_base goal: rostopic pub -1 /move_base/cancel actionlib_msgs/GoalID -- {}
         if success:
             rospy.loginfo('%s: Succeeded', self._action_name)
             self._as.set_succeeded(self._result)
@@ -226,22 +237,112 @@ class NavigateRoomServer(object):
         service = rospy.ServiceProxy(service_name, DoorOpen)
         service()
 
-    def execute_cb(self, goal):
-        # TODO: Errors should be a terminal status
-        # TODO: Clean-up and restructure
-        # TODO: door clearance
-        # TODO: Cancel move_base goal: rostopic pub -1 /move_base/cancel actionlib_msgs/GoalID -- {}
-        r = rospy.Rate(5)
-        success = False
-
-        room = 'room_' + str(goal.room)
+    def get_room_origin(self, room):
         room_joint = self.room_joints.get(room, None)
         if not room_joint:
             rospy.logerr('%s: %s does not exist!', self._action_name, room)
-            return
+            return None
 
         if not room_joint.origin:
             ropsy.logerr('%s: %s does not have an origin!', self._action_name, room)
+            return None
+
+        return room_joint.origin
+
+    def wait_for_plan(self):
+        # TODO: Check if DWA planner fails?
+        if self._plan:
+            if self._plan.poses:
+                return True
+        rospy.loginfo_throttle(30, "%s: waiting for path plan" % self._action_name)
+        return False
+
+    def find_points_near_doors(self, poses=None):
+        if not poses:
+            poses = [p.pose for p in self._plan.poses]
+        self._plan_poses = [p.pose for p in self._plan.poses]
+        near_door_points = {}
+        for name, door_joint in self.door_joints.items():
+            position = urdf_pose_to_pose(door_joint.origin).position
+            # TODO: simplify
+            index, stop_point = get_closest_path_intersection(self._plan_poses, position)
+            if stop_point:
+                near_door_points[name] = index
+        return near_door_points
+
+    def build_nav_point_queue(self, door_points, point_queue):
+        for door, index in sorted(door_points.items(), key=lambda x: x[1]):
+            _pose = self._plan_poses[index]
+            # make sure we face the door
+            _pose.orientation = Quaternion(*quaternion_from_euler(
+                0, 0,
+                get_angle(
+                    urdf_pose_to_pose(self.door_joints[door].origin),
+                    self._plan_poses[index]
+                )
+            ))
+            point_queue.append((_pose, door))
+        return point_queue
+
+    def _process_queue(self):
+        if not self._current_goal:
+            self._current_goal, self._current_target = self._path_queue.pop(0)
+            self.send_goal(self._current_goal)
+            return False
+        rospy.loginfo_throttle(60, '%s: navigating to %s' % (self._action_name, self._current_target))
+        state = self._move_base.get_state()
+        if state in [GoalStatus.ABORTED, GoalStatus.REJECTED, GoalStatus.LOST]:
+            rospy.logerr('%s: Failed to navigate to %s, state: %d',
+                self._action_name, self._current_target, state)
+            raise StateError(state)
+        if state != GoalStatus.SUCCEEDED:
+            return False
+        if self._current_target.startswith('door'):
+            self.open_door(self._current_target)
+        self._current_goal = None
+        self._current_target = None
+        return True
+
+    def process_queue(self):
+        try:
+            self._process_queue()
+            return False
+        except StateError:
+            # move_base failed
+            pass
+        except IndexError:
+            # list queue is empty
+            pass
+        return True
+
+    def execute_fn(self, fn):
+        # TODO: Timeout?
+        try:
+            while not rospy.is_shutdown():
+                if self._check_preempt():
+                    return self._succeed(False)
+                if fn():
+                    # True will indicate fn() is complete, breaking the loop
+                    break
+                self._as.publish_feedback(self._feedback)
+                self._r.sleep()
+        except Exception:
+            self._succeed(False)
+            raise
+
+    def execute_cb(self, goal):
+        # TODO: Errors should be a terminal status
+        # TODO: door clearance
+        success = False
+
+        self._current_goal = None
+        self._current_target = None
+        self._plan_queue = list()
+        self._plan_paths = None
+
+        room = 'room_' + str(goal.room)
+        room_origin = urdf_pose_to_pose(self.get_room_origin(room))
+        if not room_origin:
             return
 
         rospy.loginfo(
@@ -252,69 +353,32 @@ class NavigateRoomServer(object):
         # Start time
         start_time = rospy.Time.now()
 
+        # Ensure the plan and queue are empty
         self._plan = None
-        self.send_goal(urdf_pose_to_pose(room_joint.origin))
+        self._path_queue = list()
 
-        # wait for path plan
-        while True:
-            if self._plan:
-                if self._plan.poses:
-                    break
-            # TODO: Check if DWA planner fails?
-            if self._check_preempt():
-                return self._succeed(success)
-            rospy.loginfo_throttle(30, "%s: waiting for path plan" % self._action_name)
-            r.sleep()
+        # Send target room goal for the full path to be generated
+        self.send_goal(room_origin)
 
-        plan_poses = [p.pose for p in self._plan.poses]
-        near_door_points = {}
-        for name, door_joint in self.door_joints.items():
-            position = urdf_pose_to_pose(door_joint.origin).position
-            # TODO: simplify
-            index, stop_point = get_closest_path_intersection(plan_poses, position)
-            if stop_point:
-                near_door_points[name] = index
+        if not self.execute_fn(self.wait_for_plan):
+            self._succeed(False)
 
+        # Make sure we retain the intial _plan
+        _plan = self._plan
 
-        # TODO: This should be a queue
-        for door, index in sorted(near_door_points.items(), key=lambda x: x[1]):
-            rospy.loginfo('%s: navigating to %s', self._action_name, door)
-            _pose = plan_poses[index]
-            # make sure we face the door
-            _pose.orientation = Quaternion(*quaternion_from_euler(
-                0, 0,
-                get_angle(
-                    urdf_pose_to_pose(self.door_joints[door].origin),
-                    plan_poses[index]
-                )
-            ))
-            self.send_goal(_pose)
-            self._move_base.wait_for_result()
-            if self._move_base.get_state() != GoalStatus.SUCCEEDED:
-                rospy.logerr('%s: Failed to navigate to %s, state: %d', self._action_name, door, self._move_base.get_state())
-                success = False
-                return self._succeed(success)
-            self.open_door(door)
+        # Check the path for doors, break the path up if needed and queue goals
+        near_door_points = self.find_points_near_doors()
+        self.build_nav_point_queue(near_door_points, self._path_queue)
 
-        self.send_goal(urdf_pose_to_pose(room_joint.origin))
+        # Make sure target goal is last
+        self._path_queue.append((room_origin, room))
 
-        while True:
-            # TODO: Timeout?
-            # TODO: fill in feedback
-            # TODO: subscribe to /move_base/status
-            if self._check_preempt():
-                return self._succeed(success)
-            state = self._move_base.get_state()
-            if state == GoalStatus.SUCCEEDED:
-                success = True
-                break
-            if state in [GoalStatus.ABORTED, GoalStatus.REJECTED, GoalStatus.LOST]:
-                success = False
-                break
-            self._as.publish_feedback(self._feedback)
-            r.sleep()
+        print(self._path_queue)
 
-        return self._succeed(success)
+        if not self.execute_fn(self.process_queue):
+            return self._succeed(False)
+
+        return self._succeed(True)
 
 def main():
     rospy.init_node('navigate_room', anonymous=False)
