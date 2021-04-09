@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<arg name="robot" default="mm_400"/>
-	<arg name="robot_namespace" default="$(eval optenv('MM_400_NAMESPACE', 'mm_400'))"/>
+	<arg name="robot_namespace" default="$(eval optenv('MM_400_NAMESPACE', '/'))"/>
 
-	<arg name="amcl" default="$(optenv MM_400_AMCL true)"/>
+	<arg name="use_amcl" default="$(optenv MM_400_AMCL true)"/>
 	<arg name="gmapping" default="$(optenv MM_400_GMAPPING false)"/>
 
 	<arg name="gazebo" default="$(optenv MM_400_GAZEBO true)"/>
 	<arg name="scan_unifier" default="$(optenv MM_400_SCAN_UNIFIER true)"/>
+
+	<arg name="building" default="mp_model_wider"/>
 
 	<!-- AMCL parameters -->
 	<arg name="map_file" default="$(find cme_navigation)/maps/$(arg robot)/cme_map.yaml"/>
@@ -37,15 +39,11 @@
 			<node pkg="topic_tools" type="relay" name="lidar1_to_scan" args="lidar_1/scan_filtered /scan"/>
 		</group>
 
-		<include if="$(arg amcl)" file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
+		<include if="$(arg use_amcl)" file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
 			<arg name="map_file" value="$(arg map_file)"/>
 			<arg if="$(eval robot_namespace != '/')"
 			     name="tf_prefix" value="$(arg robot_namespace)"/>
-		</include-->
-
-		<!-- Ensure the AMCL map is linked to the gazebo world -->
-		<node if="$(arg gazebo)"
-		      pkg="tf" type="static_transform_publisher" name="base_to_building" args="0 0 0 0 0 0 map world 100" />
+		</include>
 	</group>
 
 </launch>

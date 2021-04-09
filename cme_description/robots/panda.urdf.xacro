@@ -29,9 +29,9 @@
 	<xacro:panda_arm/>
 
 	<!-- Override panda connect_to arg -->
-	<xacro:if value="$(eval parent != '')">
-		<joint name="panda_joint_$(arg parent)" type="fixed">
-			<parent link="$(arg parent)"/>
+	<xacro:if value="${parent != ''}">
+		<joint name="panda_joint_${parent}" type="fixed">
+			<parent link="${parent}"/>
 			<child link="panda_link0"/>
 			<origin rpy="$(arg rpy)" xyz="$(arg xyz)"/>
 		</joint>

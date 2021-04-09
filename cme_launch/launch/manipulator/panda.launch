@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="manipulator" default="panda"/>
-	<arg name="manipulator_namespace" default="$(eval optenv(manipulator + '_NAMESPACE', manipulator))"/>
+	<arg name="manipulator_namespace" default="$(eval optenv(manipulator + '_NAMESPACE', '/'))"/>
 
 	<arg name="spawn" default="false"/>
 

@@ -86,14 +86,14 @@ def get_angle(from_point, to_point):
         from_point = [from_point.x, from_point.y]
     if isinstance(to_point, Point):
         to_point = [to_point.x, to_point.y]
-    return (numpy.arctan2(*from_point[::-1]) - numpy.arctan2(*to_point[::-1])) % (2 * numpy.pi)
+    return (numpy.arctan2(*from_point[::-1]) - numpy.arctan2(*to_point[::-1])) % (2 * numpy.pi) - numpy.pi
 
 def get_closest_path_intersection(path_poses, door_point):
     # TODO: This should find out if path intersects door
     #       If it does, we should find point in front of the door
     #       such that the door will not swing into the robot
     #       and is within the costmap
-    near_points = get_points_in_area(path_poses, door_point, tolerance=1.1)
+    near_points = get_points_in_area(path_poses, door_point, tolerance=1)
     if not near_points:
         return None, None
     # TODO: Workaround, find direction of points and return reasonable path in front of door
@@ -279,7 +279,7 @@ class NavigateRoomServer(object):
                 get_angle(
                     urdf_pose_to_pose(self.door_joints[door].origin),
                     self._plan_poses[index]
-                )
+                ) + (numpy.pi / 2)
             ))
             point_queue.append((_pose, door))
         return point_queue
@@ -288,6 +288,7 @@ class NavigateRoomServer(object):
         if not self._current_goal:
             self._current_goal, self._current_target = self._path_queue.pop(0)
             self.send_goal(self._current_goal)
+            print(self._current_goal)
             return False
         rospy.loginfo_throttle(60, '%s: navigating to %s' % (self._action_name, self._current_target))
         state = self._move_base.get_state()

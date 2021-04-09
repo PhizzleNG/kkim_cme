@@ -8,7 +8,7 @@
 
 	<xacro:arg name="camera" default="false" />
 	<xacro:arg name="micro_scan" default="true" />
-	<xacro:arg name="sick_S300" default="false" />
+	<xacro:arg name="sick_S300" default="true" />
 	<xacro:arg name="imu" default="false" />
 	<xacro:arg name="ultrasonic" default="false" />
 
@@ -63,6 +63,14 @@
 	-->
 
 	<xacro:mp_400_base name="base_link"/>
+
+	<link name="base_footprint"/>
+
+	<joint name="base_footprint_joint" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="base_footprint" />
+	</joint>
 
 	<xacro:caster_wheel name="wheel_front_left" parent="base_link">
 		<origin xyz="0.165 0.155 0.036" rpy="0 0 1.57" />

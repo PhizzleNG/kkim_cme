@@ -47,6 +47,11 @@ rosrun actionlib axclient.py /rotate_in_place
 rosrun actionlib axclient.py /navigate_room
 ```
 
+### Reconfigure dynamic parameters
+```
+rosrun rqt_reconfigure rqt_reconfigure
+```
+
 ### Testing a Panda in Gazebo
 ```
 roslaunch cme_launch test_panda_moveit.launch

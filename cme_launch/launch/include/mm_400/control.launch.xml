@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<arg name="robot" default="mm_400"/>
-	<arg name="manipulator" default="pilz"/>
 	<arg name="enable_ekf" default="$(optenv MM_400_ENABLE_EKF true)"/>
 
 	<include file="$(find cme_launch)/launch/include/control.launch.xml">

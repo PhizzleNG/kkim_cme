@@ -64,10 +64,6 @@
 				<gravity>1</gravity>
 			</link>
 		</model>
-		<include>
-			<uri>model://complete_mp_model</uri>
-			<pose>0 6 0 0 0 0</pose>
-		</include>
 		<physics name='default_physics' default='0' type='ode'>
 			<max_step_size>0.01</max_step_size>
 			<real_time_factor>1</real_time_factor>
@@ -114,5 +110,12 @@
 			<elevation>0</elevation>
 			<heading_deg>0</heading_deg>
 		</spherical_coordinates>
+		<gui fullscreen='0'>
+			<camera name='user_camera'>
+				<pose frame=''>-5e-06 -3.3e-05 18.0972 -0.327447 1.57079 2.81415</pose>
+				<view_controller>orbit</view_controller>
+				<projection_type>perspective</projection_type>
+			</camera>
+		</gui>
 	</world>
 </sdf>

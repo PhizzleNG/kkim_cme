@@ -16,10 +16,7 @@
 	<arg name="amcl" default="true"/>
 
 	<!-- world and world control -->
-	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch">
-		<arg if="$(arg use_xacro_world)"
-		     name="world_file" value="worlds/empty.world"/>
-	</include>
+	<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
 	<include if="$(arg use_xacro_world)" file="$(find cme_launch)/launch/world.launch">
 		<arg name="gazebo" value="$(arg gazebo)"/>
 		<arg name="building" value="$(arg building)"/>
@@ -27,7 +24,7 @@
 		<arg name="cme_services" value="$(arg cme_services)"/>
 	</include>
 	<group unless="$(arg use_xacro_world)">
-		<include if="$(arg gazebo)" file="$(find cme_gazebo)/launch/gazebo.launch"/>
+		<!-- TODO: Spawn building sdf -->
 	</group>
 
 	<!-- robot and manipulator -->
