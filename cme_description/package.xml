@@ -52,7 +52,7 @@
 
   <depend>franka_description</depend>
   <depend>franka_gripper</depend>
-  <depend>prbt_gripper</depend>
+  <depend>prbt_grippers</depend>
   <depend>prbt_support</depend>
 
 

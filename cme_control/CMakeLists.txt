@@ -13,6 +13,7 @@ find_package(catkin REQUIRED
 	std_msgs
 	message_generation
 	actionlib
+	geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -90,7 +91,11 @@ add_action_files(
 #   DEPENDENCIES
 #   std_msgs  # Or other packages containing msgs
 # )
-generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
+generate_messages(DEPENDENCIES
+	std_msgs
+	actionlib_msgs
+	geometry_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
