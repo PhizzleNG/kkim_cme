@@ -2,6 +2,7 @@
 <launch>
 	<arg name="robot" default="husky"/>
 	<arg name="robot_namespace" default="$(eval optenv('HUSKY_NAMESPACE', '/'))"/>
+	<arg name="manipulator" default=""/>
 
 	<arg name="gazebo" default="true"/>
 	<arg name="use_amcl" default="true"/>

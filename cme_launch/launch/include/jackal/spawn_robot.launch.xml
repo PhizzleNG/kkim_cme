@@ -2,6 +2,7 @@
 <launch>
 	<arg name="robot" default="jackal"/>
 	<arg name="robot_namespace" default="$(optenv JACKAL_NAMESPACE jackal)"/>
+	<arg name="manipulator" default=""/>
 	<arg name="gazebo" default="$(optenv JACKAL_ENABLE_GAZEBO true)"/>
 
 	<include file="$(find cme_launch)/launch/include/spawn_robot.launch.xml">
@@ -10,6 +11,7 @@
 		<arg name="robot_description" value="$(find cme_description)/robots/jackal.urdf.xacro"/>
 		<arg name="robot_description_extras" value="
 		     robot_namespace:=$(arg robot_namespace)
+		     manipulator:=$(arg manipulator)
 		     "/>
 	</include>
 </launch>

@@ -65,6 +65,8 @@ add_service_files(
 	FILES
 		DoorOpen.srv
 		DoorClose.srv
+		LightOn.srv
+		LightOff.srv
 )
 
 ## Generate actions in the 'action' folder

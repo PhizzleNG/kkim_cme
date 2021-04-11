@@ -4,6 +4,8 @@ recovery_behaviour_enabled: true
 NavfnROS:
   allow_unknown: true # Specifies whether or not to allow navfn to create plans that traverse unknown space.
   default_tolerance: 0.2 # A tolerance on the goal point for the planner.
+  cost_factor: 0.5
+  neutral_cost: 50
 
 TrajectoryPlannerROS:
   # Robot Configuration Parameters
@@ -19,6 +21,9 @@ TrajectoryPlannerROS:
 
   holonomic_robot: false
   escape_vel: -0.5
+
+  cost_factor: 0.5
+  neutral_cost: 50
 
   # Goal Tolerance Parameters
   yaw_goal_tolerance: 0.157

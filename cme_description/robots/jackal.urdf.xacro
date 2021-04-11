@@ -3,11 +3,6 @@
 	<xacro:arg name="manipulator" default=""/>
 
 	<xacro:include filename="$(find jackal_description)/urdf/jackal.urdf.xacro"/>
-	<xacro:if value="$(eval manipulator != '')">
-		<xacro:include filename="$(find cme_description)/robots/$(manipulator).urdf.xacro)">
-			<xacro:arg name="parent" value="top_plate_rear_link"/>
-		</xacro:include>
-	</xacro:if>
 
 	<link name="base_footprint"/>
 	<joint name="base_footprint_joint" type="fixed">
@@ -21,4 +16,9 @@
 	<sick_lms1xx_mount prefix="$(optenv JACKAL_LASER_MOUNT front)"
 						parent_link="$(optenv JACKAL_LASER_MOUNT front)_mount"
 						topic="$(optenv JACKAL_LASER_TOPIC scan)"/>
+
+	<xacro:if value="$(eval manipulator != '')">
+		<xacro:arg name="parent" default="mid_mount"/>
+		<xacro:include filename="$(find cme_description)/robots/$(arg manipulator).urdf.xacro"/>
+	</xacro:if>
 </robot>

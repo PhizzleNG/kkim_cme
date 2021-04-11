@@ -9,7 +9,7 @@
 
 	<arg name="gripper" default="$(eval optenv(manipulator + '_GRIPPER', 'default'))"/>
 	<arg name="gazebo" default="true"/>
-	<arg name="moveit" default="true"/>
+	<arg name="moveit" default="false"/>
 
 	<!-- NOTE: Mutli robot env isn't supported yet -->
 	<arg name="spawn" default="false"/>
@@ -28,6 +28,7 @@
 	<!-- Spawn Controllers -->
 	<include file="$(find cme_launch)/launch/manipulator/$(arg manipulator)/control.launch.xml">
 		<arg name="manipulator" value="$(arg manipulator)"/>
+		<arg name="spawn" value="$(arg spawn)"/>
 	</include>
 
 	<!-- TODO: Launch MoveIt -->

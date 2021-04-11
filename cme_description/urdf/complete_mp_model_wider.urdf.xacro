@@ -36,15 +36,15 @@
 		</joint>
 	</xacro:macro>
 	<!-- Coordinates are grabbed by using the 2d position tool and listening to /initialpose -->
-	<xacro:room id="1" xyz="1.6 3.85 1" rpy="0 0 0"/>
+	<xacro:room id="1" xyz="1.4 4.25 1" rpy="0 0 0"/>
 	<xacro:room id="2" xyz="-0.2 0.3 1" rpy="0 0 0"/>
 	<xacro:room id="3" xyz="3.9 3.5 1" rpy="0 0 0"/>
 	<xacro:room id="4" xyz="4 0.4 1" rpy="0 0 0"/>
-	<xacro:room id="5" xyz="4 -1.5 1" rpy="0 0 0"/>
+	<xacro:room id="5" xyz="4 -1.25 1" rpy="0 0 0"/>
 	<xacro:room id="6" xyz="2 -2.5 1" rpy="0 0 0"/>
-	<xacro:room id="7" xyz="-0.8 -4.5 1" rpy="0 0 0"/>
-	<xacro:room id="8" xyz="1.5 -4.5 1" rpy="0 0 0"/>
-	<xacro:room id="9" xyz="4 -4.5 1" rpy="0 0 0"/>
+	<xacro:room id="7" xyz="-0.8 -5.25 1" rpy="0 0 0"/>
+	<xacro:room id="8" xyz="1.5 -5.25 1" rpy="0 0 0"/>
+	<xacro:room id="9" xyz="4 -5.25 1" rpy="0 0 0"/>
 
 	<!--
 	 Doors
@@ -73,6 +73,7 @@
 	 light switches
 	-->
 	<xacro:light_switch id="1" parent="building_footprint" xyz="0.91 2.529 1.75" rpy="0 0 0"/>
+	<xacro:light_switch id="3" parent="building_footprint" xyz="2.625 3 1.75 " rpy="0 0 -${pi/2}"/>
 	<xacro:light_switch id="7" parent="building_footprint" xyz="0.147 -4.322 1.75" rpy="0 0 -${pi/2}"/>
 	<xacro:light_switch id="8" parent="building_footprint" xyz="2.667 -4.322 1.75" rpy="0 0 -${pi/2}"/>
 </robot>

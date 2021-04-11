@@ -14,8 +14,8 @@ import numpy
 import re
 import rospy
 import sys
-from actionlib_msgs.msg import GoalStatus, GoalStatusArray
-from cme_control.srv import DoorClose, DoorOpen
+from actionlib_msgs.msg import GoalID, GoalStatus, GoalStatusArray
+from cme_control.srv import DoorClose, DoorOpen, LightOn, LightOff
 from geometry_msgs.msg import Point, Pose, Quaternion
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from nav_msgs.msg import Path
@@ -94,7 +94,7 @@ def get_closest_path_intersection(path_poses, door_point):
     if not near_points:
         return None, None
     # TODO: Workaround, find direction of points and return reasonable path in front of door
-    if not get_points_in_area(near_points.values(), door_point, tolerance=0.1):
+    if not get_points_in_area(near_points.values(), door_point, tolerance=0.2):
         # no points found intersecting door
         return None, None
     return near_points.items()[0]
@@ -176,6 +176,8 @@ class NavigateRoomServer(object):
             '/move_base/NavfnROS/plan', Path, self._plan_cb, queue_size=10,
         )
 
+        self._pub_cancel_goal = rospy.Publisher('/move_base/cancel', GoalID, queue_size=1)
+
         # allow time to initialize
         self._move_base.wait_for_server()
 
@@ -207,8 +209,10 @@ class NavigateRoomServer(object):
     def _succeed(self, success):
         # TODO: Send a proper goal state termination
         # TODO: Cancel move_base goal: rostopic pub -1 /move_base/cancel actionlib_msgs/GoalID -- {}
+        self._pub_cancel_goal.publish(GoalID())
         if success:
             rospy.loginfo('%s: Succeeded', self._action_name)
+            self._result.goal = self._current_goal.pose
             self._as.set_succeeded(self._result)
         return success
 
@@ -284,10 +288,12 @@ class NavigateRoomServer(object):
     def _process_queue(self):
         if not self._current_goal:
             self._current_goal, self._current_target = self._path_queue.pop(0)
+            self._feedback.current_goal = self._current_goal.pose
             self.send_goal(self._current_goal)
             return False
         rospy.loginfo_throttle(60, '%s: navigating to %s' % (self._action_name, self._current_target))
         state = self._move_base.get_state()
+        self._feedback.move_base_state = state
         if state in [GoalStatus.ABORTED, GoalStatus.REJECTED, GoalStatus.LOST]:
             rospy.logerr('%s: Failed to navigate to %s, state: %d',
                 self._action_name, self._current_target, state)
@@ -357,6 +363,8 @@ class NavigateRoomServer(object):
         # Send target room goal for the full path to be generated
         self.send_goal(room_origin)
 
+        self._feedback.total_goals = len(self._path_queue)
+
         if not self.execute_fn(self.wait_for_plan):
             self._succeed(False)
 
@@ -369,6 +377,8 @@ class NavigateRoomServer(object):
 
         # Make sure target goal is last
         self._path_queue.append((room_origin, room))
+
+        self._feedback.total_goals = len(self._path_queue)
 
         if not self.execute_fn(self.process_queue):
             return self._succeed(False)

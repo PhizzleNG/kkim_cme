@@ -3,6 +3,8 @@
 	<arg name="robot" default="jackal"/>
 	<arg name="robot_namespace" default="$(eval optenv('JACKAL_NAMESPACE', '/'))"/>
 
+	<arg name="manipulator" default=""/>
+
 	<arg name="gazebo" default="true"/>
 	<arg name="use_amcl" default="true"/>
 
@@ -15,6 +17,7 @@
 		<!-- Spawn jackal -->
 		<include file="$(find cme_launch)/launch/include/$(arg robot)/spawn_robot.launch.xml">
 			<arg name="robot_namespace" value="$(arg robot_namespace)"/>
+			<arg name="manipulator" value="$(arg manipulator)"/>
 		</include>
 
 		<!-- Spawn Controllers -->

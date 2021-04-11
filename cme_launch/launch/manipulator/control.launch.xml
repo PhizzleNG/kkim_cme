@@ -5,11 +5,13 @@
 	<arg name="config" default="$(find cme_control)/config/$(arg manipulator)/controller.yaml"/>
 	<arg name="controllers" default="$(arg manipulator)_joint_publisher position_joint_trajectory_controller"/>
 
+	<arg name="spawn" default="true"/>
+
 	<rosparam command="load" file="$(arg config)"/>
 
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+	<node if="$(arg spawn)" name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
 
 	<!-- Delegate controller spawning to manipulator launch files -->
-	<node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager"
-	      args="spawn $(arg controllers)" respawn="false" output="screen"/>
+	<node name="arm_controller_spawner" pkg="controller_manager" type="spawner"
+	      args="$(arg controllers)" respawn="false" output="screen"/>
 </launch>

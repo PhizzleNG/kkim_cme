@@ -33,6 +33,7 @@
 	<!-- robot and manipulator -->
 	<include file="$(find cme_launch)/launch/robot.launch">
 		<arg name="robot" value="$(arg robot)"/>
+		<arg name="manipulator" value="$(arg manipulator)"/>
 		<arg name="gazebo" value="$(arg gazebo)"/>
 		<arg name="building" value="$(arg building)"/>
 		<arg name="use_amcl" value="$(arg amcl)"/>
