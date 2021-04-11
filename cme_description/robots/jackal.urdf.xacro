@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="jackal">
+	<xacro:arg name="manipulator" default=""/>
+
+	<xacro:include filename="$(find jackal_description)/urdf/jackal.urdf.xacro"/>
+	<xacro:if value="$(eval manipulator != '')">
+		<xacro:include filename="$(find cme_description)/robots/$(manipulator).urdf.xacro)">
+			<xacro:arg name="parent" value="top_plate_rear_link"/>
+		</xacro:include>
+	</xacro:if>
+
+	<link name="base_footprint"/>
+	<joint name="base_footprint_joint" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="base_footprint"/>
+	</joint>
+
+	<!-- Taken from jackal_description/urdf/accessories.xacro -->
+	<xacro:include filename="$(find jackal_description)/urdf/accessories/sick_lms1xx_mount.urdf.xacro" />
+	<sick_lms1xx_mount prefix="$(optenv JACKAL_LASER_MOUNT front)"
+						parent_link="$(optenv JACKAL_LASER_MOUNT front)_mount"
+						topic="$(optenv JACKAL_LASER_TOPIC scan)"/>
+</robot>

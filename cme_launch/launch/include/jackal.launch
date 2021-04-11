@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="robot" default="jackal"/>
+	<arg name="robot_namespace" default="$(eval optenv('JACKAL_NAMESPACE', '/'))"/>
+
+	<arg name="gazebo" default="true"/>
+	<arg name="use_amcl" default="true"/>
+
+	<!-- AMCL parameters -->
+	<arg name="building" default=""/>
+	<arg if="$(eval building != '')"
+	     name="map_file" default="$(find cme_navigation)/maps/$(arg robot)/$(arg building).yaml"/>
+
+	<group ns="$(arg robot_namespace)">
+		<!-- Spawn jackal -->
+		<include file="$(find cme_launch)/launch/include/$(arg robot)/spawn_robot.launch.xml">
+			<arg name="robot_namespace" value="$(arg robot_namespace)"/>
+		</include>
+
+		<!-- Spawn Controllers -->
+		<include file="$(find cme_launch)/launch/include/$(arg robot)/control.launch.xml">
+			<arg name="robot" value="$(arg robot)"/>
+		</include>
+
+		<!--- Run Move Base -->
+		<include file="$(find cme_launch)/launch/include/$(arg robot)/move_base.launch.xml"/>
+
+		<!--- Run AMCL -->
+		<include if="$(arg use_amcl)" file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">
+			<arg name="map_file" value="$(arg map_file)"/>
+			<arg if="$(eval robot_namespace != '/')"
+			     name="tf_prefix" value="$(arg robot_namespace)"/>
+		</include>
+	</group>
+</launch>

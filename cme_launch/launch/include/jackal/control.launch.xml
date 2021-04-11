@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="robot" default="jackal"/>
+	<arg name="enable_ekf" default="$(optenv JACKAL_ENABLE_EKF true)"/>
+
+	<include file="$(find cme_launch)/launch/include/control.launch.xml">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="enable_ekf" value="$(arg enable_ekf)"/>
+		<arg name="spawn_controllers" value="jackal_joint_publisher jackal_velocity_controller"/>
+		<arg name="controller_configuration" value="$(find cme_control)/config/$(arg robot)/control.yaml"/>
+	</include>
+
+	<!--remap topic /-->
+	<node name="remap_cmd_vel" pkg="topic_tools" type="relay" args="cmd_vel_out jackal_velocity_controller/cmd_vel"/>
+
+</launch>
