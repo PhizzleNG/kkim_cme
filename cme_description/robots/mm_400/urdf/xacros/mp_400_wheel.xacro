@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mp_400_wheel">
-	<xacro:macro name="wheel" params="name parent *joint_origin wheel_length:=0.025 wheel_radius=0.079">
+	<xacro:macro name="wheel" params="name parent *joint_origin wheel_length:=0.025 wheel_radius=0.078">
 		<link name="${name}_wheel_link">
 			<inertial>
 				<mass value="2" />
@@ -25,8 +25,9 @@
 		<gazebo reference="${name}_wheel_link">
 			<mu1 value="1.0"/>
 			<mu2 value="1.0"/>
-			<kp value="100000.0" />
-			<kd value="1.0" />
+			<kp value="1000000.0" />
+			<kd value="100.0" />
+			<minDepth>0.001</minDepth>
 			<fdir value="1 0 0"/>
 		</gazebo>
 
@@ -35,6 +36,7 @@
 			<child link="${name}_wheel_link"/>
 			<xacro:insert_block name="joint_origin"/>
 			<axis xyz="1 0 0" rpy="0 0 0"/>
+			<dynamics damping="50" friction="1"/>
 		</joint>
 
 		<transmission name="${name}_wheel_trans" type="SimpleTransmission">

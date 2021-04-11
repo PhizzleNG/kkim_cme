@@ -4,12 +4,13 @@
 	<arg name="building" default="mp_model_wider"/>
 	<arg name="gazebo" default="true"/>
 	<arg name="cme_services" default="true"/>
+	<arg name="doors" default="true"/>
 
 	<group ns="$(arg world_namespace)">
 		<!-- Launch other relevant files-->
 		<param name="robot_description"
 		       command="xacro --inorder '$(find cme_description)/urdf/complete_$(arg building).urdf.xacro'
-		                world_namespace:=$(arg world_namespace)" />
+		                world_namespace:=$(arg world_namespace) doors:=$(arg doors)" />
 
 		<!-- push robot_description to factory and spawn robot in gazebo -->
 		<node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
@@ -26,9 +27,11 @@
 		      args="pub /calibrated std_msgs/Bool true" />
 
 		<!-- start the door controller -->
-		<rosparam file="$(find cme_gazebo)/controller/controllers.yaml" command="load"/>
-		<node name="door_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-			args="joint_state_controller door_1_position door_3_position door_4_position door_5_position door_6_position door_7_position door_8_position door_9_position" />
+		<group if="$(arg doors)">
+			<rosparam file="$(find cme_gazebo)/controller/controllers.yaml" command="load"/>
+			<node name="door_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+				args="joint_state_controller door_1_position door_3_position door_4_position door_5_position door_6_position door_7_position door_8_position door_9_position" />
+		</group>
 
 		<!-- load service nodes -->
 		<include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/>

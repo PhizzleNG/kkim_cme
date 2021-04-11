@@ -5,6 +5,7 @@
 	 Args
 	-->
 	<xacro:arg name="world_namespace" default="/" />
+	<xacro:arg name="doors" default="true" />
 
 	<!--
 	 Includes
@@ -48,23 +49,25 @@
 	<!--
 	 Doors
 	-->
-	<xacro:door id="1" parent="building_footprint" width="1.4" height="2.43" depth="0.05" mirror="true"
-		xyz="1.85 2.539 0" rpy="0 0 0"/>
-	<!-- Room 2 doesn't have a door -->
-	<xacro:door id="3" parent="building_footprint" width="0.85" height="2.43" depth="0.05" flip="true"
-		xyz="2.59 1.97 0" rpy="0 0 ${pi/2}"/>
-	<xacro:door id="4" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
-		xyz="3.15 1.46 0" rpy="0 0 0"/>
-	<xacro:door id="5" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
-		xyz="2.57 -1.6 0" rpy="0 0 ${pi/2}"/>
-	<xacro:door id="6" parent="building_footprint" width="1.2" height="2.43" depth="0.05" flip="true"
-		xyz="0.16 -2.48 0" rpy="0 0 ${pi/2}"/>
-	<xacro:door id="7" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
-		xyz="-0.42 -3.258 0" rpy="0 0 0"/>
-	<xacro:door id="8" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
-		xyz="1.92 -3.258 0" rpy="0 0 0"/>
-	<xacro:door id="9" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
-		xyz="2.57 -2.66 0" rpy="0 0 ${pi/2}"/>
+	<xacro:if value="$(arg doors)">
+		<xacro:door id="1" parent="building_footprint" width="1.4" height="2.43" depth="0.05" mirror="true"
+			xyz="1.85 2.539 0" rpy="0 0 0"/>
+		<!-- Room 2 doesn't have a door -->
+		<xacro:door id="3" parent="building_footprint" width="0.85" height="2.43" depth="0.05" flip="true"
+			xyz="2.59 1.97 0" rpy="0 0 ${pi/2}"/>
+		<xacro:door id="4" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
+			xyz="3.15 1.46 0" rpy="0 0 0"/>
+		<xacro:door id="5" parent="building_footprint" width="0.70" height="2.43" depth="0.05" flip="true"
+			xyz="2.57 -1.6 0" rpy="0 0 ${pi/2}"/>
+		<xacro:door id="6" parent="building_footprint" width="1.2" height="2.43" depth="0.05" flip="true"
+			xyz="0.16 -2.48 0" rpy="0 0 ${pi/2}"/>
+		<xacro:door id="7" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
+			xyz="-0.42 -3.258 0" rpy="0 0 0"/>
+		<xacro:door id="8" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
+			xyz="1.92 -3.258 0" rpy="0 0 0"/>
+		<xacro:door id="9" parent="building_footprint" width="1.0" height="2.43" depth="0.05" flip="true"
+			xyz="2.57 -2.66 0" rpy="0 0 ${pi/2}"/>
+	</xacro:if>
 
 	<!--
 	 light switches

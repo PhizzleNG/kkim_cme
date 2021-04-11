@@ -7,7 +7,8 @@
 	<arg name="gmapping" default="$(optenv MM_400_GMAPPING false)"/>
 
 	<arg name="gazebo" default="$(optenv MM_400_GAZEBO true)"/>
-	<arg name="scan_unifier" default="$(optenv MM_400_SCAN_UNIFIER true)"/>
+	<!-- NOTE: scan_unifier requires all input_scan topics before it publishes -->
+	<arg name="scan_unifier" default="$(optenv MM_400_SCAN_UNIFIER false)"/>
 
 	<arg name="building" default="mp_model_wider"/>
 
@@ -29,14 +30,15 @@
 			<arg name="robot" value="$(arg robot)"/>
 		</include>
 
-		<group if="$(arg scan_unifier)" ns="cob_scan_unifier">
-			<rosparam command="load" file="$(find cme_control)/config/$(arg robot)/scan_unifier.yaml"/>
-			<node pkg="cob_scan_unifier" type="scan_unifier_node" name="scan_unifier_node" respawn="false" output="screen"/>
+		<group if="$(arg scan_unifier)">
+			<node pkg="cob_scan_unifier" type="scan_unifier_node" name="scan_unifier_node" respawn="false" output="screen">
+				<rosparam command="load" file="$(find cme_control)/config/$(arg robot)/scan_unifier.yaml"/>
+			</node>
 		</group>
 
 		<group unless="$(arg scan_unifier)">
 			<!-- Relay lidar scan topic -->
-			<node pkg="topic_tools" type="relay" name="lidar1_to_scan" args="lidar_1/scan_filtered /scan"/>
+			<node pkg="topic_tools" type="relay" name="lidar1_to_scan" args="lidar_1/scan /scan"/>
 		</group>
 
 		<include if="$(arg use_amcl)" file="$(find cme_launch)/launch/include/$(arg robot)/amcl.launch.xml">

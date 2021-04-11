@@ -8,8 +8,8 @@
 
 	<xacro:arg name="camera" default="false" />
 	<xacro:arg name="micro_scan" default="true" />
-	<xacro:arg name="sick_S300" default="true" />
-	<xacro:arg name="imu" default="false" />
+	<xacro:arg name="sick_S300" default="false" />
+	<xacro:arg name="imu" default="true" />
 	<xacro:arg name="ultrasonic" default="false" />
 
 	<xacro:property name="robot_namespace" value="$(arg robot_namespace)"/>
@@ -38,9 +38,10 @@
 	</xacro:if>
 
 	<!-- SENSORS -->
-	<xacro:if value="$(arg sick_S300)">
+	<!-- TODO: The sick S300 urdf is not complete... -->
+	<!--xacro:if value="$(arg sick_S300)">
 		<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/sick_S300.xacro" />
-	</xacro:if>
+	</xacro:if-->
 
 	<xacro:if value="$(arg micro_scan)">
 		<xacro:include filename="$(find cme_description)/robots/mm_400/urdf/xacros/micro_scan.xacro" />
@@ -73,31 +74,31 @@
 	</joint>
 
 	<xacro:caster_wheel name="wheel_front_left" parent="base_link">
-		<origin xyz="0.165 0.155 0.036" rpy="0 0 1.57" />
+		<origin xyz="0.165 0.155 0.036" rpy="0 0 ${pi/2}" />
 	</xacro:caster_wheel>
 
 	<xacro:caster_wheel name="wheel_back_left" parent="base_link">
-		<origin xyz="-0.220 0.155 0.036" rpy="0 0 1.57" />
+		<origin xyz="-0.220 0.155 0.036" rpy="0 0 ${pi/2}" />
 	</xacro:caster_wheel>
 
 	<xacro:caster_wheel name="wheel_front_right" parent="base_link">
-		<origin xyz="0.165 -0.155 0.036" rpy="0 0 1.57" />
+		<origin xyz="0.165 -0.155 0.036" rpy="0 0 ${pi/2}" />
 	</xacro:caster_wheel>
 
 	<xacro:caster_wheel name="wheel_back_right" parent="base_link">
-		<origin xyz="-0.220 -0.155 0.036" rpy="0 0 1.57" />
+		<origin xyz="-0.220 -0.155 0.036" rpy="0 0 ${pi/2}" />
 	</xacro:caster_wheel>
 
 	<xacro:wheel name="right" parent="base_link">
-		<origin xyz="0. -0.26 0.074" rpy="0 0 1.57" />
+		<origin xyz="0. -0.26 0.074" rpy="0 0 ${pi/2}" />
 	</xacro:wheel>
 
 	<xacro:wheel name="left" parent="base_link">
-		<origin xyz="-0. 0.26 0.074" rpy="0 0 1.57" />
+		<origin xyz="-0. 0.26 0.074" rpy="0 0 ${pi/2}" />
 	</xacro:wheel>
 
 	<xacro:mm_400_cabinet name="cabinet" parent="base_link">
-		<origin xyz="0.02 0 0.551" rpy="0 0 3.14" />
+		<origin xyz="0.02 0 0.551" rpy="0 0 ${pi}" />
 	</xacro:mm_400_cabinet>
 
 	<!--
@@ -124,8 +125,8 @@
 	-->
 
 	<xacro:if value="$(arg micro_scan)">
-		<xacro:sick_laser_v0 name="lidar_1" parent="base_link" ros_topic="lidar_1/scan_filtered">
-			<origin xyz="0.230 0 0.110" rpy="0 3.14 3.14" />
+		<xacro:sick_laser_v0 name="lidar_1" parent="base_link" ros_topic="scan">
+			<origin xyz="0.230 0 0.110" rpy="0 ${pi} ${pi}" />
 		</xacro:sick_laser_v0>
 	</xacro:if>
 
@@ -137,73 +138,73 @@
 
 	<xacro:if value="$(arg imu)">
 		<xacro:imu name="imu_1" parent="base_link">
-			<origin xyz="0.100 0 0.300" rpy="0 0 3.14" />
+			<origin xyz="0.100 0 0.300" rpy="0 0 ${pi}" />
 		</xacro:imu>
 	</xacro:if>
 
 	<xacro:if value="$(arg ultrasonic)">
 		<xacro:us_sensor name="us_1" parent="base_link">
-			<origin xyz="0.100 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.100 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 2 -->
 		<xacro:us_sensor name="us_2" parent="base_link">
-			<origin xyz="0.110 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.110 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 3 -->
 		<xacro:us_sensor name="us_3" parent="base_link">
-			<origin xyz="0.120 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.120 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 4 -->
 		<xacro:us_sensor name="us_4" parent="base_link">
-			<origin xyz="0.130 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.130 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 5 -->
 		<xacro:us_sensor name="us_5" parent="base_link">
-			<origin xyz="0.140 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.140 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 6 -->
 		<xacro:us_sensor name="us_6" parent="base_link">
-			<origin xyz="0.150 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.150 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 7 -->
 		<xacro:us_sensor name="us_7" parent="base_link">
-			<origin xyz="0.160 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.160 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 8 -->
 		<xacro:us_sensor name="us_8" parent="base_link">
-			<origin xyz="0.170 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.170 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 9 -->
 		<xacro:us_sensor name="us_9" parent="base_link">
-			<origin xyz="0.180 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.180 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 10 -->
 		<xacro:us_sensor name="us_10" parent="base_link">
-			<origin xyz="0.100 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.100 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 11 -->
 		<xacro:us_sensor name="us_11" parent="base_link">
-			<origin xyz="0.100 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.100 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 12 -->
 		<xacro:us_sensor name="us_12" parent="base_link">
-			<origin xyz="0.190 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.190 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 13 -->
 		<xacro:us_sensor name="us_13" parent="base_link">
-			<origin xyz="0.200 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.200 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 14 -->
 		<xacro:us_sensor name="us_14" parent="base_link">
-			<origin xyz="0.210 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.210 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 15 -->
 		<xacro:us_sensor name="us_15" parent="base_link">
-			<origin xyz="0.220 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.220 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 		<!-- SENSOR 16 -->
 		<xacro:us_sensor name="us_16" parent="base_link">
-			<origin xyz="0.230 0 0.300" rpy="0 3.14 3.14" />
+			<origin xyz="0.230 0 0.300" rpy="0 ${pi} ${pi}" />
 		</xacro:us_sensor>
 	</xacro:if>
 </robot>

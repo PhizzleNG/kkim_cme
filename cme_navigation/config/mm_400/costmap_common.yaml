@@ -20,7 +20,7 @@ obstacles_laser:
     laser_scan_front: {
         sensor_frame: lidar_1_link,
         data_type: LaserScan,
-        topic: lidar_1/scan_filtered,
+        topic: lidar_1/scan,
         marking: true, clearing: true,
         inf_is_valid: true}
 

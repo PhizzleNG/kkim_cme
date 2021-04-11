@@ -684,7 +684,7 @@ Visualization Manager:
           Size (Pixels): 3
           Size (m): 0.0299999993
           Style: Flat Squares
-          Topic: /lidar_1/scan_filtered
+          Topic: /scan
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true

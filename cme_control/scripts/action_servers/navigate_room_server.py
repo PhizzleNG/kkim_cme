@@ -43,9 +43,6 @@ def get_door_joints(namespace='/world'):
         for joint in find_joints(door_joint_re, namespace=namespace)
     }
 
-# for each point in the planner, check if points are around a known door
-# if they are, split the planner at that index and move the "door" goal towards the last point
-
 def urdf_pose_to_pose(pose):
     geo_pose = Pose()
     geo_pose.position = Point(*pose.xyz)
@@ -288,7 +285,6 @@ class NavigateRoomServer(object):
         if not self._current_goal:
             self._current_goal, self._current_target = self._path_queue.pop(0)
             self.send_goal(self._current_goal)
-            print(self._current_goal)
             return False
         rospy.loginfo_throttle(60, '%s: navigating to %s' % (self._action_name, self._current_target))
         state = self._move_base.get_state()
@@ -373,8 +369,6 @@ class NavigateRoomServer(object):
 
         # Make sure target goal is last
         self._path_queue.append((room_origin, room))
-
-        print(self._path_queue)
 
         if not self.execute_fn(self.process_queue):
             return self._succeed(False)
