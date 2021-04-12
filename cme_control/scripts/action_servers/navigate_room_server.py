@@ -431,7 +431,7 @@ class NavigateRoomServer(object):
             return self._succeed(False)
 
         # We're at the room, turn on the light
-        if not goal.skip_light:
+        if self.success and not goal.skip_light:
             self.turn_on_light(goal.room)
 
         return self._succeed(True)
