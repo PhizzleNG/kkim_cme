@@ -25,6 +25,7 @@
 		<arg name="world_namespace" value="$(arg world_namespace)"/>
 		<arg name="cme_services" value="$(arg cme_services)"/>
 		<arg name="doors" value="$(arg doors)"/>
+		<arg name="robot" value="$(arg robot)"/>
 	</include>
 	<group unless="$(arg use_xacro_world)">
 		<!-- TODO: Spawn building sdf -->

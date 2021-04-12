@@ -5,6 +5,7 @@
 	<arg name="gazebo" default="true"/>
 	<arg name="cme_services" default="true"/>
 	<arg name="doors" default="true"/>
+	<arg name="robot" default=""/>
 
 	<group ns="$(arg world_namespace)">
 		<!-- Launch other relevant files-->
@@ -34,7 +35,9 @@
 		</group>
 
 		<!-- load service nodes -->
-		<include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch"/>
+		<include if="$(arg cme_services)" file="$(find cme_control)/launch/cme_services.launch">
+			<arg name="robot" value="$(arg robot)"/>
+		</include>
 	</group>
 
 </launch>

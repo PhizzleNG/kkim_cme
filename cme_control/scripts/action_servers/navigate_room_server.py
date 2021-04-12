@@ -83,7 +83,7 @@ def get_angle(from_point, to_point):
         from_point = [from_point.x, from_point.y]
     if isinstance(to_point, Point):
         to_point = [to_point.x, to_point.y]
-    return (numpy.arctan2(*from_point[::-1]) - numpy.arctan2(*to_point[::-1])) % (2 * numpy.pi) - numpy.pi
+    return (numpy.arctan2(*from_point[::-1]) - numpy.arctan2(*to_point[::-1])) % (2 * numpy.pi)
 
 def get_closest_path_intersection(path_poses, door_position, initial_tolerance=1, door_tolerance=0.2):
     # TODO: This should find out if path intersects door
@@ -184,7 +184,7 @@ class NavigateRoomServer(object):
         self._as.start()
 
         # TODO: Dynamic reconfigure
-        self.door_radius_tolerance = rospy.get_param('door_radius_tolerance', 1)
+        self.door_radius_tolerance = rospy.get_param('door_radius_tolerance', 1.1)
         self.door_path_tolerance = rospy.get_param('door_path_tolerance', 0.15)
 
         self.door_joints = get_door_joints()
@@ -320,7 +320,8 @@ class NavigateRoomServer(object):
             else:
                 # Just assume that the door is rotated
                 _pose.position.y = door_pose.position.y
-                _pose.orientation = Quaternion(*quaternion_from_euler(0, 0, 0))
+                orient = math.pi if door_pose.position.y < _pose.position.y else 0
+                _pose.orientation = Quaternion(*quaternion_from_euler(0, 0, orient))
 
             point_queue.append((_pose, door))
 
@@ -417,6 +418,14 @@ class NavigateRoomServer(object):
         _plan = self._plan
 
         self._result.goal = _plan.poses[-1].pose
+
+        # Let's have the robot go to the first "pose"
+        # Ideally the local base planner should follow the global plan closely, however ...
+        _start_pose = _plan.poses[0].pose
+        _start_pose.orientation = Quaternion(*quaternion_from_euler(
+            0, 0, get_angle(_start_pose, _plan.poses[1].pose)
+        ))
+        self._path_queue.append((_start_pose, 'start'))
 
         # Check the path for doors, break the path up if needed and queue goals
         near_door_points = self.find_points_near_doors()
