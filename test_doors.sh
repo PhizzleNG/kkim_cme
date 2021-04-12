@@ -3,9 +3,9 @@
 set -o errexit
 
 DOORS=$(rosservice list | sed -n '/door_/s/\(.*door_[0-9]*\)_.*/\1/p')
-if [ $# -eq 0 ] ; then
-	DOORS=$(echo "${DOORS}" | )
-fi
+#if [ $# -eq 0 ] ; then
+#	DOORS=$(echo "${DOORS}" | )
+#fi
 
 while true ; do
 	{

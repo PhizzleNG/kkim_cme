@@ -85,16 +85,16 @@ def get_angle(from_point, to_point):
         to_point = [to_point.x, to_point.y]
     return (numpy.arctan2(*from_point[::-1]) - numpy.arctan2(*to_point[::-1])) % (2 * numpy.pi) - numpy.pi
 
-def get_closest_path_intersection(path_poses, door_point):
+def get_closest_path_intersection(path_poses, door_position, initial_tolerance=1, door_tolerance=0.2):
     # TODO: This should find out if path intersects door
     #       If it does, we should find point in front of the door
     #       such that the door will not swing into the robot
     #       and is within the costmap
-    near_points = get_points_in_area(path_poses, door_point, tolerance=1)
+    near_points = get_points_in_area(path_poses, door_position, tolerance=initial_tolerance)
     if not near_points:
         return None, None
     # TODO: Workaround, find direction of points and return reasonable path in front of door
-    if not get_points_in_area(near_points.values(), door_point, tolerance=0.2):
+    if not get_points_in_area(near_points.values(), door_position, tolerance=door_tolerance):
         # no points found intersecting door
         return None, None
     return near_points.items()[0]
@@ -183,6 +183,10 @@ class NavigateRoomServer(object):
 
         self._as.start()
 
+        # TODO: Dynamic reconfigure
+        self.door_radius_tolerance = rospy.get_param('door_radius_tolerance', 1)
+        self.door_path_tolerance = rospy.get_param('door_path_tolerance', 0.15)
+
         self.door_joints = get_door_joints()
         self.room_joints = get_room_joints()
 
@@ -196,24 +200,31 @@ class NavigateRoomServer(object):
         rospy.loginfo('%s: Found %d door%s!', self._action_name, len(self.door_joints),
             's' if self.door_joints != 1 else '')
 
+        rospy.on_shutdown(self._cancel_goal)
+
         rospy.loginfo('%s: Started!', self._action_name)
 
     def _check_preempt(self):
         if self._as.is_preempt_requested():
             rospy.loginfo('%s: Preempted', self._action_name)
             self._as.set_preempted()
-            success = False
             return True
         return False
+
+    def _cancel_goal(self):
+        # TODO: Clear path in rviz
+        self._pub_cancel_goal.publish(GoalID())
 
     def _succeed(self, success):
         # TODO: Send a proper goal state termination
         # TODO: Cancel move_base goal: rostopic pub -1 /move_base/cancel actionlib_msgs/GoalID -- {}
-        self._pub_cancel_goal.publish(GoalID())
+        self._cancel_goal()
         if success:
-            rospy.loginfo('%s: Succeeded', self._action_name)
-            self._result.goal = self._current_goal.pose
             self._as.set_succeeded(self._result)
+        elif not self._as.is_preempt_requested() and self._as.is_active():
+            self._as.set_aborted()
+        rospy.loginfo('%s: %s', self._action_name,
+            "Succeeded" if success else "Failed")
         return success
 
     def _status_cb(self, msg):
@@ -236,7 +247,23 @@ class NavigateRoomServer(object):
         rospy.loginfo('%s: opening %s', self._action_name, door_name)
         service_name = '/world/{}/open'.format(door_name)
         service = rospy.ServiceProxy(service_name, DoorOpen)
-        service()
+        try:
+            service()
+        except rospy.service.ServiceException:
+            rospy.logerr('%s doesn\'t exist!', door_name.title())
+
+    def turn_on_light(self, room_id):
+        # TODO: Check if light exists?
+        light_id = room_id
+        rospy.loginfo('%s: turning on light %s', self._action_name, light_id)
+        service_name = '/world/light_{}/on'.format(light_id)
+        try:
+            service = rospy.ServiceProxy(service_name, LightOn)
+            service()
+        except rospy.service.ServiceException:
+            rospy.logerr('Light %d doesn\'t exist!', light_id)
+        except Exception:
+            rospy.logerr('Encountered an issue turning on light %d!', light_id, exc_info=1)
 
     def get_room_origin(self, room):
         room_joint = self.room_joints.get(room, None)
@@ -264,9 +291,11 @@ class NavigateRoomServer(object):
         self._plan_poses = [p.pose for p in self._plan.poses]
         near_door_points = {}
         for name, door_joint in self.door_joints.items():
-            position = urdf_pose_to_pose(door_joint.origin).position
+            door_pose = urdf_pose_to_pose(door_joint.origin)
             # TODO: simplify
-            index, stop_point = get_closest_path_intersection(self._plan_poses, position)
+            index, stop_point = get_closest_path_intersection(
+                self._plan_poses, door_pose.position, self.door_radius_tolerance, self.door_path_tolerance
+            )
             if stop_point:
                 near_door_points[name] = index
         return near_door_points
@@ -274,21 +303,33 @@ class NavigateRoomServer(object):
     def build_nav_point_queue(self, door_points, point_queue):
         for door, index in sorted(door_points.items(), key=lambda x: x[1]):
             _pose = self._plan_poses[index]
+            door_pose = urdf_pose_to_pose(self.door_joints[door].origin)
             # make sure we face the door
-            _pose.orientation = Quaternion(*quaternion_from_euler(
-                0, 0,
-                get_angle(
-                    urdf_pose_to_pose(self.door_joints[door].origin),
-                    self._plan_poses[index]
-                ) + (numpy.pi / 2)
-            ))
+            #_pose.orientation = Quaternion(*quaternion_from_euler(
+            #    0, 0,
+            #    get_angle(door_pose, _pose) + (numpy.pi / 2)
+            #))
+
+            # HACKY - get the point "in front of" the door
+            if door_pose.orientation.w == 1.0:
+                _pose.position.x = door_pose.position.x
+                sign = 1 if door_pose.position.x > _pose.position.x else -1
+                _pose.orientation = Quaternion(*quaternion_from_euler(
+                    0, 0, sign * math.pi/2
+                ))
+            else:
+                # Just assume that the door is rotated
+                _pose.position.y = door_pose.position.y
+                _pose.orientation = Quaternion(*quaternion_from_euler(0, 0, 0))
+
             point_queue.append((_pose, door))
+
         return point_queue
 
     def _process_queue(self):
         if not self._current_goal:
             self._current_goal, self._current_target = self._path_queue.pop(0)
-            self._feedback.current_goal = self._current_goal.pose
+            self._feedback.current_goal = self._current_goal
             self.send_goal(self._current_goal)
             return False
         rospy.loginfo_throttle(60, '%s: navigating to %s' % (self._action_name, self._current_target))
@@ -326,12 +367,13 @@ class NavigateRoomServer(object):
                     return self._succeed(False)
                 if fn():
                     # True will indicate fn() is complete, breaking the loop
-                    break
+                    return True
                 self._as.publish_feedback(self._feedback)
                 self._r.sleep()
         except Exception:
             self._succeed(False)
             raise
+        return False
 
     def execute_cb(self, goal):
         # TODO: Errors should be a terminal status
@@ -366,10 +408,15 @@ class NavigateRoomServer(object):
         self._feedback.total_goals = len(self._path_queue)
 
         if not self.execute_fn(self.wait_for_plan):
-            self._succeed(False)
+            return self._succeed(False)
+
+        # Cancel initial goal and continue with our own plan
+        self._cancel_goal()
 
         # Make sure we retain the intial _plan
         _plan = self._plan
+
+        self._result.goal = _plan.poses[-1].pose
 
         # Check the path for doors, break the path up if needed and queue goals
         near_door_points = self.find_points_near_doors()
@@ -382,6 +429,10 @@ class NavigateRoomServer(object):
 
         if not self.execute_fn(self.process_queue):
             return self._succeed(False)
+
+        # We're at the room, turn on the light
+        if not goal.skip_light:
+            self.turn_on_light(goal.room)
 
         return self._succeed(True)
 

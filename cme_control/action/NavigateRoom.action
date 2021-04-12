@@ -1,11 +1,11 @@
 # Goal
 uint8 room
-bool turn_on_light
+bool skip_light
+---
+# Result
+geometry_msgs/Pose goal
 ---
 # Feedback
 uint8 total_goals
 uint8 move_base_state
 geometry_msgs/Pose current_goal
----
-# Result
-geometry_msgs/Pose goal

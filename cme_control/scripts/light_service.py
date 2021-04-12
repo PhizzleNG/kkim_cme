@@ -14,13 +14,19 @@ from cme_control.srv import (
     LightOn, LightOnResponse,
     LightOff, LightOffResponse,
 )
-from common import find_links, build_marker
+from common import find_links
 
-MARKER_SIZE = 0.5
-MARKER_ON_COLOR = (1, 1, 1, 0.5)
+MARKER_SIZE = [1, 1, 0.2]
+MARKER_ON_COLOR = (1, 1, 1, 0.75)
 MARKER_OFF_COLOR = (0.2, 0.2, 0.2, 0.5)
 
-def build_marker(_id):
+def build_marker(_id, link, pose=None):
+    if not pose:
+        pose = Pose()
+        pose.position.x = 0
+        pose.position.y = 0
+        pose.position.z = 2.8
+
     marker = Marker()
     marker.ns = rospy.get_name()
     marker.id = _id
@@ -29,32 +35,42 @@ def build_marker(_id):
     marker.header.frame_id = link
     marker.header.stamp = rospy.Time.now()
     marker.pose = pose
-    marker.scale.x = MARKER_SIZE
-    marker.scale.y = MARKER_SIZE
-    marker.scale.z = MARKER_SIZE
-    marker.color.r = MARKER_COLOR[0]
-    marker.color.g = MARKER_COLOR[1]
-    marker.color.b = MARKER_COLOR[2]
-    marker.color.a = MARKER_COLOR[3] if len(MARKER_COLOR) > 3 else 0.5
+    marker.scale.x = MARKER_SIZE[0]
+    marker.scale.y = MARKER_SIZE[1]
+    marker.scale.z = MARKER_SIZE[2]
+    marker.color.r = MARKER_OFF_COLOR[0]
+    marker.color.g = MARKER_OFF_COLOR[1]
+    marker.color.b = MARKER_OFF_COLOR[2]
+    marker.color.a = MARKER_OFF_COLOR[3] if len(MARKER_OFF_COLOR) > 3 else 0.5
 
     rospy.loginfo("Created light %d marker", _id)
 
     return marker
 
-def light_on_service(name, marker):
+def light_on_service(_id, marker, marker_publish):
     # TODO: Light switch moves
     def callback(req):
-        return LightOnResponse(True)
+        marker.color.r = MARKER_ON_COLOR[0]
+        marker.color.g = MARKER_ON_COLOR[1]
+        marker.color.b = MARKER_ON_COLOR[2]
+        marker.color.a = MARKER_ON_COLOR[3] if len(MARKER_ON_COLOR) > 3 else 0.5
+        marker_publish()
+        return LightOnResponse()
 
-    service_name = '{}/on'.format(name.rpartition('_')[0])
+    service_name = 'light_{}/on'.format(_id)
     return rospy.Service(service_name, LightOn, callback)
 
-def light_off_service(name, marker):
+def light_off_service(_id, marker, marker_publish):
     # TODO: Light switch moves
     def callback(req):
-        return LightOffResponse(True)
+        marker.color.r = MARKER_OFF_COLOR[0]
+        marker.color.g = MARKER_OFF_COLOR[1]
+        marker.color.b = MARKER_OFF_COLOR[2]
+        marker.color.a = MARKER_OFF_COLOR[3] if len(MARKER_OFF_COLOR) > 3 else 0.5
+        marker_publish()
+        return LightOffResponse()
 
-    service_name = '{}/off'.format(name.rpartition('_')[0])
+    service_name = 'light_{}/off'.format(_id)
     return rospy.Service(service_name, LightOff, callback)
 
 def main():
@@ -74,29 +90,38 @@ def main():
 
     rospy.loginfo('Searching for lights...')
     # TODO: Find world namespace?
-    light_links = find_links('light_switch_([0-9]+)', namespace='/world')
+    light_links = find_links('light_switch_([0-9]+)$', namespace='/world')
+
+    room_links = find_links('room_([0-9]+)', namespace='/world')
 
     light_markers = MarkerArray()
     light_markers.markers = []
     light_services = {}
 
+    # TODO: yeah...
+    def marker_publish():
+        marker_publisher.publish(light_markers)
+
     for light in light_links:
-        print(light)
-        marker = build_marker(light)
-        light_markers.append(marker)
-        light_services[light] = {
-            'on': light_on_service(light, marker, marker_publisher),
-            'off': light_off_service(light, marker, marker_publisher),
+        light_id = int(light.name.rpartition('_')[-1])
+        marker = build_marker(light_id, *[l.name for l in room_links if l.name == 'room_{}'.format(light_id)])
+        light_markers.markers.append(marker)
+        light_services[light_id] = {
+            'on': light_on_service(light_id, marker, marker_publish),
+            'off': light_off_service(light_id, marker, marker_publish),
         }
 
     if not light_markers.markers:
         rospy.logfatal("No links found for %s", light_link_re.pattern)
         return 1
 
-    marker_publisher.publish(light_markers)
+    marker_publish()
     rospy.loginfo("Published marker array")
 
     rospy.loginfo("Latching publisher")
     rospy.spin()
 
     return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
