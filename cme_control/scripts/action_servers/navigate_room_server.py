@@ -353,7 +353,7 @@ class NavigateRoomServer(object):
             return False
         except StateError:
             # move_base failed
-            pass
+            return False
         except IndexError:
             # list queue is empty
             pass
@@ -378,8 +378,6 @@ class NavigateRoomServer(object):
     def execute_cb(self, goal):
         # TODO: Errors should be a terminal status
         # TODO: door clearance
-        success = False
-
         self._current_goal = None
         self._current_target = None
         self._plan_queue = list()
@@ -431,7 +429,7 @@ class NavigateRoomServer(object):
             return self._succeed(False)
 
         # We're at the room, turn on the light
-        if self.success and not goal.skip_light:
+        if success and not goal.skip_light:
             self.turn_on_light(goal.room)
 
         return self._succeed(True)
