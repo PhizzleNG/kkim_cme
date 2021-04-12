@@ -320,7 +320,7 @@ class NavigateRoomServer(object):
             else:
                 # Just assume that the door is rotated
                 _pose.position.y = door_pose.position.y
-                orient = math.pi if door_pose.position.y < _pose.position.y else 0
+                orient = math.pi if door_pose.position.y > _pose.position.y else 0
                 _pose.orientation = Quaternion(*quaternion_from_euler(0, 0, orient))
 
             point_queue.append((_pose, door))
