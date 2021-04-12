@@ -353,7 +353,7 @@ class NavigateRoomServer(object):
             return False
         except StateError:
             # move_base failed
-            return False
+            raise
         except IndexError:
             # list queue is empty
             pass
@@ -370,6 +370,8 @@ class NavigateRoomServer(object):
                     return True
                 self._as.publish_feedback(self._feedback)
                 self._r.sleep()
+        except StateError:
+            return False
         except Exception:
             self._succeed(False)
             raise
@@ -429,7 +431,7 @@ class NavigateRoomServer(object):
             return self._succeed(False)
 
         # We're at the room, turn on the light
-        if success and not goal.skip_light:
+        if not goal.skip_light:
             self.turn_on_light(goal.room)
 
         return self._succeed(True)
